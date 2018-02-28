@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:background="@color/bg_default"
+                >
+
+                <RelativeLayout
+                    android:id="@+id/rl_change_head"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:paddingLeft="13dp"
+                    android:paddingRight="13dp"
+                    android:layout_marginTop="13dp"
+                    android:background="@color/bg_white">
+                    <ImageView
+                        android:id="@+id/persin_info_iv"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/default_face"
+                        android:scaleType="centerCrop" />
+                    <TextView
+                        android:id="@+id/tv_touxiang"
+                        android:layout_marginLeft="12dp"
+                        android:layout_toRightOf="@id/persin_info_iv"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:textColor="@color/text_gray"
+                        android:textSize="@dimen/warnword_Size" />
+                </RelativeLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/grey_mid" />
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:paddingLeft="13dp"
+                    android:paddingRight="13dp"
+                    android:background="@color/bg_white"
+                    >
+                    <TextView
+                        android:id="@+id/textView1"
+                        android:layout_width="60dp"
+                        android:layout_height="55dp"
+                        android:gravity="center_vertical"
+                        android:singleLine="true"
+                        android:text="电话号码"
+                        android:textColor="@color/text_gray"
+                        android:textSize="@dimen/warnword_Size" />
+
+                    <TextView
+                        android:id="@+id/mobile"
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp"
+                        android:layout_toRightOf="@+id/textView1"
+                        android:background="@android:color/transparent"
+                        android:gravity="center_vertical"
+                        android:layout_marginLeft="12dp"
+                        android:singleLine="true"
+                        android:textColor="@color/text_gray_title"
+                        android:textSize="14sp" />
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/grey_mid" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:paddingLeft="13dp"
+                    android:paddingRight="13dp"
+                    android:background="@color/bg_white"
+                    >
+
+                    <TextView
+                        android:id="@+id/region"
+                        android:layout_width="60dp"
+                        android:layout_height="match_parent"
+                       android:gravity="center_vertical"
+                        android:text="地区"
+                        android:textColor="@color/text_gray"
+                        android:textSize="@dimen/warnword_Size" />
+                    <TextView
+                        android:id="@+id/person_info_tv_email"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:layout_marginLeft="12dp"
+                        android:layout_toRightOf="@id/region"
+                        android:singleLine="true"
+                        android:textColor="@color/text_gray_title"
+                        android:textSize="14sp"
+                          />
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/grey_mid"
+                    />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:paddingLeft="13dp"
+                    android:background="@color/bg_white"
+                    android:paddingRight="13dp" >
+
+                    <TextView
+                        android:id="@+id/album"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:text="个人作品"
+                        android:textColor="@color/text_gray"
+                        android:textSize="@dimen/warnword_Size"
+                        />
+                   <RelativeLayout
+                       android:layout_width="match_parent"
+                       android:layout_height="match_parent"
+                       android:gravity="center_vertical"
+                       android:layout_marginLeft="12dp"
+                       android:layout_toRightOf="@id/album"
+                       >
+                       <org.soshow.beautyedu.widget.NoScrollGridView
+                           android:id="@+id/find_item_gridView"
+                           android:layout_width="match_parent"
+                           android:layout_height="match_parent"
+                           android:background="@color/bg_white"
+                           android:listSelector="@null"
+                           android:numColumns="3"></org.soshow.beautyedu.widget.NoScrollGridView>
+                   </RelativeLayout>
+
+                </RelativeLayout>
+
+            </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/grey_mid" />
+        <Button
+            android:id="@+id/btn_feedback"
+            android:layout_width="match_parent"
+            android:layout_height="43dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:layout_marginTop="60dp"
+            android:background="@drawable/register_btn_selector"
+            android:gravity="center"
+            android:text="发消息"
+            android:textColor="@android:color/white"
+            android:textSize="14sp" />
+        <include layout="@layout/loading" />
+    </FrameLayout>
+</LinearLayout>

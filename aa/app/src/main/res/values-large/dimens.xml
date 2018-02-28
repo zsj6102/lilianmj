@@ -1,0 +1,19 @@
+<resources>
+
+    <dimen name="padding_small">8dp</dimen>
+    <dimen name="padding_medium">16dp</dimen>
+    <dimen name="padding_large">16dp</dimen>
+    <dimen name="btn_size">60dp</dimen>
+    <dimen name="jiazheng_padding">60dp</dimen>
+    <dimen name="btn_superpading">20dp</dimen>
+    <dimen name="titleword_Size">30sp</dimen>
+    <dimen name="buttonword_Size">27sp</dimen>
+    <dimen name="normalword_Size">24sp</dimen>
+    <dimen name="inputword_Size">24sp</dimen>
+    <dimen name="btn_doublepading">20dp</dimen>
+    <dimen name="warnword_Size">16sp</dimen>
+    <dimen name="titleicon_Size">30sp</dimen>
+
+    <dimen name="image_thumbnail_size">148dp</dimen>
+    <dimen name="image_thumbnail_spacing">2dp</dimen>
+</resources>

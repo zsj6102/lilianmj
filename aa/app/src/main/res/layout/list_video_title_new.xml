@@ -1,0 +1,149 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/title_list"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@android:color/transparent"
+    android:orientation="horizontal" >
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="@color/line_first"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:id="@+id/title1"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@color/line_first"
+            android:onClick="onClick"
+            android:padding="0dp" >
+
+            <TextView
+                android:id="@+id/title_choice1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/btn_pading"
+                android:background="@color/line_first"
+                android:gravity="center"
+                android:padding="0dp"
+                android:singleLine="true"
+                android:text="标题1"
+                android:textColor="@color/word_grey"
+                android:textSize="@dimen/buttonword_Size"
+                android:translationX="-3dp" />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="@dimen/course_item_size"
+                android:background="@android:color/transparent" />
+
+            <ImageView
+                android:id="@+id/title_selected1"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/btn_pading"
+                android:adjustViewBounds="true"
+                android:contentDescription="@string/app_name"
+                android:maxHeight="@dimen/item_fist_size"
+                android:scaleType="fitCenter"
+                android:src="@drawable/yx"
+                android:visibility="visible" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/title2"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@color/line_first"
+            android:onClick="onClick"
+            android:padding="0dp" >
+
+            <TextView
+                android:id="@+id/title_choice2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/btn_pading"
+                android:background="@color/line_first"
+                android:gravity="center"
+                android:padding="0dp"
+                android:singleLine="true"
+                android:text="标题2"
+                android:textColor="@color/word_grey"
+                android:textSize="@dimen/buttonword_Size"
+                android:translationX="-3dp" />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="@dimen/course_item_size"
+                android:background="@android:color/transparent" />
+
+            <ImageView
+                android:id="@+id/title_selected2"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/btn_pading"
+                android:adjustViewBounds="true"
+                android:contentDescription="@string/app_name"
+                android:maxHeight="@dimen/item_fist_size"
+                android:scaleType="fitCenter"
+                android:src="@drawable/yx"
+                android:visibility="gone" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/title3"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@color/line_first"
+            android:onClick="onClick"
+            android:padding="0dp" >
+
+            <TextView
+                android:id="@+id/title_choice3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/btn_pading"
+                android:background="@color/line_first"
+                android:gravity="center"
+                android:padding="0dp"
+                android:singleLine="true"
+                android:text="标题3"
+                android:textColor="@color/word_grey"
+                android:textSize="@dimen/buttonword_Size"
+                android:translationX="-3dp" />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="@dimen/course_item_size"
+                android:background="@android:color/transparent" />
+
+            <ImageView
+                android:id="@+id/title_selected3"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/btn_pading"
+                android:adjustViewBounds="true"
+                android:contentDescription="@string/app_name"
+                android:maxHeight="@dimen/item_fist_size"
+                android:scaleType="fitCenter"
+                android:src="@drawable/yx"
+                android:visibility="gone" />
+        </RelativeLayout>
+    </LinearLayout>
+
+</LinearLayout>

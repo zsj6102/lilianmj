@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ee000000" >
+
+    <include
+        android:id="@+id/imageDel_include"
+        layout="@layout/commons_title" />
+
+    <org.soshow.beautydu.photo.localphoto.imageaware.HackyViewPager
+        android:id="@+id/imageDel_viewpage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/imageDel_include"
+        android:background="#ee000000" />
+
+    <TextView
+        android:id="@+id/imageDel_tv_indicate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"
+        android:textColor="@color/text_white" />
+
+</RelativeLayout>

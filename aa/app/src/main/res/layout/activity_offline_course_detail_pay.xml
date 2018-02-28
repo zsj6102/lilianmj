@@ -1,0 +1,94 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="org.soshow.beautyedu.LineCourseDetailActivity" >
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <ScrollView
+            android:id="@+id/scrollView1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/has_pay_tv_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="20dp"
+                    android:textColor="@color/text_gray_title"
+                    android:textSize="16sp" />
+
+                <WebView
+                    android:id="@+id/line_course_detail_webView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="13dp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/line_gray" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="36dp"
+                    android:background="@color/bg_default"
+                    android:gravity="center_vertical" >
+
+                    <TextView
+                        android:id="@+id/off_line_free_tv_recommomt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:gravity="left"
+                        android:text="@string/course_recommomt"
+                        android:textColor="@color/text_gray_title"
+                        android:textSize="14sp" />
+
+                    <ImageView
+                        android:layout_width="15dp"
+                        android:layout_height="15dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="13dp"
+                        android:src="@drawable/arrow_right" />
+                </RelativeLayout>
+
+                <View
+                    android:id="@+id/line"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/line_gray" />
+
+                <!-- <org.soshow.beautyedu.widget.MyCustomListView
+                    android:id="@+id/offline_free_myCustomListView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/line"
+                    android:background="@android:color/transparent"
+                    android:divider="@null"
+                    android:dividerHeight="0dp"
+                    android:listSelector="@android:color/transparent" >
+                </org.soshow.beautyedu.widget.MyCustomListView> -->
+                <LinearLayout
+                        android:id="@+id/offline_free_myCustomListView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/line"
+                        android:orientation="vertical"
+                        />
+            </LinearLayout>
+        </ScrollView>
+
+        <include layout="@layout/loading" />
+    </FrameLayout>
+
+</RelativeLayout>

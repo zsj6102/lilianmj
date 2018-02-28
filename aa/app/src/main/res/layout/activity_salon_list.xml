@@ -1,0 +1,28 @@
+<org.soshow.beautyedu.widget.PullToRefreshView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/salon_pull_refresh_view"
+    android:layout_width="match_parent"
+    android:layout_height="fill_parent"
+    android:layout_below="@+id/view_line"
+    android:background="@color/bg_default"
+    android:orientation="vertical" >
+    
+    <include layout="@layout/loading"/>
+
+    <TextView
+        android:id="@+id/list_no_salon"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/grey_light"
+        android:gravity="center"
+        android:text="没有数据"
+        android:textColor="@color/word_grey_jiu"
+        android:textSize="@dimen/buttonword_Size"
+        android:visibility="gone" />
+
+    <ListView
+        android:id="@+id/list_salon"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+         />
+
+</org.soshow.beautyedu.widget.PullToRefreshView>

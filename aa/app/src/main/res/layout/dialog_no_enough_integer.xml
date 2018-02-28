@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="285dp"
+    android:layout_height="375dp"
+    android:layout_gravity="center"
+    android:background="@android:color/transparent" >
+
+    <RelativeLayout
+        android:layout_width="285dp"
+        android:layout_height="375dp"
+        android:layout_gravity="center"
+        android:background="@android:color/transparent" >
+
+        <RelativeLayout
+            android:layout_width="260dp"
+            android:layout_height="350dp"
+            android:layout_centerInParent="true"
+            android:background="@color/bg_white" >
+
+            <TextView
+                android:id="@+id/tv_one"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="30dp"
+                android:padding="0dp"
+                android:text="您的视频观看卡"
+                android:textColor="@color/text_gray_medial"
+                android:textSize="23sp" />
+
+            <TextView
+                android:id="@+id/tv_two"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_one"
+                android:layout_centerHorizontal="true"
+                android:padding="0dp"
+                android:text="积分剩余"
+                android:textColor="@color/text_gray_medial"
+                android:textSize="23sp"
+                />
+            
+            <TextView
+                android:id="@+id/tv_remain_integer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_two"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="8dp"
+                android:padding="0dp"
+                android:text="100"
+                android:textColor="@color/text_red"
+                android:textSize="23sp"
+                android:textStyle="bold"
+                />
+            
+            <TextView
+                android:id="@+id/tv_use_integer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_remain_integer"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="16dp"
+                android:padding="0dp"
+                android:text="本次观看视频使用500积分"
+                android:textColor="@color/text_gray_medial"
+                android:textSize="14sp"
+                />
+            
+            <TextView
+                android:id="@+id/tv_tip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_use_integer"
+                android:layout_centerHorizontal="true"
+                android:padding="0dp"
+                android:text="积分不足，无法观看"
+                android:textColor="@color/text_red"
+                android:textSize="14sp"
+                />
+            
+            <TextView
+                android:id="@+id/positiveButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_tip"
+                android:layout_centerHorizontal="true"
+                android:gravity="center"
+                android:layout_marginLeft="13dp"
+                android:layout_marginTop="10dp"
+                android:paddingTop="6dp"
+                android:paddingBottom="6dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:text="购买课程观看卡"
+                android:textColor="@color/text_red"
+                android:textSize="23sp"
+                android:textStyle="bold"
+                android:background="@drawable/shape_no_solid_deep_red"
+                 />
+            
+            <TextView
+                android:id="@+id/positiveButton_tip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/positiveButton"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="3dp"
+                android:padding="0dp"
+                android:text="购买积分卡"
+                android:textColor="@color/text_gray_medial"
+                android:textSize="14sp"
+                />
+                
+                <TextView
+                android:id="@+id/positiveButton_per"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/positiveButton_tip"
+                android:layout_centerHorizontal="true"
+                android:gravity="center"
+                android:layout_marginLeft="13dp"
+                android:layout_marginTop="10dp"
+                android:paddingTop="6dp"
+                android:paddingBottom="6dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:text="购买单次观看卡"
+                android:textColor="@color/bg_green"
+                android:textSize="23sp"
+                android:textStyle="bold"
+                android:background="@drawable/shape_no_solid_green"
+                 />
+                
+                <TextView
+                android:id="@+id/positiveButton_per_tip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/positiveButton_per"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="3dp"
+                android:padding="0dp"
+                android:text="购买本次观看积分"
+                android:textColor="@color/text_gray_medial"
+                android:textSize="14sp"
+                />
+
+            
+            
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/negativeButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:src="@drawable/fail_to_pay" />
+    </RelativeLayout>
+
+</RelativeLayout>

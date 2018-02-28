@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:orientation="vertical" >
+    
+    <RelativeLayout
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        
+        >
+
+    <ImageView
+        android:id="@+id/imageview"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:focusable="false"
+        android:paddingTop="@dimen/btn_haflpading"
+        android:src="@drawable/tab_home_btn" >
+    </ImageView>
+    
+    <TextView
+            android:id="@+id/fragment_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/unread_count_bg"
+            android:gravity="center"
+            android:textColor="@android:color/white"
+            android:textSize="12sp"
+            android:visibility="gone" />
+    
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/btn_haflpading"
+        android:text="首页"
+        android:textColor="@drawable/tab_color"
+        android:textSize="12sp" >
+    </TextView>
+
+</LinearLayout>

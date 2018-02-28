@@ -1,0 +1,74 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="0dp"
+    android:background="@color/bg_default" >
+
+    <org.soshow.beautyedu.widget.PullToRefreshView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/all_comment_refreshListView"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:layout_margin="0dp"
+        android:layout_above="@+id/all_commemt_ll_button"
+        android:orientation="vertical" >
+
+        <include layout="@layout/loading" />
+
+        <TextView
+            android:id="@+id/list_no_all_comment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:background="@color/grey_light"
+            android:gravity="left"
+            android:textColor="@color/word_grey_jiu"
+            android:textSize="@dimen/buttonword_Size"
+            android:visibility="gone" />
+
+        <ListView
+            android:id="@+id/list_all_comment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="0dp"
+            android:divider="@null"
+            android:dividerHeight="0dp"
+            android:background="@drawable/item_pressed" />
+    </org.soshow.beautyedu.widget.PullToRefreshView>
+
+    <LinearLayout
+        android:id="@+id/all_commemt_ll_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="13dp"
+        android:layout_marginTop="13dp"
+        android:orientation="horizontal"
+        android:paddingLeft="13dp"
+        android:paddingRight="8dp" >
+
+        <EditText
+            android:id="@+id/all_commemt_et"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_weight="1"
+            android:hint="@string/say"
+            android:paddingLeft="6dp"
+            android:background="@drawable/button_selector_shape"
+            android:textColorHint="@color/line_gray" />
+
+        <TextView
+            android:id="@+id/all_commemt_tv_send"
+            android:layout_width="60dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="6dp"
+            android:gravity="center"
+            android:text="@string/send" 
+            android:background="@drawable/shape_bg_tv_yellow"
+            />
+    </LinearLayout>
+
+</RelativeLayout>

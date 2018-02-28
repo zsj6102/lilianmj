@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="0dp"
+    android:paddingLeft="10dp"
+    android:paddingTop="8dp"
+    android:paddingRight="10dp"
+    android:gravity="center_vertical"
+    android:orientation="vertical"
+    android:background="@color/bg_white"
+     >
+     
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+    <TextView
+        android:id="@+id/off_line_recommemt_tv_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:textColor="@color/text_blue"
+        android:text="爱哲学"
+        />
+    
+    <TextView
+        android:id="@+id/off_line_recommemt_tv_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:gravity="center"
+        android:textSize="12sp"
+        android:textColor="@color/bg_gray_school"
+        android:text="2016-04-23 12:14:55"
+        />
+    
+    </RelativeLayout>
+    
+    <TextView
+        android:id="@+id/off_line_recommemt_tv_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:textSize="14sp"
+        android:textColor="@color/text_gray_title"
+        android:text="课程讲得不错，讲师讲得很有调理，思路清晰，很精彩"
+        />
+    <View
+        android:id="@+id/off_line_recommemt_line"
+        android:layout_width="match_parent"
+        android:layout_height="0.66dp"
+        android:layout_marginTop="8dp"
+        android:background="@color/line_gray"
+        />
+
+</LinearLayout>

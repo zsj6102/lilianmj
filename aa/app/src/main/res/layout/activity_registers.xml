@@ -1,0 +1,438 @@
+<!-- <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/grey_low"
+    android:orientation="vertical"
+    tools:context=".RegisterActivity" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="45dp" >
+
+        <EditText
+            android:id="@+id/register_edit_account"
+            android:layout_width="fill_parent"
+            android:layout_height="45dp"
+            android:layout_marginLeft="@dimen/btn_doublepading"
+            android:layout_marginRight="@dimen/btn_doublepading"
+            android:background="@android:color/white"
+            android:gravity="center_vertical"
+            android:hint="输入您的手机号"
+            android:inputType="number"
+            android:maxLength="11"
+            android:paddingLeft="20dp"
+            android:singleLine="true"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/inputword_Size" />
+
+        <ImageView
+            android:id="@+id/register_account_edit_clear"
+            android:layout_width="@dimen/clear_size"
+            android:layout_height="@dimen/clear_size"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/btn_superpading"
+            android:onClick="onClick"
+            android:src="@drawable/common_input_box_clear"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:layout_marginLeft="@dimen/btn_doublepading"
+        android:layout_marginRight="@dimen/btn_doublepading"
+        android:background="@android:color/transparent" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <EditText
+            android:id="@+id/register_edit_code"
+            android:layout_width="fill_parent"
+            android:layout_height="45dp"
+            android:layout_marginLeft="@dimen/btn_doublepading"
+            android:layout_marginRight="@dimen/btn_doublepading"
+            android:background="@android:color/white"
+            android:digits="@string/passwordtype"
+            android:gravity="center_vertical"
+            android:hint="输入6-20位字母、数字、符号密码"
+            android:maxLength="20"
+            android:paddingLeft="20dp"
+            android:password="true"
+            android:singleLine="true"
+            
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/inputword_Size" />
+
+        <ImageView
+            android:id="@+id/register_code_edit_clear"
+            android:layout_width="@dimen/clear_size"
+            android:layout_height="@dimen/clear_size"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/btn_superpading"
+            android:onClick="onClick"
+            android:src="@drawable/common_input_box_clear"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:layout_marginLeft="@dimen/btn_doublepading"
+        android:layout_marginRight="@dimen/btn_doublepading"
+        android:background="@android:color/transparent" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <EditText
+            android:id="@+id/register_edit_code1"
+            android:layout_width="fill_parent"
+            android:layout_height="45dp"
+            android:layout_marginLeft="@dimen/btn_doublepading"
+            android:layout_marginRight="@dimen/btn_doublepading"
+            android:background="@android:color/white"
+            android:digits="@string/passwordtype"
+            android:gravity="center_vertical"
+            android:hint="请确认密码"
+            android:maxLength="20"
+            android:paddingLeft="20dp"
+            android:password="true"
+            android:singleLine="true"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/inputword_Size" />
+
+        <ImageView
+            android:id="@+id/register_code1_edit_clear"
+            android:layout_width="@dimen/clear_size"
+            android:layout_height="@dimen/clear_size"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/btn_superpading"
+            android:onClick="onClick"
+            android:src="@drawable/common_input_box_clear"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:layout_marginLeft="@dimen/btn_doublepading"
+        android:layout_marginRight="@dimen/btn_doublepading"
+        android:background="@android:color/transparent" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/btn_doublepading"
+        android:layout_marginRight="@dimen/btn_doublepading"
+        android:background="@android:color/transparent"
+        android:orientation="horizontal"
+        android:visibility="gone"
+         >
+
+        <EditText
+            android:id="@+id/register_edit_ccaptcha"
+            android:layout_width="0dp"
+            android:layout_height="45dp"
+            android:layout_gravity="top"
+            android:layout_marginRight="@dimen/btn_doublepading"
+            android:layout_weight="1"
+            android:background="@android:color/white"
+            android:gravity="left|center_vertical"
+            android:hint="手机验证码"
+            android:inputType="number"
+            android:maxLength="8"
+            android:paddingLeft="20dp"
+            android:singleLine="true"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/inputword_Size" />
+
+        <Button
+            android:id="@+id/captcha"
+            android:layout_width="0dp"
+            android:layout_height="45dp"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:background="@drawable/captcha_btn_selector"
+            android:gravity="center"
+            android:onClick="onClick"
+            android:text="获取验证码"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/inputword_Size" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:layout_marginLeft="@dimen/btn_doublepading"
+        android:layout_marginRight="@dimen/btn_doublepading"
+        android:background="@android:color/transparent" />
+
+    <Button
+        android:id="@+id/btn_register1"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:background="@drawable/register_btn_selector"
+        android:gravity="center"
+        android:onClick="onClick"
+        android:text="注册"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/inputword_Size" />
+
+
+</LinearLayout> -->
+
+
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_white"
+      >
+    
+    <LinearLayout
+        android:id="@+id/regist_ll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="45dp"
+        android:orientation="vertical"
+        >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="20dp"
+        android:paddingRight="13dp"
+         >
+         
+        <ImageView
+            android:id="@+id/regist_account"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/icon_recommend"
+            />
+
+        <EditText
+            android:id="@+id/register_edit_account"
+            android:layout_width="fill_parent"
+            android:layout_height="35dp"
+            android:layout_toRightOf="@+id/regist_account"
+            android:layout_marginRight="@dimen/btn_doublepading"
+            android:background="@android:color/white"
+            android:gravity="center_vertical"
+            android:hint="输入您的手机号"
+            android:inputType="number"
+            android:maxLength="11"
+            android:textColorHint="@color/text_light_gray"
+            android:paddingLeft="10dp"
+            android:singleLine="true"
+            android:textColor="@android:color/black"
+            android:textSize="18sp" />
+        
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.66dp"
+            android:layout_below="@+id/register_edit_account"
+            android:background="@color/bg_green"
+            />
+        
+
+        <ImageView
+            android:id="@+id/register_account_edit_clear"
+            android:layout_width="@dimen/clear_size"
+            android:layout_height="@dimen/clear_size"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/btn_superpading"
+            android:onClick="onClick"
+            android:src="@drawable/common_input_box_clear"
+            android:visibility="gone"
+             />
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" 
+        android:paddingLeft="20dp"
+        android:paddingRight="13dp"
+        android:layout_marginTop="10dp"
+        >
+        
+        <ImageView
+            android:id="@+id/regist_password"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/icon_passwork_re"
+            />
+
+        <EditText
+            android:id="@+id/register_edit_code"
+            android:layout_width="fill_parent"
+            android:layout_height="35dp"
+            android:layout_toRightOf="@+id/regist_password"
+            android:layout_marginRight="@dimen/btn_doublepading"
+            android:background="@android:color/white"
+            android:digits="@string/passwordtype"
+            android:gravity="center_vertical"
+            android:hint="输入密码"
+            android:maxLength="20"
+            android:paddingLeft="10dp"
+            android:password="true"
+            android:singleLine="true"
+            android:textColorHint="@color/text_light_gray"
+            android:textColor="@android:color/black"
+            android:textSize="18sp" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.66dp"
+            android:layout_below="@+id/register_edit_code"
+            android:background="@color/bg_green"
+            />
+
+        <ImageView
+            android:id="@+id/register_code_edit_clear"
+            android:layout_width="@dimen/clear_size"
+            android:layout_height="@dimen/clear_size"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/btn_superpading"
+            android:onClick="onClick"
+            android:src="@drawable/common_input_box_clear"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="20dp"
+        android:paddingRight="13dp"
+        android:layout_marginTop="10dp"
+         >
+
+        <ImageView
+            android:id="@+id/regist_phone_other"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/icon_phone"
+            />
+        <EditText
+            android:id="@+id/regist_et_phone_other"
+            android:layout_width="fill_parent"
+            android:layout_height="35dp"
+            android:layout_toRightOf="@+id/regist_phone_other"
+            android:background="@android:color/white"
+            android:digits="@string/passwordtype"
+            android:gravity="center_vertical"
+            android:hint="输入推荐人号码(可不填)"
+            android:inputType="number"
+            android:maxLength="11"
+            android:textColorHint="@color/text_light_gray"
+            android:paddingLeft="10dp"
+            android:singleLine="true"
+            android:textColor="@android:color/black"
+            android:textSize="18sp" />
+        
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.66dp"
+            android:layout_below="@+id/regist_et_phone_other"
+            android:background="@color/bg_green"
+            />
+
+        <ImageView
+            android:id="@+id/register_code1_edit_clear"
+            android:layout_width="@dimen/clear_size"
+            android:layout_height="@dimen/clear_size"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/btn_superpading"
+            android:onClick="onClick"
+            android:src="@drawable/common_input_box_clear"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:layout_marginLeft="@dimen/btn_doublepading"
+        android:layout_marginRight="@dimen/btn_doublepading"
+        android:background="@android:color/transparent" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/btn_doublepading"
+        android:layout_marginRight="@dimen/btn_doublepading"
+        android:background="@android:color/transparent"
+        android:orientation="horizontal"
+        android:visibility="visible"
+         >
+
+        <EditText
+            android:id="@+id/register_edit_ccaptcha"
+            android:layout_width="0dp"
+            android:layout_height="45dp"
+            android:layout_gravity="top"
+            android:layout_marginRight="@dimen/btn_doublepading"
+            android:layout_weight="1"
+            android:background="@android:color/white"
+            android:gravity="left|center_vertical"
+            android:hint="手机验证码"
+            android:inputType="number"
+            android:maxLength="8"
+            android:paddingLeft="20dp"
+            android:singleLine="true"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/inputword_Size" />
+
+        <TextView
+            android:id="@+id/captcha"
+            android:layout_width="0dp"
+            android:layout_height="45dp"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:background="@drawable/captcha_btn_selector"
+            android:gravity="center"
+            android:onClick="onClick"
+            android:text="获取验证码"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/inputword_Size" />
+    </LinearLayout>
+
+
+    
+    
+    </LinearLayout>
+    
+    <Button
+        android:id="@+id/btn_register1"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_gravity="center_vertical"
+        android:layout_below="@+id/regist_ll"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/register_btn_selector"
+        android:gravity="center"
+        android:onClick="onClick"
+        android:text="一键注册"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/inputword_Size" />
+
+
+</RelativeLayout>

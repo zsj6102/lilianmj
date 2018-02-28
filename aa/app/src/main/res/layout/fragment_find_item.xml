@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/fragment_find_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_wite_gray_click">
+
+    <RelativeLayout
+        android:id="@+id/find_line"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="16dp">
+        <org.soshow.beautyedu.widget.CircleImageView
+            android:id="@+id/find_item_iv_head"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="13dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/picyl" />
+
+        <TextView
+            android:id="@+id/find_item_tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_alignBottom="@+id/find_item_iv_head"
+            android:layout_alignTop="@+id/find_item_iv_head"
+            android:layout_marginLeft="6dp"
+            android:layout_toRightOf="@+id/find_item_iv_head"
+            android:gravity="center_vertical"
+            android:text="阿拉伯的春天"
+            android:textColor="@color/find_lite_blue"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/find_item_tv_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/find_item_tv_name"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/find_item_tv_name"
+            android:layout_marginRight="13dp"
+            android:text="用心做好自己，用真诚待人，这是我们必须学会的社会理论"
+            android:textColor="@color/text_gray"
+            android:textSize="14sp" />
+
+        <org.soshow.beautyedu.widget.NineGridTestLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/find_item_gridView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignLeft="@+id/find_item_tv_name"
+            android:layout_below="@+id/find_item_tv_content"
+            android:layout_marginRight="13dp"
+            android:layout_marginTop="6dp"
+            android:background="@color/bg_white"
+            android:visibility="gone"
+            app:sapcing="4dp" />
+
+
+        <RelativeLayout
+            android:id="@+id/rl_new"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/find_item_gridView"
+            android:layout_below="@+id/find_item_gridView"
+            android:layout_marginTop="6dp">
+
+            <TextView
+                android:id="@+id/find_item_tv_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="28分钟前"
+                android:textColor="@color/line_gray"
+                android:textSize="12sp" />
+
+            <RelativeLayout
+                android:id="@+id/rl_right"
+                android:layout_width="181dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="13dp">
+
+                <ImageView
+                    android:id="@+id/find_item_iv_right"
+                    android:layout_width="30dp"
+                    android:layout_height="20dp"
+                    android:layout_alignParentRight="true"
+                    android:src="@drawable/icon_comments" />
+            </RelativeLayout>
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/find_item_tv_name"
+            android:layout_below="@+id/rl_new"
+            android:layout_marginRight="13dp"
+            android:layout_marginTop="20dp"
+            android:background="@color/grey_light"
+            android:gravity="center_vertical"
+            android:paddingBottom="5dp"
+            android:paddingTop="10dp">
+
+            <LinearLayout
+                android:id="@+id/feragment_zan_ll"
+                android:layout_width="wrap_content"
+                android:layout_height="21dp"
+                android:layout_marginLeft="10dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/icon_like_blue" />
+
+                <TextView
+                    android:id="@+id/zan_goods_count"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:text="1"
+                    android:textColor="@color/find_lite_blue"
+                    android:textSize="10sp" />
+
+            </LinearLayout>
+
+            <View
+                android:id="@+id/line_zan"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_below="@+id/feragment_zan_ll"
+                android:layout_marginBottom="8dp"
+                android:background="@color/line_light_gray"
+                android:visibility="gone" />
+
+
+            <org.soshow.beautyedu.widget.MyCustomListView
+                android:id="@+id/find_item_listview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/line_zan"
+                android:background="@android:color/transparent"
+                android:divider="@null"
+                android:dividerHeight="0dp"
+                android:listSelector="@android:color/transparent" />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_below="@+id/find_line"
+        android:background="@color/line_gray" />
+
+
+</RelativeLayout>

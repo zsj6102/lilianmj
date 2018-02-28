@@ -1,0 +1,179 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_default"
+    android:orientation="vertical"
+    tools:context="org.soshow.beautyedu.PayActivity" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="116dp"
+        android:layout_marginTop="13dp"
+        android:background="@color/bg_white"
+        >
+        <ImageView
+            android:id="@+id/pay_activity_iv"
+            android:layout_width="113dp"
+            android:layout_height="70dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/defaultpic"
+            />
+        
+        <TextView 
+            android:id="@+id/pay_activity_tv_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/pay_activity_iv"
+            android:layout_marginLeft="13dp"
+            android:layout_alignTop="@+id/pay_activity_iv"
+            android:layout_marginTop="6dp"
+            android:textSize="18dp"
+            android:textColor="@color/text_gray_deep"
+            />
+        
+        <TextView 
+            android:id="@+id/pay_activity_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/pay_activity_tv_price"
+            android:layout_marginTop="3dp"
+            android:layout_marginRight="8dp"
+            android:layout_alignLeft="@+id/pay_activity_tv_price"
+            android:textSize="14sp"
+            android:textColor="@color/text_gray_title"
+            android:lineSpacingExtra="3dp"
+            />
+        
+        </RelativeLayout>
+        
+    <RelativeLayout
+        android:id="@+id/weixin_rl_pay"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:layout_marginTop="13dp"
+        android:background="@color/bg_white"
+        >
+        <ImageView
+            android:id="@+id/weixin_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="18dp"
+            android:src="@drawable/logo_common_weixin"
+            />
+        
+        <TextView
+            android:id="@+id/weixin_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/weixin_iv"
+            android:layout_marginLeft="13dp"
+            android:layout_centerVertical="true"
+            android:textSize="16sp"
+            android:textColor="@color/text_gray_title"
+            android:text="@string/weixin_pay"
+            />
+        
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/weixin_iv"
+            android:layout_marginLeft="13dp"
+            android:layout_centerVertical="true"
+            android:layout_below="@+id/weixin_name"
+            android:textSize="10sp"
+            android:textColor="@color/text_gray_title"
+            android:text="@string/weixin_tip"
+            />
+        
+	        <ImageView
+	            android:id="@+id/weixin_iv_state"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_alignParentRight="true"
+	            android:layout_centerVertical="true"
+	            android:layout_marginRight="13dp"
+	            android:src="@drawable/icon_choose_selecteds"
+	            />
+	        
+	        <View
+	            android:layout_width="match_parent"
+	            android:layout_height="0.66dp"
+	            android:background="@color/line_gray"
+	            android:layout_alignParentBottom="true"
+	            android:layout_marginLeft="10dp"
+	            android:layout_marginRight="8dp"
+	            />
+        
+        </RelativeLayout>
+        
+    <RelativeLayout
+        android:id="@+id/zhifubao_rl_pay"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:background="@color/bg_white"
+        >
+        <ImageView
+            android:id="@+id/zhifubao_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="18dp"
+            android:src="@drawable/logo_common_zhifubao"
+            />
+        
+        <TextView
+            android:id="@+id/zhifubao_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/zhifubao_iv"
+            android:layout_marginLeft="13dp"
+            android:layout_centerVertical="true"
+            android:textSize="16sp"
+            android:textColor="@color/text_gray_title"
+            android:text="@string/zhifubao_pay"
+            />
+        
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/zhifubao_iv"
+            android:layout_marginLeft="13dp"
+            android:layout_centerVertical="true"
+            android:layout_below="@+id/zhifubao_name"
+            android:textSize="10sp"
+            android:textColor="@color/text_gray_title"
+            android:text="@string/weixin_tip"
+            />
+        
+	        <ImageView
+	            android:id="@+id/zhifubao_iv_state"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_alignParentRight="true"
+	            android:layout_centerVertical="true"
+	            android:layout_marginRight="13dp"
+	            android:src="@drawable/icon_choose_normals"
+	            />
+	        
+        
+        </RelativeLayout>
+        
+    <TextView
+        android:id="@+id/pay_activity_tv_pay"
+        android:layout_width="match_parent"
+        android:layout_height="43dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="50dp"
+        android:gravity="center"
+        android:background="@drawable/bg_btn_sure_green"
+        android:textSize="16sp"
+        android:textColor="@color/text_white"
+        android:text="@string/sure_to_pay"
+        />
+
+</LinearLayout>

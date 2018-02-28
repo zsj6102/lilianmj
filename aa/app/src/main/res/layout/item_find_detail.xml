@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+     >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="16dp"
+        android:background="@drawable/bg_wite_gray_click"
+         >
+
+        <TextView
+            android:id="@+id/find_detail_item_tv_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="13dp"
+            android:layout_marginTop="13dp"
+            android:textColor="@color/text_gray_deep"
+            android:textSize="16sp"
+             />
+
+        <RelativeLayout
+            android:id="@+id/item_find_detail_rl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/find_detail_item_tv_time"
+            android:layout_marginLeft="6dp"
+            android:layout_marginRight="13dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:layout_toRightOf="@+id/find_detail_item_tv_time"
+            android:gravity="center_vertical" 
+            android:background="@android:color/transparent"
+            >
+
+            <ImageView
+                android:id="@+id/item_find_iv"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:scaleType="centerCrop" />
+
+            <TextView
+                android:id="@+id/item_find_detail_tv_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="6dp"
+                android:layout_toRightOf="@+id/item_find_iv"
+                android:layout_alignTop="@+id/item_find_iv"
+                android:maxLines="2"
+                android:text="用心做好自己，用真诚的心去对待他人，这是我们必须学会的社会理论之一"
+                android:textColor="@color/text_gray_deep"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/item_find_tv_how_match"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/item_find_iv"
+                android:layout_marginLeft="6dp"
+                android:layout_toRightOf="@+id/item_find_iv"
+                android:text="共2张"
+                android:textColor="@color/line_gray"
+                android:textSize="12sp" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+</RelativeLayout>

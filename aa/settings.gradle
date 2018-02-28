@@ -1,0 +1,2 @@
+include ':app', ':easeui', ':redpacketlibrary'
+project(':easeui').projectDir = new File('../easeui')

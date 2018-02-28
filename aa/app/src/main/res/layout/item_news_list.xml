@@ -1,0 +1,48 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white" >
+
+    <ImageView
+        android:id="@+id/record_pic"
+        android:layout_width="100dp"
+        android:layout_height="60dp"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:layout_marginBottom="@dimen/btn_superpading"
+        android:layout_marginLeft="@dimen/btn_superpading"
+        android:layout_marginTop="@dimen/btn_pading"
+        android:adjustViewBounds="true"
+        android:contentDescription="@string/app_name"
+        android:maxHeight="70dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/defaultpic" />
+
+    <TextView
+        android:id="@+id/record_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="@dimen/btn_pading"
+        android:layout_marginRight="@dimen/btn_pading"
+        android:layout_marginTop="13dp"
+        android:layout_toRightOf="@id/record_pic"
+        android:padding="0dp"
+        android:singleLine="true"
+        android:text="qeerq"
+        android:textSize="@dimen/videolist_tab_Size" />
+
+    <TextView
+        android:id="@+id/record_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/record_title"
+        android:layout_marginLeft="@dimen/btn_pading"
+        android:layout_marginTop="13dp"
+        android:layout_toRightOf="@id/record_pic"
+        android:padding="0dp"
+        android:text="342432"
+        android:textSize="@dimen/warnword_Size" />
+
+</RelativeLayout>

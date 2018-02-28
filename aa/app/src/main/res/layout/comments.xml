@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/commomts_ll"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingLeft="10dp"
+    android:background="@drawable/common_tab_bg"
+     >
+
+    <LinearLayout
+        android:id="@+id/commomts_tyle1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/commomts_tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"
+            android:text="番茄的味道："
+            android:textColor="@color/text_gray"
+            android:textSize="14sp" />
+
+        <!-- <TextView
+            android:id="@+id/commomts_tv_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"
+            android:textColor="@color/text_gray"
+            android:textSize="14sp" /> -->
+    </LinearLayout>
+    
+    <LinearLayout
+        android:id="@+id/commomts_tyle2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/commomts_tv_replay_from"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"
+            android:text="番茄的味道"
+            android:textColor="@color/text_gray"
+            android:textSize="14sp" />
+
+        <!-- <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="3dp"
+            android:layout_gravity="top"
+            android:textColor="@color/text_gray"
+            android:textSize="14sp" />
+        
+        
+        <TextView
+            android:id="@+id/commomts_tv_replay_to"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="3dp"
+            android:layout_gravity="top"
+            android:textColor="@color/bg_green"
+            android:textSize="14sp" />
+        
+        <TextView
+            android:id="@+id/commomts_tv_replay_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"
+            android:textColor="@color/text_gray"
+            android:textSize="14sp" /> -->
+    </LinearLayout>
+
+</LinearLayout>

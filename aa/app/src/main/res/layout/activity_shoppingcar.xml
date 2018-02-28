@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_gray" >
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/shoppingCar_line"
+
+        android:layout_centerInParent="true"
+        >
+
+        <ListView
+            android:id="@+id/shoppingCar_lv_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:cacheColorHint="#00000000"
+            android:descendantFocusability="blocksDescendants"
+            android:divider="@color/bg_gray"
+            android:dividerHeight="10dp" >
+        </ListView>
+
+        <include layout="@layout/loading" />
+        
+        <TextView
+            android:id="@+id/shoppingCard_tv_noData"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableTop="@drawable/icon_shopping_cart_01"
+            android:layout_gravity="center"
+            android:text="您的购物车还没有商品"
+            android:textSize="16sp"
+            android:textColor="@color/text_gray_title"
+            android:visibility="gone"
+            />
+    </FrameLayout>
+
+    <View
+        android:id="@+id/shoppingCar_line"
+        android:layout_width="match_parent"
+        android:layout_height="0.66dp"
+        android:background="@color/line_gray"
+        android:layout_above="@+id/shoppingCar_rl_balance" />
+
+    <RelativeLayout
+        android:id="@+id/shoppingCar_rl_balance"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/bg_white" >
+
+        <CheckBox
+            android:id="@+id/shoppingCar_chkb_all"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="16dp"
+            android:background="@drawable/bg_radio_button_on_selector"
+            android:button="@null"
+            android:textColor="@color/text_gray" />
+
+        <TextView
+            android:id="@+id/shoppingCar_tv_allselect"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="8dp"
+            android:layout_toRightOf="@+id/shoppingCar_chkb_all"
+            android:text="全部"
+            android:textColor="@color/text_gray"
+            android:textSize="14dp" />
+
+        <RelativeLayout
+            android:id="@+id/shoppingCar_rl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="16dp"
+            android:layout_toLeftOf="@+id/shoppingCar_btn_balance"
+            android:layout_toRightOf="@+id/shoppingCar_tv_allselect" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/shoppingCar_tv_sum_money"
+                android:layout_alignTop="@+id/shoppingCar_tv_sum_money"
+                android:layout_marginRight="4dp"
+                android:layout_toLeftOf="@+id/shoppingCar_tv_sum_money"
+                android:text="合计"
+                android:textColor="@color/text_gray"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/shoppingCar_tv_sum_money"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:textColor="@color/text_red"
+                android:textSize="14sp"
+                android:text="￥0.00"
+                 />
+
+            <TextView
+                android:id="@+id/shoppingCar_tv_noFee"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignRight="@+id/shoppingCar_tv_sum_money"
+                android:layout_below="@+id/shoppingCar_tv_sum_money"
+                android:text="不含运费"
+                android:textColor="@color/text_gray"
+                android:textSize="14sp" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/shoppingCar_btn_balance"
+            android:layout_width="110dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:text="去支付"
+            android:textColor="@color/text_white"
+            android:textSize="16sp"
+            android:background="@color/bg_free"
+             />
+    </RelativeLayout>
+
+</RelativeLayout>

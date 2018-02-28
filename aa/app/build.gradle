@@ -1,0 +1,82 @@
+apply plugin: 'com.android.application'
+// apply plugin: 'com.neenbedankt.android-apt'
+android {
+    compileSdkVersion 23
+    buildToolsVersion '21.1.2'
+    //包冲突
+    lintOptions{
+        abortOnError false
+    }
+    packagingOptions {
+        exclude('META-INF/DEPENDENCIES')
+        exclude('META-INF/NOTICE')
+        exclude('META-INF/LICENSE')
+        exclude('META-INF/LICENSE.txt')
+        exclude('META-INF/NOTICE.txt')
+        exclude 'META-INF/services/javax.annotation.processing.Processor'
+    }
+
+    signingConfigs {
+        debug {
+            storeFile file("D:/Users/ada/aa/lilian.jks")
+            storePassword "zsj123456"
+            keyAlias "lilian"
+            keyPassword "zsj123456"
+        }
+
+    }
+    defaultConfig {
+        applicationId "org.soshow.beautyedu"
+        minSdkVersion 14
+        targetSdkVersion 22
+        multiDexEnabled true
+    }
+    dexOptions {
+        javaMaxHeapSize "4g"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+        }
+        debug {
+            signingConfig signingConfigs.debug
+            debuggable true
+        }
+    }
+
+}
+
+repositories {
+    flatDir {
+        dirs '../libs'
+    }
+}
+dependencies {
+    compile 'com.google.code.gson:gson:2.2.4'
+    //findViewById
+    //   compile(name:'butterknife-8.4.0', ext:'aar')
+    compile(name: 'butterknife-7.0.1', ext: 'jar')
+    //  compile 'com.jakewharton:butterknife:7.0.1'
+    //   apt 'com.jakewharton:butterknife-compiler:8.4.0'
+    compile files('libs/exoplayerlib.jar')
+    compile files('libs/httpmime-4.3.6.jar')
+    compile files('libs/jpush-sdk-release1.8.0.jar')
+    compile files('libs/mta-sdk-1.6.2.jar')
+    compile files('libs/open_sdk.jar')
+    compile files('libs/photoview.jar')
+    compile files('libs/picasso-2.4.0.jar')
+    compile files('libs/playersdk.jar')
+    compile files('libs/sun.misc.BASE64Decoder.jar')
+    compile files('libs/universal-image-loader-1.9.4-SNAPSHOT.jar')
+    compile files('libs/weiboSDKCore_3.1.2.jar')
+    compile project(':redpacketlibrary')
+    compile project(':easeui')
+    compile files('libs/bolts-tasks-1.4.0.jar')
+    compile files('libs/parse-android-1.13.0.jar')
+    compile files('libs/httpclient-android-4.3.5.1.jar')
+    compile files('libs/SocialSDK_WeiXin_1.jar')
+    compile files('libs/SocialSDK_WeiXin_2.jar')
+    compile files('libs/umeng_social_sdk.jar')
+    compile files('libs/bcprov-jdk14-138.jar')
+}

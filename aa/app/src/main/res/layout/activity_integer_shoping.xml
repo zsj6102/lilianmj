@@ -1,0 +1,46 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="org.soshow.beautyedu.IntegerShopingActivity" 
+    android:background="@android:color/transparent"
+    >
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/bg_default" >
+
+        <com.handmark.pulltorefresh.library.PullToRefreshGridView
+            xmlns:ptr="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/homepage_gridView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fadeScrollbars="false"
+            android:numColumns="2"
+            android:scrollbars="none"
+            ptr:ptrAnimationStyle="flip"
+            ptr:ptrDrawable="@drawable/default_indicator_arrow"
+            ptr:ptrListViewExtrasEnabled="false"
+            ptr:ptrMode="both"
+            ptr:ptrScrollingWhileRefreshingEnabled="true"
+            ptr:ptrShowIndicator="false"
+            android:background="@null"
+            android:divider="@null"
+            
+             >
+        </com.handmark.pulltorefresh.library.PullToRefreshGridView>
+
+        <include layout="@layout/loading" />
+
+        <TextView
+            android:id="@+id/shop_noData"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:digits="@null"
+            android:gravity="center"
+            android:text="@string/no_data"
+            android:visibility="invisible" />
+    </FrameLayout>
+</RelativeLayout>

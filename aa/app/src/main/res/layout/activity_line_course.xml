@@ -1,0 +1,105 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/bg_default" >
+
+    <LinearLayout
+        android:id="@+id/ll_head"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/off_line_tv_course"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_btn_sure_green"
+            android:gravity="center"
+            android:paddingBottom="3dp"
+            android:paddingLeft="13dp"
+            android:paddingRight="13dp"
+            android:paddingTop="3dp"
+            android:text="课程"
+            android:textColor="@color/text_white"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/off_line_tv_school"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_btn_unselect_gray"
+            android:gravity="center"
+            android:paddingBottom="3dp"
+            android:paddingLeft="13dp"
+            android:paddingRight="13dp"
+            android:paddingTop="3dp"
+            android:text="学校"
+            android:textColor="@color/text_white"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <HorizontalScrollView
+        android:id="@+id/horizontalScrollView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ll_head"
+        android:scrollbars="none" >
+
+        <LinearLayout
+            android:id="@+id/course_choose_ll"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingBottom="10dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp" >
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <View
+        android:id="@+id/view_line"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/horizontalScrollView1"
+        android:background="@color/line_gray" />
+
+    <org.soshow.beautyedu.widget.PullToRefreshView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/linecourse_pull_refresh_view"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@+id/view_line"
+        android:background="@color/grey_low"
+        android:orientation="vertical" >
+
+        <include layout="@layout/loading" />
+
+        <TextView
+            android:id="@+id/list_no_linecourse"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/grey_light"
+            android:gravity="center"
+            android:text="没有数据"
+            android:textColor="@color/word_grey_jiu"
+            android:textSize="14sp"
+            android:visibility="visible" />
+
+        <ListView
+            android:id="@+id/list_linecourse"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/item_pressed"
+            android:divider="@null"
+            android:dividerHeight="0dp" />
+    </org.soshow.beautyedu.widget.PullToRefreshView>
+
+</RelativeLayout>

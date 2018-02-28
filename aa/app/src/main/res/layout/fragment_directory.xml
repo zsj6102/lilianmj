@@ -1,0 +1,63 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_pull_refresh_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_white"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/pull_to_refresh_header"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:gravity="center"
+        android:paddingBottom="15dip"
+        android:paddingTop="10dip" >
+
+        <ProgressBar
+            android:id="@+id/pull_to_refresh_progress"
+            style="?android:attr/progressBarStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="30dip"
+            android:layout_marginRight="20dip"
+            android:indeterminate="true" />
+
+        <TextView
+            android:id="@+id/pull_to_refresh_text"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:text="目录加载中"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/text_gray_title"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/list_no_video"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:layout_marginLeft="@dimen/btn_pading"
+        android:layout_marginRight="@dimen/btn_pading"
+        android:background="@color/bg_white"
+        android:gravity="left"
+        android:text="加载错误，请检查您的网络连接或稍后再试"
+        android:textColor="@color/text_gray_title"
+        android:textSize="@dimen/buttonword_Size"
+        android:visibility="gone" />
+
+    <ListView
+        android:id="@+id/list_video"
+        android:layout_marginLeft="@dimen/btn_pading"
+        android:layout_marginRight="@dimen/btn_pading"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:divider="@color/grey_mid"
+        android:dividerHeight="1dp" />
+
+</LinearLayout>

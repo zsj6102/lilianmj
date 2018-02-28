@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" 
+    android:background="@color/bg_default"
+    >
+    
+    <include layout="@layout/loading"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:background="@color/bg_default"
+        android:gravity="center_vertical|left"
+        android:paddingLeft="20dp"
+        android:textSize="12sp"
+        android:textColor="@color/text_gray_title"
+        android:text="@string/tip"
+        />
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/item_size"
+        android:background="@color/bg_white"
+        android:gravity="center_vertical"
+        android:paddingRight="8dp"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="20dp"
+            android:gravity="center"
+            android:text="@string/car_number"
+            android:textColor="@color/text_gray_title"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/bind_bank_et_cardNumber"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="number"
+            android:background="@color/bg_white"
+            android:hint="@string/hint_input_carnum"
+            android:paddingLeft="13dp"
+            android:textColorHint="@color/line_gray" 
+            android:textSize="14sp"
+            android:textColor="@color/text_gray"
+            />
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.66dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:background="@color/line_gray"
+        />
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/item_size"
+        android:background="@color/bg_white"
+        android:gravity="center_vertical"
+        android:paddingRight="8dp"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="20dp"
+            android:gravity="center"
+            android:text="@string/car_main"
+            android:textColor="@color/text_gray_title"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/bind_bank_et_name"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="text"
+            android:background="@color/bg_white"
+            android:hint="请输入姓名"
+            android:paddingLeft="13dp"
+            android:textColorHint="@color/line_gray"
+            android:textColor="@color/text_gray"
+            android:textSize="14sp"
+             />
+    </LinearLayout>
+    
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.66dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:background="@color/line_gray"
+        />
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/item_size"
+        android:background="@color/bg_white"
+        android:gravity="center_vertical"
+        android:paddingRight="8dp"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="20dp"
+            android:gravity="center"
+            android:text="@string/phone_number"
+            android:textColor="@color/text_gray_title"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/bind_bank_et_phone"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="number"
+            android:background="@color/bg_white"
+            android:hint="请输入绑定的银行卡手机号码"
+            android:paddingLeft="13dp"
+            android:textColorHint="@color/line_gray"
+            android:textColor="@color/text_gray"
+            android:textSize="14sp"
+             />
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.66dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:background="@color/line_gray"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/item_size"
+        android:background="@color/bg_white"
+        android:gravity="center_vertical"
+        android:paddingRight="8dp"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="20dp"
+            android:gravity="center"
+            android:text="@string/bank_name"
+            android:textColor="@color/text_gray_title"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/bind_bank_tv_bank_name"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical|left"
+            android:layout_weight="0.81"
+            android:background="@color/bg_white"
+            android:paddingLeft="13dp"
+            android:textColorHint="@color/line_gray"
+            android:textSize="14sp"
+            android:textColor="@color/text_gray"
+            android:text="@string/banks_name"
+             />
+    </LinearLayout>
+    
+    <TextView
+        android:id="@+id/add_car_tv_commit"
+        android:layout_width="match_parent"
+        android:layout_height="43dp"
+        android:gravity="center"
+        android:layout_marginTop="60dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:textSize="14dp"
+        android:textColor="@color/text_white"
+        android:text="@string/bing_car"
+        android:background="@drawable/bg_btn_sure_green"
+        />
+    
+    
+
+</LinearLayout>

@@ -1,0 +1,150 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_white"
+    tools:context="org.soshow.beautyedu.RechargeActivity" >
+    
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+
+    <ScrollView
+        android:id="@+id/recharge_scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none"
+         >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/bg_white" >
+
+                <ImageView
+                    android:id="@+id/recharge_head_pic"
+                    android:layout_width="match_parent"
+                    android:layout_height="250dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/img_vip" />
+
+                <TextView
+                    android:id="@+id/recharge_tv_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_below="@+id/recharge_head_pic"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="20dp"
+                    android:text="@string/year_free"
+                    android:textColor="@color/text_gray_title"
+                    android:textSize="14sp" />
+
+                <ImageView
+                    android:id="@+id/pic"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_below="@+id/recharge_tv_title"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="8dp"
+                    android:src="@drawable/icon_vip" />
+
+                <TextView
+                    android:id="@+id/recharge_tv_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/pic"
+                    android:layout_alignTop="@+id/pic"
+                    android:layout_marginLeft="3dp"
+                    android:layout_toRightOf="@+id/pic"
+                    android:gravity="center"
+                    android:text="1090人成为会员"
+                    android:textColor="@color/text_gray_title"
+                    android:textSize="12sp" />
+
+                <View
+                    android:id="@+id/view"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.66dp"
+                    android:layout_below="@+id/recharge_tv_num"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginTop="13dp"
+                    android:background="@color/line_gray" />
+
+                <org.soshow.beautyedu.widget.MyCustomListView
+                    android:id="@+id/rechcarge_listView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/view" >
+                </org.soshow.beautyedu.widget.MyCustomListView>
+
+                <View
+                    android:id="@+id/view_below"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.66dp"
+                    android:layout_below="@+id/rechcarge_listView"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:background="@color/line_gray" />
+
+                <TextView
+                    android:id="@+id/recharge_tv_become"
+                    android:layout_width="match_parent"
+                    android:layout_height="38dp"
+                    android:layout_below="@+id/view_below"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="40dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="40dp"
+                    android:background="@drawable/bg_btn_sure_green"
+                    android:gravity="center"
+                    android:text="@string/become_year_free"
+                    android:textColor="@color/text_white"
+                    android:textSize="14sp" />
+
+                <RelativeLayout
+                    android:id="@+id/recharge_rl_right"
+                    android:layout_width="match_parent"
+                    android:layout_height="43dp"
+                    android:layout_below="@+id/recharge_tv_become"
+                    android:background="@color/bg_default" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="10dp"
+                        android:gravity="center"
+                        android:text="@string/introduce_of_year"
+                        android:textColor="@color/text_gray_title"
+                        android:textSize="14sp" />
+
+                    <ImageView
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="16dp"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/arrow_right" />
+                </RelativeLayout>
+                <WebView 
+                    android:id="@+id/vip_rights_web"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/recharge_rl_right"
+                    
+                    />
+            </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
+    <include layout="@layout/loading" />
+</FrameLayout>
+</RelativeLayout>

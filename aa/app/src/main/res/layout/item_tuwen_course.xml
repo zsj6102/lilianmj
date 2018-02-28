@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" 
+    android:background="@drawable/item_pressed"
+    android:id="@+id/tuwen_layout"
+    >
+    
+    <RelativeLayout
+        android:id="@+id/tuwen_rl"
+       android:layout_width="match_parent"
+       android:layout_height="100dp"
+       android:paddingLeft="8dp"
+       android:paddingRight="8dp"
+       android:background="@color/bg_white"
+       >
+       <ImageView
+           android:id="@+id/tuwen_iv"
+           android:layout_width="116dp"
+           android:layout_height="80dp"
+           android:layout_centerVertical="true"
+           android:layout_marginLeft="13dp"
+           android:src="@drawable/defaultpic"
+           android:scaleType="centerCrop"
+           />
+       
+       <TextView
+           android:id="@+id/tuwen_tv_title"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_toRightOf="@+id/tuwen_iv"
+           android:layout_marginLeft="13dp"
+           android:layout_alignTop="@+id/tuwen_iv"
+           android:textSize="14sp"
+           android:textColor="@color/text_gray_title"
+           android:text="女神六部曲"
+           android:singleLine="true"
+           />
+       
+       <TextView
+           android:id="@+id/tuwen_tv_state"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_below="@+id/tuwen_tv_title"
+           android:layout_marginTop="6dp"
+           android:layout_alignLeft="@+id/tuwen_tv_title"
+           android:textSize="12sp"
+           android:textColor="@color/text_white"
+           android:text="已购买"
+           android:paddingLeft="4dp"
+           android:paddingRight="4dp"
+           android:paddingTop="2dp"
+           android:paddingBottom="2dp"
+           android:background="@drawable/bg_btn_sure_green"
+           />
+       
+       <TextView
+           android:id="@+id/tuwen_rmb"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_toRightOf="@+id/tuwen_tv_state"
+           android:layout_marginLeft="13dp"
+           android:layout_alignTop="@+id/tuwen_tv_state"
+           android:layout_alignBottom="@+id/tuwen_tv_state"
+           android:gravity="center"
+           android:textSize="14sp"
+           android:textColor="@color/text_gray_title"
+           android:text="RMB:"
+           />
+       <!-- <TextView
+           android:id="@+id/tuwen_tv_rmb"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_toRightOf="@+id/tuwen_rmb"
+           android:layout_alignTop="@+id/tuwen_rmb"
+           android:layout_alignBottom="@+id/tuwen_rmb"
+           android:gravity="center"
+           android:textSize="14sp"
+           android:textColor="@color/text_gray_title"
+           android:text="9.5"
+           android:visibility="gone"
+           /> -->
+       
+       <ImageView
+           android:id="@+id/tuwen_iv_look"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_below="@+id/tuwen_tv_state"
+           android:layout_alignLeft="@+id/tuwen_tv_state"
+           android:layout_marginTop="6dp"
+           android:layout_alignBottom="@+id/tuwen_iv"
+           android:scaleType="centerInside"
+           android:src="@drawable/icon_look"
+           />
+       
+       <TextView
+           android:id="@+id/tuwen_tv_look"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_toRightOf="@+id/tuwen_iv_look"
+           android:layout_alignTop="@+id/tuwen_iv_look"
+           android:layout_alignBottom="@+id/tuwen_iv"
+           android:layout_marginLeft="3dp"
+           android:gravity="center"
+           android:textSize="12sp"
+           android:textColor="@color/text_gray_title"
+           android:text="1024"
+           />
+       <ImageView
+           android:id="@+id/tuwen_iv_like"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_toRightOf="@+id/tuwen_tv_look"
+           android:layout_alignTop="@+id/tuwen_tv_look"
+           android:layout_alignBottom="@+id/tuwen_tv_look"
+           android:scaleType="centerInside"
+           android:layout_marginLeft="13dp"
+           android:src="@drawable/icon_like"
+           android:visibility="invisible"
+           />
+       
+       <TextView
+           android:id="@+id/tuwen_tv_like"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_toRightOf="@+id/tuwen_iv_like"
+           android:layout_alignTop="@+id/tuwen_iv_like"
+           android:layout_alignBottom="@+id/tuwen_tv_look"
+           android:gravity="center"
+           android:textSize="12sp"
+           android:textColor="@color/text_gray_title"
+           android:text="10"
+           android:visibility="invisible"
+           />
+       
+       <ImageView
+           android:id="@+id/tuwen_iv_say"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_toRightOf="@+id/tuwen_tv_like"
+           android:layout_alignTop="@+id/tuwen_tv_like"
+           android:layout_alignBottom="@+id/tuwen_tv_like"
+           android:scaleType="centerInside"
+           android:layout_marginLeft="8dp"
+           android:src="@drawable/icon_information"
+           android:visibility="invisible"
+           />
+       
+       <TextView
+           android:id="@+id/tuwen_tv_say"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_toRightOf="@+id/tuwen_iv_say"
+           android:layout_alignTop="@+id/tuwen_iv_say"
+           android:layout_alignBottom="@+id/tuwen_tv_like"
+           android:gravity="center"
+           android:textSize="12sp"
+           android:textColor="@color/text_gray_title"
+           android:text="24"
+           android:visibility="invisible"
+           />
+        </RelativeLayout>
+        
+    <View android:layout_width="match_parent"
+        android:layout_height="0.66dp"
+        android:background="@color/line_gray"
+        />
+    
+
+</RelativeLayout>

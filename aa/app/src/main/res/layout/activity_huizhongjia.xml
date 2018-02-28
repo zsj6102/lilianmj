@@ -1,0 +1,88 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+     android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/grey_low">
+<LinearLayout 
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/grey_low"
+    android:orientation="vertical" >
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/grey_low" />
+
+    <ImageView
+        android:id="@+id/logo_big"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_gravity="center_horizontal"
+        
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="10dp"
+        android:background="@color/grey_low"
+        android:contentDescription="@string/app_name"
+        android:scaleType="fitCenter"
+        android:src="@drawable/logo_big" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:background="@color/grey_low"
+        android:gravity="center"
+        android:text="@string/app_setname"
+        android:textColor="#000000"
+        android:textSize="@dimen/titleword_Size" />
+
+    <TextView
+        android:id="@+id/app_setversion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:background="@color/grey_low"
+        android:gravity="center"
+        android:textColor="#000000"
+        android:textSize="@dimen/buttonword_Size" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/grey_low" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="7"
+        android:background="@android:color/transparent"
+        android:orientation="vertical"
+        android:padding="28dp" >
+
+        <TextView
+            android:id="@+id/app_setcontent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:background="@color/grey_low"
+            android:text="@string/guanyu"
+            android:textColor="@color/word_grey_liu"
+            android:lineSpacingExtra="5dp"
+           
+            android:textSize="@dimen/normalword_Size" />
+
+       
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/grey_low" />
+
+</LinearLayout>
+</ScrollView>

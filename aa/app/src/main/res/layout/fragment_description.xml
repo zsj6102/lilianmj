@@ -1,0 +1,31 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_white"
+    >
+    <WebView
+        android:id="@+id/video_play_webView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" 
+        android:background="@color/bg_white"
+        android:visibility="gone"
+        />
+
+        <TextView
+            android:id="@+id/video_description"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="@dimen/btn_superpading"
+            android:layout_marginLeft="@dimen/btn_pading"
+            android:layout_marginRight="@dimen/btn_pading"
+            android:background="@android:color/transparent"
+            android:paddingBottom="@dimen/btn_pading"
+            android:layout_marginTop="@dimen/btn_pading"
+            android:textColor="@color/word_grey"
+            android:textSize="@dimen/normalword_Size" 
+            android:text="bbbbbbbbbbb"
+            />
+        
+        
+
+</FrameLayout>

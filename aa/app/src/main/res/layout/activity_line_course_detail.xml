@@ -1,0 +1,163 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="org.soshow.beautyedu.LineCourseDetailActivity" >
+
+    <ScrollView
+        android:id="@+id/scrollView1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <TextView
+                    android:id="@+id/line_detail_tv_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="13dp"
+                    android:text="凡特思美发培训学校【美发培训】"
+                    android:textColor="@color/text_gray_title"
+                    android:textSize="16sp" />
+
+                <ImageView
+                    android:id="@+id/line_detail_iv"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:layout_below="@+id/line_detail_tv_title"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginTop="13dp"
+                    android:src="@drawable/ic_launcher" />
+
+                <TextView
+                    android:id="@+id/line_detail_tv_content"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/line_detail_iv"
+                    android:layout_alignRight="@+id/line_detail_iv"
+                    android:layout_below="@+id/line_detail_iv"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="13dp"
+                    android:text="凡特思美发培训学校【美发培训】凡特思美发培训学校【美发培训】凡特思美发培训学校【美发培训】凡特思美发培训学校【美发培训】凡特思美发培训学校【美发培训】凡特思美发培训学校【美发培训】"
+                    android:textColor="@color/text_gray_title"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/line_detail_rule"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/line_detail_iv"
+                    android:layout_below="@+id/line_detail_tv_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="13dp"
+                    android:text="培训课程："
+                    android:textColor="@color/text_gray_title"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/line_detail_tv_rule"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignRight="@+id/line_detail_iv"
+                    android:layout_alignTop="@+id/line_detail_rule"
+                    android:layout_toRightOf="@+id/line_detail_rule"
+                    android:lineSpacingExtra="3dp"
+                    android:text="1、美容理疗\n2、美发初级教程\n3、美发中高级教程\n4、美发师专业考试"
+                    android:textColor="@color/text_gray_title"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/line_detail_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/line_detail_rule"
+                    android:layout_below="@+id/line_detail_tv_rule"
+                    android:layout_marginTop="3dp"
+                    android:text="培训时间："
+                    android:textColor="@color/text_gray_title"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/line_detail_tv_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@+id/line_detail_time"
+                    android:layout_marginLeft="3dp"
+                    android:layout_toRightOf="@+id/line_detail_time"
+                    android:text="2016-06-05"
+                    android:textColor="@color/text_gray_title"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/line_detail_adress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/line_detail_time"
+                    android:layout_below="@+id/line_detail_time"
+                    android:layout_marginTop="3dp"
+                    android:text="培训地点："
+                    android:textColor="@color/text_gray_title"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/line_detail_tv_adress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@+id/line_detail_adress"
+                    android:layout_marginLeft="3dp"
+                    android:layout_toRightOf="@+id/line_detail_adress"
+                    android:text="厦门市思明区软件园望海路67号楼"
+                    android:textColor="@color/text_gray_title"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/line_detail_phone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/line_detail_adress"
+                    android:layout_below="@+id/line_detail_adress"
+                    android:layout_marginTop="3dp"
+                    android:text="联系电话："
+                    android:textColor="@color/text_gray_title"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/line_detail_tv_phone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@+id/line_detail_phone"
+                    android:layout_marginLeft="3dp"
+                    android:layout_toRightOf="@+id/line_detail_phone"
+                    android:text="0592-3542581"
+                    android:textColor="@color/text_gray_title"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/line_course_detail_tv_signup"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_below="@+id/line_detail_phone"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginTop="13dp"
+                    android:background="@drawable/bg_btn_sure_green"
+                    android:gravity="center"
+                    android:text="我要报名"
+                    android:textColor="@color/text_white"
+                    android:textSize="12sp" />
+            </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

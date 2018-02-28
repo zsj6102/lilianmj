@@ -1,0 +1,48 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".DemoActivity" >
+
+    <item
+        android:id="@+id/id_scale_popup"
+        android:orderInCategory="100"
+        android:showAsAction="never"
+        android:title="scale popup"/>
+    <item
+        android:id="@+id/id_slide_from_bottom_popup"
+        android:orderInCategory="101"
+        android:showAsAction="never"
+        android:title="slide from bottom popup"/>
+    <item
+        android:id="@+id/id_comment_popup"
+        android:orderInCategory="102"
+        android:showAsAction="never"
+        android:title="comment popup"/>
+    <item
+        android:id="@+id/id_input_popup"
+        android:orderInCategory="103"
+        android:showAsAction="never"
+        android:title="input popup">
+        <item
+            android:id="@+id/id_list_popup"
+            android:orderInCategory="104"
+            android:showAsAction="never"
+            android:title="list popup"/>
+        <item
+            android:id="@+id/id_menu_popup"
+            android:orderInCategory="105"
+            android:showAsAction="never"
+            android:title="menu popup"/>
+        <item
+            android:id="@+id/id_dialog_popup"
+            android:orderInCategory="106"
+            android:showAsAction="never"
+            android:title="dialog popup"/>
+        <item
+            android:id="@+id/id_custom_interpolator_popup"
+            android:orderInCategory="107"
+            android:showAsAction="never"
+            android:title="custom interpolator popup"/>
+    </item>
+
+</menu>

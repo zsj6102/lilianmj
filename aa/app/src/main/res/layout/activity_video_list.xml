@@ -1,0 +1,108 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/grey_low"
+    android:orientation="vertical" >
+
+    <HorizontalScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/grey_low"
+        android:scrollbars="none" >
+
+        <LinearLayout
+            android:id="@+id/second_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/grey_low"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/second_quanbu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/videolist_margin_Size"
+                android:layout_marginTop="@dimen/videolist_margin_Size"
+                android:layout_marginBottom="@dimen/videolist_margin_Size"
+                android:layout_marginRight="@dimen/videolist_margin_Size_small"
+                android:background="@drawable/item_button"
+                android:gravity="center"
+                android:onClick="onClick"
+                android:padding="8dp"
+                android:tag="second"
+                android:text="全部"
+                android:textColor="@drawable/tab_videolist_button"
+                android:textSize="@dimen/videolist_tab_Size" />
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <HorizontalScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/grey_low"
+        android:scrollbars="none" >
+
+        <LinearLayout
+            android:id="@+id/third_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/grey_low"
+            android:orientation="horizontal"
+            android:visibility="gone" >
+
+            <Button
+                android:id="@+id/third_quanbu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/videolist_margin_Size"
+                android:layout_marginBottom="@dimen/videolist_margin_Size"
+                android:layout_marginRight="@dimen/videolist_margin_Size_small"
+                android:layout_marginTop="0px"
+                android:background="@drawable/item_button"
+                android:gravity="center"
+                android:onClick="onClick"
+                android:padding="8dp"
+                android:tag="third"
+                android:text="全部"
+                android:textColor="@drawable/tab_videolist_button"
+                android:textSize="@dimen/videolist_tab_Size" />
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/grey_low"
+        android:orientation="horizontal" >
+
+        <org.soshow.beautyedu.widget.PullToRefreshView
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/main_pull_refresh_view"
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:background="@color/grey_low"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/list_no_record"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:background="@color/grey_light"
+                android:gravity="center_horizontal"
+                android:textColor="@color/word_grey_jiu"
+                android:textSize="@dimen/buttonword_Size"
+                android:visibility="gone" />
+
+            <ListView
+                android:id="@+id/list_record"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/item_pressed" />
+        </org.soshow.beautyedu.widget.PullToRefreshView>
+    </LinearLayout>
+
+</LinearLayout>

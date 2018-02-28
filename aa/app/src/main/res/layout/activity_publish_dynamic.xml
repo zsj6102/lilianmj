@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/uploadPictureLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/main_background" >
+
+    <RelativeLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@color/bg_green"
+        android:gravity="center_vertical" >
+
+        <ImageView
+            android:id="@+id/publish_dynamic_iv_back"
+            android:layout_width="45dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:scaleType="centerInside"
+            android:background="@drawable/common_tab_bg"
+            android:src="@drawable/icon_back" />
+
+        <TextView
+            android:id="@+id/channel_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="发表动态"
+            android:textColor="@color/bg_white"
+            android:textSize="20sp" />
+        
+        <TextView
+            android:id="@+id/publish_dynamic_tv_submit"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:paddingRight="13dp"
+            android:paddingLeft="13dp"
+            android:textSize="14sp"
+            android:textColor="@color/text_white"
+            android:text="提交"
+            android:background="@drawable/common_tab_bg"
+            />
+        
+    </RelativeLayout>
+
+    <EditText
+        android:id="@+id/activity_dynamic_et"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_below="@+id/header"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="13dp"
+        android:background="@drawable/shape_bg_edittext"
+        android:cursorVisible="true"
+        android:gravity="left|top"
+        android:hint="说些什么好呢？"
+        android:paddingBottom="8dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingTop="8dp"
+        android:textColor="@color/text_gray_deep"
+        android:textSize="16sp" />
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+        android:layout_below="@id/activity_dynamic_et"
+            android:orientation="vertical"
+            android:padding="14dp" >
+
+            <GridView
+                android:id="@+id/review_gridview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                android:paddingTop="8dp"
+                android:horizontalSpacing="4dp"
+                android:listSelector="@android:color/transparent"
+                android:numColumns="3"
+                android:scrollbars="none"
+                android:verticalSpacing="4dp" >
+            </GridView>
+
+        </RelativeLayout>
+
+</RelativeLayout>

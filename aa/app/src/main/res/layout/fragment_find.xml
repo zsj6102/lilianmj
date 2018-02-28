@@ -1,0 +1,29 @@
+<org.soshow.beautyedu.widget.PullToRefreshView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/find_pull_refresh_view"
+    android:layout_width="match_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/white"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/list_no_find"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:background="@color/white"
+        android:gravity="center_horizontal"
+        android:text="没有新发现"
+        android:textColor="@color/word_grey_jiu"
+        android:textSize="@dimen/buttonword_Size"
+        android:visibility="gone" />
+
+    <ListView
+        android:id="@+id/list_find"
+        android:divider="#000000"
+        android:dividerHeight="0dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/item_pressed_light" />
+
+</org.soshow.beautyedu.widget.PullToRefreshView>

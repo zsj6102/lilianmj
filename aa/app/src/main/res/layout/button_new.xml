@@ -1,0 +1,13 @@
+<Button xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/second_quanbu"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/btn_pading"
+    android:background="@drawable/item_button"
+    android:gravity="center"
+    android:padding="8dp"
+    android:text="全部"
+     android:textColor="@drawable/tab_videolist_button"
+    android:textSize="@dimen/videolist_tab_Size" >
+
+</Button>

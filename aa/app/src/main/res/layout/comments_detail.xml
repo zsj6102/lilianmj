@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/commomts_ll"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+     >
+
+    <RelativeLayout
+        android:id="@+id/commomts_detail_tyle1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:paddingLeft="8dp"
+        android:background="@drawable/common_tab_bg"
+         >
+        
+        <ImageView
+            android:id="@+id/comment_detail_iv1"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentTop="true"
+            android:src="@drawable/default_face"
+            android:scaleType="center"
+            />
+
+        <TextView
+            android:id="@+id/commomts_detail_tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/comment_detail_iv1"
+            android:layout_toRightOf="@+id/comment_detail_iv1"
+            android:layout_toLeftOf="@+id/commomts_detail_tv_time"
+            android:layout_marginLeft="6dp"
+            android:singleLine="true"
+            android:text="番茄的味道"
+            android:textColor="@color/find_lite_blue"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/commomts_detail_tv_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/commomts_detail_tv_name"
+            android:layout_alignLeft="@+id/commomts_detail_tv_name"
+            android:layout_marginTop="3dp"
+            android:text="玻璃碎了一地"
+            android:textColor="@color/text_gray"
+            android:textSize="14sp" />
+        
+        <TextView
+            android:id="@+id/commomts_detail_tv_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignBottom="@+id/commomts_detail_tv_name"
+            android:text="2016-12-04"
+            android:textColor="@color/line_gray"
+            android:textSize="12sp" />
+    </RelativeLayout>
+    
+    <RelativeLayout
+        android:id="@+id/commomts_detail_tyle2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:paddingLeft="8dp"
+        android:background="@drawable/common_tab_bg"
+         >
+
+        <ImageView
+            android:id="@+id/comment_detail_iv2"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentTop="true"
+            android:src="@drawable/default_face"
+            android:scaleType="center"
+            />
+        
+        <TextView
+            android:id="@+id/commomts_detail_tv_replay_from"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/comment_detail_iv2"
+            android:layout_toRightOf="@+id/comment_detail_iv2"
+            android:layout_marginLeft="6dp"
+            android:text="番茄的味道"
+            android:textColor="@color/find_lite_blue"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/replay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/commomts_detail_tv_replay_from"
+            android:layout_alignTop="@+id/commomts_detail_tv_replay_from"
+            android:layout_marginLeft="3dp"
+            android:layout_marginRight="3dp"
+            android:text="回复"
+            android:textColor="@color/text_gray"
+            android:textSize="14sp" />
+        
+        
+        <TextView
+            android:id="@+id/commomts_detail_tv_replay_to"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/replay"
+            android:layout_alignTop="@+id/replay"
+            android:layout_toLeftOf="@+id/commomts_detail_replay_tv_time"
+            android:singleLine="true"
+            android:text="矮子乐"
+            android:textColor="@color/find_lite_blue"
+            android:textSize="14sp" />
+        
+        <TextView
+            android:id="@+id/commomts_detail_tv_replay_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/commomts_detail_tv_replay_from"
+            android:layout_marginTop="3dp"
+            android:layout_alignLeft="@+id/commomts_detail_tv_replay_from"
+            android:text="碎个鸟蛋"
+            android:textColor="@color/text_gray"
+            android:textSize="14sp" />
+        
+        <TextView
+            android:id="@+id/commomts_detail_replay_tv_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignBottom="@+id/commomts_detail_tv_replay_from"
+            android:text="2016-12-04"
+            android:textColor="@color/line_gray"
+            android:textSize="12sp" />
+    </RelativeLayout>
+
+</LinearLayout>

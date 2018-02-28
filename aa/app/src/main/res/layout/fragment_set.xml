@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_default"
+    android:orientation="vertical" >
+
+    <ScrollView
+        android:id="@+id/scroller_set"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none" >
+
+        <LinearLayout
+            android:id="@+id/layout_set"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/bg_default"
+            android:orientation="vertical" >
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/btn_bigpading"
+                android:background="@color/bg_default" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/grey_mid" />
+
+            <RelativeLayout
+                android:id="@+id/allow_net_layout"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/item_size"
+                android:background="@drawable/item_pressed"
+                android:onClick="clickHandler"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/btn_superpading"
+                    android:background="@android:color/transparent"
+                    android:gravity="center"
+                    android:text="@string/video_net"
+                    android:textColor="@color/text_gray"
+                    android:textSize="@dimen/warnword_Size" />
+
+                <CheckBox
+                    android:id="@+id/allow_net"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/btn_superpading"
+                    android:background="@drawable/shape_bg_checkbox"
+                    android:button="@null"
+                     />
+                
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="@dimen/btn_pading"
+                android:layout_marginRight="@dimen/btn_pading"
+                android:background="@color/grey_mid" />
+            
+             <RelativeLayout
+                android:id="@+id/modify_password"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/item_size"
+                android:background="@drawable/item_pressed"
+                android:onClick="clickHandler"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/btn_superpading"
+                    android:background="@android:color/transparent"
+                    android:gravity="center"
+                    android:text="@string/modify_password"
+                    android:textColor="@color/text_gray"
+                    android:textSize="@dimen/warnword_Size" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/btn_superpading"
+                    android:adjustViewBounds="true"
+                    android:background="@android:color/transparent"
+                    android:contentDescription="@string/app_name"
+                    android:maxHeight="@dimen/item_arr_size"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/shape_bg_go" />
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="@dimen/btn_pading"
+                android:layout_marginRight="@dimen/btn_pading"
+                android:background="@color/grey_mid" />
+
+            <RelativeLayout
+                android:id="@+id/suggestion"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/item_size"
+                android:background="@drawable/item_pressed"
+                android:onClick="clickHandler"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/btn_superpading"
+                    android:background="@android:color/transparent"
+                    android:gravity="center"
+                    android:text="意见反馈"
+                    android:textColor="@color/text_gray"
+                    android:textSize="@dimen/warnword_Size" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/btn_superpading"
+                    android:adjustViewBounds="true"
+                    android:background="@android:color/transparent"
+                    android:contentDescription="@string/app_name"
+                    android:maxHeight="@dimen/item_arr_size"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/shape_bg_go" />
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="@dimen/btn_pading"
+                android:layout_marginRight="@dimen/btn_pading"
+                android:background="@color/grey_mid" />
+
+            <RelativeLayout
+                android:id="@+id/info_version"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/item_size"
+                android:background="@drawable/item_pressed"
+                android:onClick="clickHandler"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/btn_superpading"
+                    android:background="@android:color/transparent"
+                    android:gravity="center"
+                    android:text="软件版本信息"
+                    android:textColor="@color/text_gray"
+                    android:textSize="@dimen/warnword_Size" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/btn_superpading"
+                    android:adjustViewBounds="true"
+                    android:background="@android:color/transparent"
+                    android:contentDescription="@string/app_name"
+                    android:maxHeight="@dimen/item_arr_size"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/shape_bg_go" />
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="@dimen/btn_pading"
+                android:layout_marginRight="@dimen/btn_pading"
+                android:background="@color/grey_mid" />
+
+            <RelativeLayout
+                android:id="@+id/clear_cache"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/item_size"
+                android:background="@drawable/item_pressed"
+                android:onClick="clickHandler"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/btn_superpading"
+                    android:background="@android:color/transparent"
+                    android:gravity="center"
+                    android:text="清除缓存"
+                    android:textColor="@color/text_gray"
+                    android:textSize="@dimen/warnword_Size" />
+
+                <TextView
+                    android:id="@+id/cache_size"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/btn_superpading"
+                    android:background="@android:color/transparent"
+                    android:gravity="center"
+                    android:textColor="@color/text_gray"
+                    android:textSize="@dimen/warnword_Size" />
+
+                <!--
+                    <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/btn_superpading"
+                    android:adjustViewBounds="true"
+                    android:background="@android:color/transparent"
+                    android:contentDescription="@string/app_name"
+                    android:maxHeight="@dimen/item_arr_size"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/shape_bg_go" />
+                -->
+            </RelativeLayout>
+
+            <!-- <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="@dimen/btn_pading"
+                android:layout_marginRight="@dimen/btn_pading"
+                android:background="@color/grey_mid" /> -->
+
+            <RelativeLayout
+                android:id="@+id/guanyu"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/item_size"
+                android:background="@drawable/item_pressed"
+                android:onClick="clickHandler"
+                android:orientation="horizontal" 
+                android:visibility="gone"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/btn_superpading"
+                    android:background="@android:color/transparent"
+                    android:gravity="center"
+                    android:text="关于我们"
+                    android:textColor="@color/text_gray"
+                    android:textSize="@dimen/warnword_Size" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/btn_superpading"
+                    android:adjustViewBounds="true"
+                    android:background="@android:color/transparent"
+                    android:contentDescription="@string/app_name"
+                    android:maxHeight="@dimen/item_arr_size"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/shape_bg_go" />
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/grey_mid" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@color/bg_default" />
+
+            <RelativeLayout
+                android:id="@+id/logout_set"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
+                android:background="@drawable/login_btn_selector"
+                android:gravity="center"
+                android:onClick="clickHandler"
+                android:orientation="horizontal"
+                 >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:background="@android:color/transparent"
+                    android:gravity="center"
+                    android:text="退出登录"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/warnword_Size" />
+            </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

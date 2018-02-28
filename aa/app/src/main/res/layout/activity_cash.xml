@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_default" >
+    
+    <FrameLayout 
+        android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    
+    <RelativeLayout 
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+     >
+    
+    <RelativeLayout
+        android:id="@+id/rl_cash"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="13dp"
+        android:paddingBottom="21dp"
+        android:background="@color/bg_white"
+        >
+        <TextView
+            android:id="@+id/car_main"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:gravity="center"
+            android:layout_marginTop="16dp"
+            android:layout_marginLeft="21dp"
+            android:textSize="14sp"
+            android:textColor="@color/text_gray"
+            android:text="@string/car_main"
+            />
+        <TextView
+            android:id="@+id/cash_tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:gravity="center"
+            android:layout_toRightOf="@+id/car_main"
+            android:layout_alignTop="@+id/car_main"
+            android:layout_alignBottom="@+id/car_main"
+            android:layout_marginLeft="28dp"
+            android:textSize="14sp"
+            android:textColor="@color/text_blue"
+            />
+        
+        <TextView
+            android:id="@+id/choose_other_card"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:gravity="center"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="13dp"
+            android:layout_alignTop="@+id/cash_tv_name"
+            android:textSize="14sp"
+            android:textColor="@color/text_blue"
+            android:text="其他"
+            />
+        
+        <TextView
+            android:id="@+id/car_number"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:gravity="center"
+            android:layout_below="@+id/car_main"
+            android:layout_alignLeft="@+id/car_main"
+            android:textSize="14sp"
+            android:textColor="@color/text_gray"
+            android:text="@string/band_car_number"
+            />
+        <TextView
+            android:id="@+id/cash_tv_cardNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:gravity="center"
+            android:layout_toRightOf="@+id/car_number"
+            android:layout_alignTop="@+id/car_number"
+            android:layout_alignBottom="@+id/car_number"
+            android:layout_marginLeft="28dp"
+            android:textSize="14sp"
+            android:singleLine="true"
+            android:textColor="@color/text_blue"
+            />
+        
+        <TextView
+            android:id="@+id/phone_number"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:gravity="center"
+            android:layout_below="@+id/car_number"
+            android:layout_alignLeft="@+id/car_number"
+            android:textSize="14sp"
+            android:textColor="@color/text_gray"
+            android:text="@string/phone_number"
+            />
+        <TextView
+            android:id="@+id/cash_tv_phone"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:gravity="center"
+            android:layout_toRightOf="@+id/phone_number"
+            android:layout_alignTop="@+id/phone_number"
+            android:layout_alignBottom="@+id/phone_number"
+            android:layout_marginLeft="28dp"
+            android:textSize="14sp"
+            android:singleLine="true"
+            android:textColor="@color/text_blue"
+            />
+        
+        <View
+            android:id="@+id/view_one"
+            android:layout_width="match_parent"
+            android:layout_height="0.66dp"
+            android:layout_marginTop="8dp"
+            android:background="@color/line_gray"
+            android:layout_below="@+id/phone_number"
+            />
+        
+        <TextView
+            android:id="@+id/cash_number"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:gravity="center"
+            android:layout_below="@+id/view_one"
+            android:layout_alignLeft="@+id/phone_number"
+            android:layout_marginTop="8dp"
+            android:textSize="16sp"
+            android:textColor="@color/text_gray"
+            android:text="@string/cash_number"
+            />
+        
+        <TextView
+            android:id="@+id/unit"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:gravity="center"
+            android:layout_below="@+id/cash_number"
+            android:layout_alignLeft="@+id/phone_number"
+            android:textSize="16sp"
+            android:textColor="@color/text_gray"
+            android:text="￥"
+            />
+        <EditText
+            android:id="@+id/cash_et_money"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/unit"
+            android:layout_alignTop="@+id/unit"
+            android:layout_alignBottom="@+id/unit"
+            android:gravity="center_vertical"
+            android:background="@color/bg_white"
+            android:paddingLeft="8dp"
+            />
+        
+        <View
+            android:id="@+id/view_two"
+            android:layout_width="match_parent"
+            android:layout_height="0.66dp"
+            android:background="@color/line_gray"
+            android:layout_below="@+id/unit"
+            android:layout_marginLeft="21dp"
+            android:layout_marginRight="21dp"
+            />
+        
+        <TextView
+            android:id="@+id/tv_remain_money"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_below="@+id/view_two"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:layout_alignLeft="@+id/cash_number"
+            android:textSize="12sp"
+            android:textColor="@color/text_gray_title"
+            android:text="当前财富余额       元"
+            />
+        <TextView 
+            android:id="@+id/cash_tv_all_money"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_below="@+id/view_two"
+            android:layout_toRightOf="@+id/tv_remain_money"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:textSize="16sp"
+            android:textColor="@color/text_blue"
+            android:text="@string/all_cash"
+            />
+        </RelativeLayout>
+        
+    <TextView
+        android:id="@+id/cash_tv_commit"
+        android:layout_width="match_parent"
+        android:layout_height="43dp"
+        android:layout_alignLeft="@+id/rl_cash"
+        android:layout_alignRight="@+id/rl_cash"
+        android:layout_below="@+id/rl_cash"
+        android:layout_marginTop="60dp"
+        android:background="@drawable/bg_btn_sure_green"
+        android:gravity="center"
+        android:text="@string/cash"
+        android:textColor="@color/text_white"
+        android:textSize="16dp" />
+    
+    </RelativeLayout>
+    
+    <include layout="@layout/loading"/>
+    </FrameLayout>
+    
+
+</RelativeLayout>

@@ -1,0 +1,109 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/grey_low"
+    android:orientation="vertical"
+    tools:context=".RegisterActivity" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="45dp" >
+
+        <EditText
+            android:id="@+id/getcode_edit_account"
+            android:layout_width="fill_parent"
+            android:layout_height="45dp"
+            android:layout_marginLeft="@dimen/btn_doublepading"
+            android:layout_marginRight="@dimen/btn_doublepading"
+            android:background="@android:color/white"
+            android:gravity="center_vertical"
+            android:hint="输入您的手机号"
+            android:inputType="number"
+            android:maxLength="11"
+            android:paddingLeft="20dp"
+            android:singleLine="true"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/inputword_Size" />
+
+        <ImageView
+            android:id="@+id/getcode_account_edit_clear"
+            android:layout_width="@dimen/clear_size"
+            android:layout_height="@dimen/clear_size"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/btn_superpading"
+            android:onClick="onClick"
+            android:src="@drawable/common_input_box_clear"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:layout_marginLeft="@dimen/btn_doublepading"
+        android:layout_marginRight="@dimen/btn_doublepading"
+        android:background="@android:color/transparent" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/btn_doublepading"
+        android:layout_marginRight="@dimen/btn_doublepading"
+        android:background="@android:color/transparent"
+        android:orientation="horizontal" >
+
+        <EditText
+            android:id="@+id/getcodesms_edit_ccaptcha"
+            android:layout_width="0dp"
+            android:layout_height="45dp"
+            android:layout_gravity="top"
+            android:layout_marginRight="@dimen/btn_doublepading"
+            android:layout_weight="1"
+            android:background="@android:color/white"
+            android:gravity="left|center_vertical"
+            android:hint="手机验证码"
+            android:inputType="number"
+            android:maxLength="8"
+            android:paddingLeft="20dp"
+            android:singleLine="true"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/inputword_Size" />
+
+        <Button
+            android:id="@+id/getcode_captcha"
+            android:layout_width="0dp"
+            android:layout_height="45dp"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:background="@drawable/captcha_btn_selector"
+            android:gravity="center"
+            android:onClick="onClick"
+            android:text="获取验证码"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/inputword_Size" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:layout_marginLeft="@dimen/btn_doublepading"
+        android:layout_marginRight="@dimen/btn_doublepading"
+        android:background="@android:color/transparent" />
+
+    <Button
+        android:id="@+id/btn_getcodesms"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:background="@drawable/register_btn_selector"
+        android:gravity="center"
+        android:onClick="onClick"
+        android:text="下一步"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/inputword_Size" />
+
+</LinearLayout>

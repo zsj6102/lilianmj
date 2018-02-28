@@ -1,0 +1,22 @@
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--
+        Base application theme for API 11+. This theme completely replaces
+        AppBaseTheme from res/values/styles.xml on API 11+ devices.
+    -->
+    <style name="CustomizedWindowTitleBackground">
+        <item name="android:background">@drawable/shapes</item>
+    </style>
+
+    <style name="titlebarstyle" parent="android:Theme">
+        <item name="android:windowTitleSize">48dp</item>
+        <item name="android:windowTitleBackgroundStyle">@style/CustomizedWindowTitleBackground</item>
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+    </style>
+
+    <style name="Theme.AppStartLoad" parent="android:Theme">
+        <item name="android:windowBackground">@drawable/icon_welcome</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
+</resources>

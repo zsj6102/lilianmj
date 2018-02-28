@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/per_dysnamic_activity_detail_rl"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_wite_gray_click" >
+
+    <ScrollView
+        android:id="@+id/scrollView1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+
+                <RelativeLayout
+                    android:id="@+id/find_line"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="16dp" >
+
+                    <!-- org.soshow.beautyedu.login.CircularImage -->
+                    <org.soshow.beautyedu.login.CircularImage
+                        android:id="@+id/per_detail_iv_head"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginTop="13dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/picyl" />
+
+                    <TextView
+                        android:id="@+id/per_detail_tv_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBottom="@+id/per_detail_iv_head"
+                        android:layout_alignTop="@+id/per_detail_iv_head"
+                        android:layout_marginLeft="6dp"
+                        android:layout_toRightOf="@+id/per_detail_iv_head"
+                        android:gravity="center_vertical"
+                        android:text="阿拉伯的春天"
+                        android:textColor="@color/text_gray_deep"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/per_detail_tv_content"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@+id/per_detail_tv_name"
+                        android:layout_alignParentRight="true"
+                        android:layout_below="@+id/per_detail_tv_name"
+                        android:layout_marginRight="13dp"
+                        android:layout_marginTop="3dp"
+                        android:text="用心做好自己，用真诚待人，这是我们必须学会的社会理论"
+                        android:textColor="@color/text_gray"
+                        android:textSize="14sp" />
+
+                    <org.soshow.beautyedu.widget.NoScrollGridView
+                        android:id="@+id/per_detail_gridView"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_alignLeft="@+id/per_detail_tv_name"
+                        android:layout_below="@+id/per_detail_tv_content"
+                        android:layout_marginRight="13dp"
+                        android:layout_marginTop="6dp"
+                        android:background="@color/bg_white"
+                        android:listSelector="@null"
+                        android:numColumns="3" >
+                    </org.soshow.beautyedu.widget.NoScrollGridView>
+
+                    <TextView
+                        android:id="@+id/per_detail_tv_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@+id/per_detail_gridView"
+                        android:layout_below="@+id/per_detail_gridView"
+                        android:layout_marginTop="6dp"
+                        android:text="28分钟前"
+                        android:textColor="@color/line_gray"
+                        android:textSize="12sp" />
+
+                    <RelativeLayout
+                        android:id="@+id/rl_right"
+                        android:layout_width="181dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignRight="@+id/per_detail_gridView"
+                        android:layout_below="@+id/per_detail_gridView"
+                        android:layout_marginTop="6dp" >
+
+                        <ImageView
+                            android:id="@+id/per_detail_iv_right"
+                            android:layout_width="30dp"
+                            android:layout_height="20dp"
+                            android:layout_alignParentRight="true"
+                            android:src="@drawable/icon_comments" />
+                    </RelativeLayout>
+                    
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/rl_right"
+                        android:layout_marginTop="10dp"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:layout_alignLeft="@+id/per_detail_iv_head"
+                        android:layout_marginRight="13dp"
+                        android:background="@color/grey_light"
+                        >
+
+                    <ImageView
+                        android:id="@+id/feragment_zan_ll"
+                        android:layout_width="15dp"
+                        android:layout_height="15dp"
+                        android:layout_marginLeft="16dp"
+                        android:layout_alignTop="@+id/zan_goods_count"
+                        android:src="@drawable/icon_like_blue" />
+
+                    <TextView
+                        android:id="@+id/zan_goods_count"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/feragment_zan_ll"
+                        android:layout_marginLeft="8dp"
+                        android:text="1"
+                        android:textColor="@color/find_lite_blue"
+                        android:textSize="10sp" />
+                    
+                    <ImageView
+                        android:id="@+id/feragment_say_iv"
+                        android:layout_width="15dp"
+                        android:layout_height="15dp"
+                        android:layout_below="@+id/feragment_zan_ll"
+                        android:layout_marginTop="13dp"
+                        android:layout_alignLeft="@+id/feragment_zan_ll"
+                        android:src="@drawable/icon_news" />
+
+                    <org.soshow.beautyedu.widget.MyCustomListView
+                        android:id="@+id/per_detail_listview"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_below="@+id/feragment_say_iv"
+                        android:layout_marginTop="3dp"
+                        android:background="@android:color/transparent"
+                        android:listSelector="@android:color/transparent"
+                        android:divider="@null"
+                        android:dividerHeight="0dp"
+                        />
+                    </RelativeLayout>
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_below="@+id/find_line"
+                    android:background="@color/line_gray" />
+                <include layout="@layout/loading" />
+            </FrameLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

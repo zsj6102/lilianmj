@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/dialog_update_info"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@color/grey_low"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:background="@color/grey_mid" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@color/grey_mid"
+            android:gravity="center_horizontal"
+            android:text="升级提示"
+            android:textColor="#000000"
+            android:textSize="@dimen/titleword_Size" />
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/upinfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:gravity="left"
+        android:textColor="#000000"
+        android:textSize="@dimen/normalword_Size" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/noupdate"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:text="暂不升级"
+            android:textColor="#000000"
+            android:textSize="@dimen/normalword_Size" />
+
+        <Button
+            android:id="@+id/okupdate"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:text="立即升级"
+            android:textColor="#000000"
+            android:textSize="@dimen/normalword_Size" />
+    </LinearLayout>
+
+</LinearLayout>

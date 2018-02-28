@@ -1,0 +1,78 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/grey_light"
+    android:orientation="horizontal" >
+
+    <TextView
+        android:id="@+id/video_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:layout_marginBottom="@dimen/btn_pading"
+        android:layout_marginLeft="@dimen/btn_pading"
+        android:layout_marginRight="@dimen/btn_pading"
+        android:layout_marginTop="@dimen/btn_pading"
+        android:layout_toLeftOf="@id/lecture_remark"
+        android:padding="0dp"
+        android:singleLine="true"
+        android:textColor="@color/word_grey"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/video_title_mid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:layout_marginBottom="@dimen/btn_pading"
+        android:layout_marginLeft="@dimen/btn_pading"
+        android:layout_marginRight="@dimen/btn_pading"
+        android:layout_marginTop="@dimen/btn_pading"
+        android:padding="0dp"
+        android:singleLine="true"
+        android:textColor="@color/word_grey_liu"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/video_title_large"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:layout_marginBottom="@dimen/btn_pading"
+        android:layout_marginLeft="@dimen/btn_pading"
+        android:layout_marginRight="@dimen/btn_pading"
+        android:layout_marginTop="@dimen/btn_pading"
+        android:padding="0dp"
+        android:singleLine="true"
+        android:textColor="@color/word_grey"
+        android:textSize="@dimen/inputword_Size" />
+
+    <ImageView
+        android:id="@+id/lecture_remark"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="@dimen/btn_haflpading"
+        android:layout_toLeftOf="@id/course_continue"
+        android:adjustViewBounds="true"
+        android:contentDescription="@string/app_name"
+        android:maxHeight="20dp"
+        android:scaleType="fitCenter" />
+
+    <TextView
+        android:id="@+id/course_continue"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="@dimen/btn_haflpading"
+        android:padding="0dp"
+        android:singleLine="true"
+        android:textColor="@color/word_grey"
+        android:textSize="@dimen/warnword_Size" />
+
+</RelativeLayout>

@@ -1,0 +1,195 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/title_play_video"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/titlebar_size"
+        android:layout_gravity="center_vertical"
+        android:background="@color/bg_green"
+        android:orientation="horizontal" >
+
+        <ImageView
+            android:id="@+id/back_search_logininput"
+            android:layout_width="45dp"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_gravity="left"
+            android:adjustViewBounds="true"
+            android:contentDescription="@string/app_name"
+            android:maxHeight="35dp"
+            android:onClick="onClick"
+            android:scaleType="centerInside"
+            android:src="@drawable/icon_back"
+            android:background="@drawable/common_tab_bg"
+             />
+
+        <TextView
+            android:id="@+id/title_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="登 录"
+            android:textColor="@color/white"
+            android:textSize="@dimen/titleword_Size" />
+
+        <ImageView
+            android:id="@+id/lecture_sc"
+            android:layout_width="@dimen/btn_size"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:adjustViewBounds="true"
+            android:contentDescription="@string/app_name"
+            android:maxHeight="35dp"
+            android:onClick="onClick"
+            android:scaleType="fitEnd"
+            android:visibility="gone"
+            android:src="@drawable/souc" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/player_parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/black" >
+
+        <com.tencent.qcload.playersdk.ui.VideoRootFrame
+            android:id="@+id/player"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="@color/black" >
+        </com.tencent.qcload.playersdk.ui.VideoRootFrame>
+
+        <ImageView
+            android:id="@+id/play_pause_view"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:adjustViewBounds="true"
+            android:contentDescription="@string/app_name"
+            android:maxHeight="50dp"
+            android:onClick="onClick"
+            android:scaleType="fitStart"
+            android:src="@drawable/play_pause" />
+    </RelativeLayout>
+    <!-- 选项卡 -->
+
+    <LinearLayout
+        android:id="@+id/play_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/grey_light"
+        android:orientation="vertical" >
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/btn_haflpading"
+            android:background="@color/white" />
+
+        <TextView
+            android:id="@+id/title_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@color/white"
+            android:gravity="left"
+            android:paddingBottom="0dp"
+            android:paddingLeft="@dimen/btn_doublepading"
+            android:paddingRight="@dimen/btn_doublepading"
+            android:paddingTop="0dp"
+            android:text="视频标题"
+            android:textColor="@color/word_grey"
+            android:textSize="@dimen/buttonword_Size" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/btn_haflpading"
+            android:background="@color/white" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/grey_low" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="36dp"
+            android:background="@color/grey_light"
+            android:orientation="horizontal"
+            android:paddingBottom="0dp"
+            android:weightSum="3" >
+
+            <!-- tab1 -->
+
+            <TextView
+                android:id="@+id/tab1_tv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:paddingBottom="0dp"
+                android:text="简介"
+                android:textColor="@color/blue"
+                android:textSize="@dimen/buttonword_Size" />
+
+            <!-- tab2 -->
+
+            <TextView
+                android:id="@+id/tab2_tv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:paddingBottom="0dp"
+                android:text="目录"
+                android:textColor="@color/word_grey_liu"
+                android:textSize="@dimen/buttonword_Size" />
+
+            <TextView
+                android:id="@+id/tab3_tv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:paddingBottom="0dp"
+                android:text="习题"
+                android:textColor="@color/word_grey_liu"
+                android:textSize="@dimen/buttonword_Size" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/cursor"
+            android:layout_width="80dp"
+            android:layout_height="5dp"
+            android:layout_marginTop="0dip"
+            android:background="@color/grey_light"
+            android:padding="0dp"
+            android:scaleType="fitStart"
+            android:src="@drawable/down_line" />
+        <!-- 选项卡内容显示区域 -->
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/grey_low" />
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/play_vp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white" />
+    </LinearLayout>
+
+</LinearLayout>

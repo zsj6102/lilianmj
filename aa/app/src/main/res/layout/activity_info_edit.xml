@@ -1,0 +1,236 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/grey_low"
+    android:scrollbars="none" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/grey_low"
+        android:orientation="vertical" >
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/btn_bigpading"
+            android:background="@color/grey_low" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/grey_light"
+            android:orientation="vertical" >
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/grey_mid" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/grey_light"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="left|center_vertical"
+                    android:layout_marginLeft="@dimen/btn_doublepading"
+                    android:background="@android:color/transparent"
+                    android:gravity="center"
+                    android:text="昵        称:"
+                    android:textColor="@color/word_grey_liu"
+                    android:textSize="@dimen/videolist_tab_Size" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" >
+
+                    <EditText
+                        android:id="@+id/getcode_edit_account"
+                        android:layout_width="fill_parent"
+                        android:layout_height="45dp"
+                        android:layout_marginRight="@dimen/btn_doublepading"
+                        android:background="@android:color/transparent"
+                        android:gravity="center_vertical|left"
+                        android:hint="请输入昵称"
+                        android:maxLength="20"
+                        android:paddingLeft="20dp"
+                        android:paddingRight="40dp"
+                        android:singleLine="true"
+                        android:textColor="@color/word_grey"
+                        android:textSize="@dimen/videolist_tab_Size" />
+
+                    <ImageView
+                        android:id="@+id/getcode_account_edit_clear"
+                        android:layout_width="@dimen/clear_size"
+                        android:layout_height="@dimen/clear_size"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="@dimen/btn_superpading"
+                        android:background="@android:color/transparent"
+                        android:onClick="onClick"
+                        android:src="@drawable/common_input_box_clear"
+                        android:visibility="gone" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="@dimen/btn_pading"
+                android:layout_marginRight="@dimen/btn_pading"
+                android:background="@color/grey_mid" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/grey_light"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="left|center_vertical"
+                    android:layout_marginLeft="@dimen/btn_doublepading"
+                    android:background="@android:color/transparent"
+                    android:gravity="center"
+                    android:text="手机号码:"
+                    android:textColor="@color/word_grey_liu"
+                    android:textSize="@dimen/videolist_tab_Size" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" >
+
+                    <TextView
+                        android:id="@+id/mobile_number"
+                        android:layout_width="fill_parent"
+                        android:layout_height="45dp"
+                        android:layout_marginRight="@dimen/btn_doublepading"
+                        android:background="@android:color/transparent"
+                        android:gravity="center_vertical|left"
+                        android:hint="当前无资料"
+                        android:maxLength="20"
+                        android:paddingLeft="20dp"
+                        android:singleLine="true"
+                        android:textColor="@color/word_grey_liu"
+                        android:textSize="@dimen/videolist_tab_Size" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="@dimen/btn_pading"
+                android:layout_marginRight="@dimen/btn_pading"
+                android:background="@color/grey_mid" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/grey_light"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="left|center_vertical"
+                    android:layout_marginLeft="@dimen/btn_doublepading"
+                    android:background="@android:color/transparent"
+                    android:gravity="center"
+                    android:text="电子邮箱:"
+                    android:textColor="@color/word_grey_liu"
+                    android:textSize="@dimen/videolist_tab_Size" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" >
+
+                    <EditText
+                        android:id="@+id/email_account"
+                        android:layout_width="fill_parent"
+                        android:layout_height="45dp"
+                        android:layout_marginRight="@dimen/btn_doublepading"
+                        android:background="@android:color/transparent"
+                        android:gravity="center_vertical|left"
+                        android:hint="请输入电子邮箱"
+                        android:maxLength="50"
+                        android:paddingLeft="20dp"
+                        android:paddingRight="40dp"
+                        android:singleLine="true"
+                        android:textColor="@color/word_grey"
+                        android:textSize="@dimen/videolist_tab_Size" />
+
+                    <ImageView
+                        android:id="@+id/email_account_clear"
+                        android:layout_width="@dimen/clear_size"
+                        android:layout_height="@dimen/clear_size"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="@dimen/btn_superpading"
+                        android:background="@android:color/transparent"
+                        android:onClick="onClick"
+                        android:src="@drawable/common_input_box_clear"
+                        android:visibility="gone" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/grey_mid" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:background="@android:color/transparent" />
+
+        <Button
+            android:id="@+id/btn_getcodesms"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:background="@drawable/register_btn_selector"
+            android:gravity="center"
+            android:onClick="onClick"
+            android:text="保存"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/inputword_Size" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:background="@android:color/transparent" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/grey_mid" />
+
+        <Button
+            android:id="@+id/change_code"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_gravity="left|center_vertical"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:background="@drawable/captcha_btn_selector"
+            android:gravity="center"
+            android:onClick="onClick"
+            android:text="修改密码"
+            android:textColor="#000000"
+            android:textSize="@dimen/normalword_Size" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/grey_mid" />
+    </LinearLayout>
+
+</ScrollView>

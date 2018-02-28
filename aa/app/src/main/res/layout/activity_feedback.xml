@@ -1,0 +1,100 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_default"
+    android:orientation="vertical"
+    tools:context=".RegisterActivity" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/btn_doublepading"
+        android:layout_marginTop="45dp" >
+
+        <EditText
+            android:id="@+id/edit_feedback"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginRight="@dimen/btn_doublepading"
+            android:background="@android:color/white"
+            android:gravity="left|top"
+            android:hint="您的建议是我们不断改进的动力，请留下您在使用过程中遇到的问题或提出宝贵建议"
+            android:maxLength="240"
+            android:padding="@dimen/btn_pading"
+            android:singleLine="false"
+            android:textColor="@android:color/black"
+            android:textSize="14sp" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:layout_marginLeft="@dimen/btn_doublepading"
+        android:layout_marginRight="@dimen/btn_doublepading"
+        android:background="@android:color/transparent" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/btn_doublepading"
+        android:layout_marginRight="@dimen/btn_doublepading" >
+
+        <EditText
+            android:id="@+id/edit_phone"
+            android:layout_width="fill_parent"
+            android:layout_height="45dp"
+            android:background="@android:color/white"
+            android:gravity="center_vertical"
+            android:hint="手机号码（可不填）"
+            android:inputType="number"
+            android:maxLength="11"
+            android:padding="@dimen/btn_pading"
+            android:singleLine="false"
+            android:textColor="@android:color/black"
+            android:textSize="14sp" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:layout_marginLeft="@dimen/btn_doublepading"
+        android:layout_marginRight="@dimen/btn_doublepading"
+        android:background="@android:color/transparent" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:background="@color/bg_default"
+        android:layout_height="wrap_content" >
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:layout_marginLeft="@dimen/btn_doublepading"
+            android:layout_marginRight="@dimen/btn_doublepading"
+            android:background="@color/bg_default" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:layout_marginLeft="@dimen/btn_doublepading"
+            android:layout_marginRight="@dimen/btn_doublepading"
+            android:background="@android:color/transparent" />
+
+        <Button
+            android:id="@+id/btn_feedback"
+            android:layout_width="match_parent"
+            android:layout_height="43dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:layout_marginTop="@dimen/btn_doublepading"
+            android:background="@drawable/register_btn_selector"
+            android:gravity="center"
+            android:onClick="onClick"
+            android:text="提交"
+            android:textColor="@android:color/white"
+            android:textSize="14sp" />
+    </RelativeLayout>
+
+</LinearLayout>

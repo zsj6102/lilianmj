@@ -1,0 +1,470 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/scorll_course"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scrollbars="none" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <org.soshow.beautyedu.widget.ExpandableLayout
+            android:id="@+id/coll_f"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/btn_superpading"
+            android:orientation="vertical" >
+
+            <LinearLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/btn_superpading"
+                android:layout_marginRight="@dimen/btn_superpading"
+                android:orientation="horizontal" >
+
+                <RelativeLayout
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:background="@drawable/shapes_yuying" >
+
+                    <TextView
+                        android:id="@+id/text_yy"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:background="@android:color/transparent"
+                        android:text="专业课程"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/buttonword_Size" />
+
+                    <ImageView
+
+                        android:layout_width="20dp"
+                        android:layout_height="10dp"
+                        android:layout_below="@id/text_yy"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/btn_pading"
+                        android:adjustViewBounds="true"
+                        android:contentDescription="@string/app_name"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/d00" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/btn_pading"
+                    android:layout_weight="1" >
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_horizontal"
+                        android:adjustViewBounds="true"
+                        android:contentDescription="@string/app_name"
+                        android:maxHeight="@dimen/item_fist_size"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/picyy" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:layout_marginLeft="@dimen/btn_superpading"
+                android:layout_marginRight="@dimen/btn_superpading"
+                android:layout_marginTop="@dimen/btn_haflpading"
+                android:background="@drawable/hbg"
+                android:orientation="horizontal"
+                android:tag="first_tag" >
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:onClick="onClick"
+                    android:tag="11" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="16sp"
+                        android:textColor="@color/text_gray_title"
+                        android:text="美甲" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/btn_pading"
+                        android:adjustViewBounds="true"
+                        android:background="@android:color/transparent"
+                        android:contentDescription="@string/app_name"
+                        android:maxHeight="@dimen/item_fist_size"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/jtr1" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:onClick="onClick"
+                    android:tag="12" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="16sp"
+                        android:textColor="@color/text_gray_title"
+                        android:text="美发" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/btn_pading"
+                        android:adjustViewBounds="true"
+                        android:contentDescription="@string/app_name"
+                        android:maxHeight="@dimen/item_fist_size"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/jtr1" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:onClick="onClick"
+                    android:tag="13" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="16sp"
+                        android:textColor="@color/text_gray_title"
+                        android:text="美容" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/btn_pading"
+                        android:adjustViewBounds="true"
+                        android:contentDescription="@string/app_name"
+                        android:maxHeight="@dimen/item_fist_size"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/jtr1" />
+                </LinearLayout>
+            </LinearLayout>
+        </org.soshow.beautyedu.widget.ExpandableLayout>
+
+        <org.soshow.beautyedu.widget.ExpandableLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/btn_superpading"
+            android:orientation="vertical" >
+
+            <LinearLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/btn_superpading"
+                android:layout_marginRight="@dimen/btn_superpading"
+                android:orientation="horizontal" >
+
+                <RelativeLayout
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:background="@drawable/shapes_jiazheng" >
+
+                    <TextView
+                        android:id="@+id/text_jj"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:background="@android:color/transparent"
+                        android:text="普通课程"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/buttonword_Size" />
+
+                    <ImageView
+
+                        android:layout_width="20dp"
+                        android:layout_height="10dp"
+                        android:layout_below="@id/text_jj"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/btn_pading"
+                        android:adjustViewBounds="true"
+                        android:contentDescription="@string/app_name"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/d00" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/btn_pading"
+                    android:layout_weight="1" >
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_horizontal"
+                        android:adjustViewBounds="true"
+                        android:contentDescription="@string/app_name"
+                        android:maxHeight="@dimen/item_fist_size"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/picjz" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginLeft="@dimen/btn_superpading"
+                android:layout_marginRight="@dimen/btn_superpading"
+                android:layout_marginTop="@dimen/btn_haflpading"
+                android:background="@drawable/hbg"
+                android:orientation="horizontal" >
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:onClick="onClick"
+                    android:tag="21" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="16sp"
+                        android:textColor="@color/text_gray_title"
+                        android:text="美甲" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/btn_pading"
+                        android:adjustViewBounds="true"
+                        android:background="@android:color/transparent"
+                        android:contentDescription="@string/app_name"
+                        android:maxHeight="@dimen/item_fist_size"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/jtr1" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:onClick="onClick"
+                    android:tag="22" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="16sp"
+                        android:textColor="@color/text_gray_title"
+                        android:text="美发" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/btn_pading"
+                        android:adjustViewBounds="true"
+                        android:contentDescription="@string/app_name"
+                        android:maxHeight="@dimen/item_fist_size"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/jtr1" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:onClick="onClick"
+                    android:tag="23" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="16sp"
+                        android:textColor="@color/text_gray_title"
+                        android:text="美容" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/btn_pading"
+                        android:adjustViewBounds="true"
+                        android:contentDescription="@string/app_name"
+                        android:maxHeight="@dimen/item_fist_size"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/jtr1" />
+                </LinearLayout>
+            </LinearLayout>
+        </org.soshow.beautyedu.widget.ExpandableLayout>
+
+        <org.soshow.beautyedu.widget.ExpandableLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/btn_superpading"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:id="@+id/collapse_value"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/btn_superpading"
+                android:layout_marginRight="@dimen/btn_superpading"
+                android:orientation="horizontal" >
+
+                <RelativeLayout
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:background="@drawable/shapes_yanglao" >
+
+                    <TextView
+                        android:id="@+id/text_yl"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:background="@android:color/transparent"
+                        android:text="线下课程"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/buttonword_Size" />
+
+                    <ImageView
+                        android:id="@+id/icon_value"
+                        android:layout_width="20dp"
+                        android:layout_height="10dp"
+                        android:layout_below="@id/text_yl"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/btn_pading"
+                        android:adjustViewBounds="true"
+                        android:contentDescription="@string/app_name"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/d00" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/btn_pading"
+                    android:layout_weight="1" >
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_horizontal"
+                        android:adjustViewBounds="true"
+                        android:contentDescription="@string/app_name"
+                        android:maxHeight="@dimen/item_fist_size"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/picyl" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/expand_value"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginBottom="@dimen/btn_superpading"
+                android:layout_marginLeft="@dimen/btn_superpading"
+                android:layout_marginRight="@dimen/btn_superpading"
+                android:layout_marginTop="@dimen/btn_haflpading"
+                android:background="@drawable/hbg"
+                android:orientation="horizontal" >
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:onClick="onClick"
+                    android:tag="31" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="16sp"
+                        android:textColor="@color/text_gray_title"
+                        android:text="美甲" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/btn_pading"
+                        android:adjustViewBounds="true"
+                        android:background="@android:color/transparent"
+                        android:contentDescription="@string/app_name"
+                        android:maxHeight="@dimen/item_fist_size"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/jtr1" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:onClick="onClick"
+                    android:tag="32" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="16sp"
+                        android:textColor="@color/text_gray_title"
+                        android:text="美发" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/btn_pading"
+                        android:adjustViewBounds="true"
+                        android:contentDescription="@string/app_name"
+                        android:maxHeight="@dimen/item_fist_size"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/jtr1" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:onClick="onClick"
+                    android:tag="33" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="16sp"
+                        android:textColor="@color/text_gray_title"
+                        android:text="美容" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/btn_pading"
+                        android:adjustViewBounds="true"
+                        android:contentDescription="@string/app_name"
+                        android:maxHeight="@dimen/item_fist_size"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/jtr1" />
+                </LinearLayout>
+            </LinearLayout>
+        </org.soshow.beautyedu.widget.ExpandableLayout>
+    </LinearLayout>
+
+</ScrollView>

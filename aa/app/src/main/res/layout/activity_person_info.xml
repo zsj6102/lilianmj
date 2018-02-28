@@ -1,0 +1,280 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_default"
+    tools:context="org.soshow.beautyedu.activity.user.PersonInfoActivity" >
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <ScrollView
+            android:id="@+id/scrollView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical" 
+                android:background="@color/bg_default"
+                >
+
+                <RelativeLayout
+                    android:id="@+id/rl_change_head"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:paddingLeft="13dp"
+                    android:paddingRight="13dp" 
+                    android:layout_marginTop="13dp"
+                    android:background="@color/bg_white">
+
+                    <TextView
+                        android:id="@+id/tv_touxiang"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="修改头像"
+                        android:textColor="@color/text_gray"
+                        android:textSize="@dimen/warnword_Size" />
+
+                    <!-- org.soshow.beautyedu.login.CircularImage -->
+
+                    <ImageView
+                        android:id="@+id/persin_info_iv"
+                        android:layout_width="67dp"
+                        android:layout_height="67dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/default_face"
+                        android:scaleType="centerCrop" />
+                    </RelativeLayout>
+                    <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:layout_marginTop="13dp"
+                    android:paddingLeft="13dp"
+                    android:paddingRight="13dp"
+                    android:background="@color/bg_white"
+                     >
+                    
+
+                    <TextView
+                        android:id="@+id/textView1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="55dp"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentLeft="true"
+                        android:gravity="center"
+                        android:singleLine="true"
+                        android:text="昵称"
+                        android:textColor="@color/text_gray"
+                        android:textSize="@dimen/warnword_Size" />
+
+                    <EditText
+                        android:id="@+id/person_info_tv_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginLeft="8dp"
+                        android:layout_toRightOf="@+id/textView1"
+                        android:background="@android:color/transparent"
+                        android:gravity="center_vertical|right"
+                        android:maxLength="20"
+                        android:paddingLeft="16dp"
+                        android:singleLine="true"
+                        android:textColor="@color/text_gray_title"
+                        android:textCursorDrawable="@drawable/shape_et_bg_curstor"
+                        android:textSize="14sp" />
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:background="@color/grey_mid" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:paddingLeft="13dp"
+                    android:paddingRight="13dp"
+                    android:background="@color/bg_white"
+                     >
+
+                    <TextView
+                        android:id="@+id/email"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentLeft="true"
+                        android:gravity="center"
+                        android:text="我的邮箱"
+                        android:textColor="@color/text_gray"
+                        android:textSize="@dimen/warnword_Size" />
+
+                    <EditText
+                        android:id="@+id/person_info_tv_email"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginLeft="8dp"
+                        android:layout_toRightOf="@+id/email"
+                        android:background="@android:color/transparent"
+                        android:gravity="center_vertical|right"
+                        android:maxLength="20"
+                        android:paddingLeft="16dp"
+                        android:singleLine="true"
+                        android:textCursorDrawable="@drawable/shape_et_bg_curstor"
+                        android:textColor="@color/text_gray_title"
+                        android:textSize="14sp" />
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/grey_mid"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                     />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:paddingLeft="13dp"
+                    android:background="@color/bg_white"
+                    android:paddingRight="13dp" >
+
+                    <TextView
+                        android:id="@+id/phone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentLeft="true"
+                        android:gravity="center"
+                        android:text="我的电话"
+                        android:textColor="@color/text_gray"
+                        android:textSize="@dimen/warnword_Size" />
+
+                    <EditText
+                        android:id="@+id/person_info_tv_phone"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginLeft="8dp"
+                        android:layout_toRightOf="@+id/phone"
+                        android:background="@android:color/transparent"
+                        android:gravity="center_vertical|right"
+                        android:maxLength="20"
+                        android:paddingLeft="16dp"
+                        android:singleLine="true"
+                        android:textCursorDrawable="@drawable/shape_et_bg_curstor"
+                        android:textColor="@color/text_gray_title"
+                        android:textSize="14sp" />
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:background="@color/grey_mid" />
+
+                <RelativeLayout
+                    android:id="@+id/person_info_rl_gander"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:paddingLeft="13dp"
+                    android:paddingRight="13dp" 
+                    android:background="@color/bg_white"
+                    >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentLeft="true"
+                        android:gravity="center"
+                        android:text="@string/sex"
+                        android:textColor="@color/text_gray"
+                        android:textSize="@dimen/warnword_Size" />
+
+                    <TextView
+                        android:id="@+id/person_info_tv_sex"
+                        android:layout_width="150dp"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentRight="true"
+                        android:background="@android:color/transparent"
+                        android:gravity="center_vertical|right"
+                        android:maxLength="20"
+                        android:paddingLeft="16dp"
+                        android:singleLine="true"
+                        android:textCursorDrawable="@drawable/shape_et_bg_curstor"
+                        android:textColor="@color/text_gray_title"
+                        android:textSize="14sp" />
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:background="@color/grey_mid" />
+
+                <RelativeLayout
+                    android:id="@+id/person_info_rl_note"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:paddingLeft="13dp"
+                    android:paddingRight="13dp" 
+                    android:background="@color/bg_white"
+                    >
+
+                    <TextView
+                        android:id="@+id/note"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentLeft="true"
+                        android:gravity="center"
+                        android:text="@string/note"
+                        android:textColor="@color/text_gray"
+                        android:textSize="@dimen/warnword_Size" />
+
+                    <EditText
+                        android:id="@+id/person_info_tv_note"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginLeft="8dp"
+                        android:layout_toRightOf="@+id/note"
+                        android:background="@android:color/transparent"
+                        android:gravity="center_vertical|right"
+                        android:maxLength="20"
+                        android:paddingLeft="16dp"
+                        android:singleLine="true"
+                        android:textCursorDrawable="@drawable/shape_et_bg_curstor"
+                        android:textColor="@color/text_gray_title"
+                        android:textSize="14sp" />
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:background="@color/grey_mid" />
+            </LinearLayout>
+        </ScrollView>
+        
+        <include layout="@layout/loading" />
+    </FrameLayout>
+
+</RelativeLayout>

@@ -1,0 +1,50 @@
+代码冗余太多
+	每个Activity都有 handler 处理token的, 可以整进BaseActivity ( 现在没用了可以删)
+	
+	
+登录成功 
+	LoginInfo.setUser(  User user { id, username, password,   huanxin huanxinpwd    ||   wx_openid,})
+	
+	
+	
+	
+	
+	
+API请求
+------------------------------------
+@See PersonInfoActivity
+
+NetHelper.get(url_my,new SimpleSingleBeanNetHandler<Captcha>(this) {
+				@Override
+				protected void onSuccess(Captcha bean) {
+					String result = bean.result;
+					if (bean.isSuccess()) {
+						String data = bean.info;
+						LogUtils.e(TAG, " 数据======" + data.toString());
+						JSONObject jsonObject;
+						try {
+							PersonInfo personInfo = GsonUtils.parseJSON( PersonInfoActivity, PersonInfo.class);
+							
+							
+						} catch (JSONException e) {
+							e.printStackTrace();
+						}
+						loading.setVisibility(View.GONE);
+					} else {
+						ToastUtil.getInstance().showToast(context, bean.getMessage_());//处理过的异常消息
+					}
+				}
+			});
+			
+entity:
+Captcha bean
+	bean.isSuccess() :boolean
+	bean.info   :String 
+	bean.getMessage_() :失败消息
+
+
+PersonInfo{
+	public String id;// 接口Integer/Long类型, 本地其实用String兼容更好点
+	public Date create_time;//
+	public String photo_url; //  
+}

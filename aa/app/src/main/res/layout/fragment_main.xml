@@ -1,0 +1,39 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_default" >
+
+    <org.soshow.beautyedu.widget.PullToRefreshView
+        android:id="@+id/main_pull_refresh_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/bg_default"
+        android:orientation="vertical" >
+
+        <ListView
+            android:background="@color/bg_white"
+            android:id="@+id/list_tuijian"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:divider="@color/bg_white"
+            android:dividerHeight="8dp" />
+    </org.soshow.beautyedu.widget.PullToRefreshView>
+
+    <ImageButton
+        android:id="@+id/toptohead"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="@dimen/btn_superpading"
+        android:layout_marginRight="@dimen/btn_superpading"
+        android:adjustViewBounds="true"
+        android:background="@android:color/transparent"
+        android:contentDescription="@string/app_name"
+        android:maxHeight="40dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/uptohead"
+        android:visibility="visible" />
+
+</RelativeLayout>

@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+    
+    <ImageView
+        android:id="@+id/img_withdraw"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/img_withdraw"
+        />
+    
+    <TextView 
+        android:id="@+id/cash_tip_tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/img_withdraw"
+        android:layout_marginTop="33dp"
+        android:layout_centerHorizontal="true"
+        android:textSize="14sp"
+        android:textColor="@color/text_gray"
+        android:text="提现申请已提交"
+        />
+    <View
+        android:id="@+id/view_one"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/cash_tip_tv_title"
+        android:layout_marginTop="43dp"
+        android:background="@color/line_gray"
+        />
+    
+    <LinearLayout
+        android:id="@+id/cash_tip_ll"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:layout_below="@+id/view_one"
+        android:orientation="vertical"
+        >
+    
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:paddingLeft="23dp"
+            android:paddingRight="23dp" 
+            android:gravity="center_vertical"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="银行卡"
+                android:textColor="@color/text_gray_title"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:text="建设银行卡    尾号8182"
+                android:textColor="@color/text_gray"
+                android:textSize="14sp" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:paddingLeft="23dp"
+            android:paddingRight="23dp"
+            android:gravity="center_vertical"
+             >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="提现金额"
+                android:textColor="@color/text_gray_title"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:text="￥500.00"
+                android:textColor="@color/text_gray"
+                android:textSize="14sp" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:paddingLeft="23dp"
+            android:paddingRight="23dp"
+            android:gravity="center_vertical"
+             >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="手续费"
+                android:textColor="@color/text_gray_title"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:text="￥5.00"
+                android:textColor="@color/text_gray"
+                android:textSize="14sp" />
+        </RelativeLayout>
+    
+    </LinearLayout>
+    
+    <View
+        android:id="@+id/view_two"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/cash_tip_ll"
+        android:background="@color/line_gray"
+        />
+    
+    <TextView
+        android:id="@+id/cash_tv_commit"
+        android:layout_width="match_parent"
+        android:layout_height="43dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_below="@+id/view_two"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/bg_btn_sure_green"
+        android:gravity="center"
+        android:text="@string/cash"
+        android:textColor="@color/text_white"
+        android:textSize="16dp" />
+
+</RelativeLayout>
