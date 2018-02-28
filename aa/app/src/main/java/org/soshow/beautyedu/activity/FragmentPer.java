@@ -112,6 +112,7 @@ public class FragmentPer extends Fragment implements OnClickListener {
 //				getTokenLocal();
                 getInfo();
                 String url = (String) SPUtils.get(getActivity(), "headUrl", "");
+
                 String username = (String) SPUtils.get(getActivity(), "nickname", "");
                 set_name.setText(username);
                 Log.e("", "url=" + url + "");

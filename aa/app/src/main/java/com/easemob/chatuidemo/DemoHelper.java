@@ -170,7 +170,7 @@ public class DemoHelper {
             EMChatManager.getInstance().setHuaweiPushAppId("10601994");
 
 		    //设为调试模式，打成正式包时，最好设为false，以免消耗额外的资源
-		    EMChat.getInstance().setDebugMode(true);
+		    EMChat.getInstance().setDebugMode(false);
 		    //get easeui instance
 		    easeUI = EaseUI.getInstance();
 		    //调用easeui的api设置providers

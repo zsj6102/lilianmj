@@ -271,6 +271,9 @@ public class PersonInfoActivity extends BaseActivity implements OnClickListener 
 							SPUtils.put(PersonInfoActivity.this,"headUrl",path);
 							isChangeOver = true;
 						}
+						 if(!TextUtils.isEmpty(etNickname.getText().toString().trim())){
+							 SPUtils.put(PersonInfoActivity.this,"nickname",etNickname.getText().toString());
+						 }
 						finish();
 					}else{
 						ToastUtil.getInstance().showToast( PersonInfoActivity.this, ret.getMessage_() );

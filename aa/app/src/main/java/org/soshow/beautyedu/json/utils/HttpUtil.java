@@ -27,8 +27,10 @@ import org.apache.http.client.utils.URLEncodedUtils;
 import org.apache.http.conn.params.ConnManagerParams;
 import org.apache.http.conn.params.ConnPerRouteBean;
 import org.apache.http.conn.params.ConnRouteParams;
+import org.apache.http.entity.ContentType;
 import org.apache.http.entity.mime.HttpMultipartMode;
 import org.apache.http.entity.mime.MultipartEntityBuilder;
+import org.apache.http.entity.mime.content.StringBody;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.params.BasicHttpParams;
@@ -73,6 +75,7 @@ public class HttpUtil {
 			ConnManagerParams.setTimeout(httpParams, DEFAULT_CONNMANAGER_TIMEOUT);
 			HttpConnectionParams.setConnectionTimeout(httpParams, DEFAULT_SOCKET_TIMEOUT);
 			HttpConnectionParams.setSoTimeout(httpParams, DEFAULT_SOCKET_TIMEOUT);
+
 			ConnManagerParams.setMaxConnectionsPerRoute(httpParams, new ConnPerRouteBean(DEFAULT_HOST_CONNECTIONS));
 			ConnManagerParams.setMaxTotalConnections(httpParams, DEFAULT_MAX_CONNECTIONS);
 			//	SchemeRegistry schemeRegistry = new SchemeRegistry();
@@ -162,16 +165,20 @@ public class HttpUtil {
 
 	protected static void settMultipartParam(HttpPost post, Map<String, Object> params) {
 		MultipartEntityBuilder builder = MultipartEntityBuilder.create();
-        builder.setMode(HttpMultipartMode.BROWSER_COMPATIBLE);// 设置游览器兼容模式
-        builder.setCharset(Charset.forName(HTTP.UTF_8));
 
+		builder.setMode(HttpMultipartMode.BROWSER_COMPATIBLE);// 设置游览器兼容模式
+        builder.setCharset(Charset.forName(HTTP.UTF_8));
         for (String k : params.keySet()) {
 			Object v = params.get(k);
 			if (v == null) { continue; }
 			if (v instanceof File) { //file byte stream
 				builder.addBinaryBody(k, (File) v);
 			} else {
-				builder.addTextBody(k, (String) v);
+				//中文乱码
+				ContentType contentType = ContentType.create(HTTP.PLAIN_TEXT_TYPE, HTTP.UTF_8);
+				StringBody stringBody = new StringBody((String)v,contentType);
+				builder.addPart(k, stringBody);
+//				builder.addTextBody(k, (String) v);
 			}
 		}
 		post.setEntity(builder.build());
