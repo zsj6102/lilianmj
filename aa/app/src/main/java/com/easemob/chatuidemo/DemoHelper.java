@@ -711,8 +711,8 @@ public class DemoHelper {
                     message = (EMMessage)event.getData();
                     message.setMsgTime(System.currentTimeMillis());
                     //************接收并处理扩展消息***********************
-                    String userName = message.getStringAttribute("userName", "");
-                    String userPic = message.getStringAttribute("userPic", "");
+                    String userName = message.getStringAttribute("fromNickname", "");
+                    String userPic = message.getStringAttribute("fromAvatar", "");
                     String hxIdFrom = message.getFrom();
                     EaseUser easeUser = new EaseUser(hxIdFrom);
                     easeUser.setAvatar(userPic);

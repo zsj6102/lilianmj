@@ -276,11 +276,11 @@ public class ChatFragment extends EaseChatFragment implements EaseChatFragmentHe
         }
         String userPic = (String)SPUtils.get(getActivity(),"headUrl","");
         if (!TextUtils.isEmpty(userPic)) {
-            message.setAttribute("userPic", userPic);
+            message.setAttribute("fromAvatar", userPic);
         }
-        String userName = (String)SPUtils.get(getActivity(),"username","");
+        String userName = (String)SPUtils.get(getActivity(),"nickname","");
         if (!TextUtils.isEmpty(userName)) {
-            message.setAttribute("userName", userName);
+            message.setAttribute("fromNickname", userName);
         }
         // 根据当前状态是否是阅后即焚状态来设置发送消息的扩展
         if(isReadFire && (message.getType() == EMMessage.Type.TXT
