@@ -18,6 +18,8 @@ import android.content.Context;
 
 import com.easemob.EMCallBack;
 import com.easemob.chatuidemo.DemoHelper;
+import com.lzy.imagepicker.ImagePicker;
+import com.lzy.imagepicker.view.CropImageView;
 import com.nostra13.universalimageloader.cache.disc.naming.Md5FileNameGenerator;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
@@ -25,6 +27,9 @@ import com.nostra13.universalimageloader.core.assist.QueueProcessingType;
 import com.umeng.socialize.Config;
 import com.umeng.socialize.PlatformConfig;
 import com.umeng.socialize.UMShareAPI;
+import com.umeng.socialize.UMShareConfig;
+
+import cn.jpush.android.api.JPushInterface;
 
 /**
  * 应用程序Application全局控制
@@ -46,7 +51,7 @@ public class MyApplication extends Application {
 	 */
 	public static String currentUserNick = "";
 	public static DemoHelper hxSDKHelper = new DemoHelper();
-	
+	private ImagePicker imagePicker;
 	
 	//-----------------------------------------------------------------------
 
@@ -93,8 +98,12 @@ public class MyApplication extends Application {
 		super.onCreate();
 		CrashHandler.getInstance().init(getApplicationContext());//TODO bugly
 		setValue(VALUE); // 初始化全局变量
+		JPushInterface.setDebugMode(true); 	// 设置开启日志,发布时请关闭日志
+		JPushInterface.init(this);     		// 初始化 JPush
 
 		UMShareAPI.get(this);
+		Config.DEBUG = true;
+
 		PlatformConfig.setWeixin("wxf90ea5c4262932ea","b5dd6fd3165023f64c191a98883b467f");
 		initImageLoader(getApplicationContext());
 //		CrashReport.initCrashReport(MyApplication.this, "900011997", false);
@@ -102,7 +111,12 @@ public class MyApplication extends Application {
 		//环信
 		applicationContext = this;
         instance = this;
-
+		imagePicker = ImagePicker.getInstance();
+		imagePicker.setImageLoader(new GlideImageLoader());   //设置图片加载器
+		imagePicker.setShowCamera(true);                      //显示拍照按钮
+		imagePicker.setCrop(false);                           //允许裁剪（单选才有效）
+		imagePicker.setSaveRectangle(false);                   //是否按矩形区域保存
+		imagePicker.setStyle(CropImageView.Style.RECTANGLE);  //裁剪框的形状
         /**
          * this function will initialize the HuanXin SDK
          * 
@@ -127,7 +141,10 @@ public class MyApplication extends Application {
 	public void setValue(String value) {
 		this.value = value;
 	}
-	
+	public ImagePicker getImagePicker() {
+		return imagePicker;
+	}
+
 	public static void initImageLoader(Context context) {
 
         ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder(

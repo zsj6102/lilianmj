@@ -18,7 +18,6 @@
         android:textColor="@color/word_grey_jiu"
         android:textSize="14sp"
         android:visibility="gone" />
-
     <ListView
         android:id="@+id/list_tuwen"
         android:layout_width="match_parent"
@@ -26,5 +25,4 @@
         android:divider="@null"
         android:dividerHeight="0dp"
         android:background="@drawable/item_pressed" />
-
 </org.soshow.beautyedu.widget.PullToRefreshView>

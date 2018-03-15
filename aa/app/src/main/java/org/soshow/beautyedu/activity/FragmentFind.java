@@ -44,6 +44,7 @@ import org.soshow.beautyedu.widget.MyCustomListView;
 import org.soshow.beautyedu.widget.MyDialog;
 import org.soshow.beautyedu.widget.NineGridTestLayout;
 
+import org.soshow.beautyedu.widget.NoScrollGridView;
 import org.soshow.beautyedu.widget.PullToRefreshView;
 import org.soshow.beautyedu.widget.PullToRefreshView.OnFooterRefreshListener;
 import org.soshow.beautyedu.widget.PullToRefreshView.OnHeaderRefreshListener;
@@ -55,8 +56,10 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
+import android.graphics.Bitmap;
 import android.graphics.Rect;
 import android.graphics.drawable.BitmapDrawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -82,10 +85,12 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.EditText;
+import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.ImageView.ScaleType;
 import android.widget.LinearLayout;
 import android.widget.LinearLayout.LayoutParams;
+import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
@@ -116,7 +121,7 @@ public class FragmentFind extends Fragment implements OnHeaderRefreshListener, O
     private CommonAdapter<FindListInfo> adapter;
     private CommonAdapter<String> picAdapter;
     private TextView tvRemark;
-    private NineGridTestLayout gridView;
+    private NoScrollGridView gridView;
     List<CommentsEntity> midCommentLists;
     private int popLayoutHeight;//pop输入框的高度
     private Handler handler = new Handler() {
@@ -157,7 +162,7 @@ public class FragmentFind extends Fragment implements OnHeaderRefreshListener, O
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        MainTabActivity.title_main.setText("作品");
+        MainTabActivity.title_main.setText("念力");
         tvPublish = (TextView) getActivity().findViewById(R.id.over);
         tvPublish.setVisibility(View.VISIBLE);
         tvPublish.setText(getResources().getString(R.string.publicsh_work));
@@ -207,16 +212,19 @@ public class FragmentFind extends Fragment implements OnHeaderRefreshListener, O
         iv_url = (String) SPUtils.get(getActivity(), "headUrl", "");
         LogUtils.e("发现：头像headUrl=" + iv_url);
         String signature = (String) SPUtils.get(getActivity(), "signature", "");
-        String username = (String) SPUtils.get(getActivity(), "username", "");
-        tvRemark.setText(signature);
-        tvName.setText(username);
+        String username = (String) SPUtils.get(getActivity(), "nickname", "");
         MyApplication.logined = sharedPreferences.getBoolean("logined", false);
         if (MyApplication.logined && PersonInfoActivity.isInfoModify) {
             UniversalImageLoadTool.disPlayTrue(iv_url, ivHead, R.drawable.head_account);
+            tvRemark.setText(signature);
+            tvName.setText(username);
             PersonInfoActivity.isInfoModify = false;
         } else {
             ivHead.setImageResource(R.drawable.head_account);
+            tvRemark.setText("");
+            tvName.setText("");
         }
+
         view.findViewById(R.id.find_detail_head_add_new_rl).setVisibility(View.GONE);
         list_find.addHeaderView(view);
         mPullToRefreshView = (PullToRefreshView) fragmentView.findViewById(R.id.find_pull_refresh_view);
@@ -229,6 +237,7 @@ public class FragmentFind extends Fragment implements OnHeaderRefreshListener, O
         adapter = new FindListInfoCommonAdapter();
         list_find.setAdapter(adapter);
     }
+
     @Override
     public void onFooterRefresh(PullToRefreshView view) {
         if (hasMore) {
@@ -258,7 +267,7 @@ public class FragmentFind extends Fragment implements OnHeaderRefreshListener, O
                     getActivity().overridePendingTransition(R.anim.anim_slider_right_in, R.anim.anim_slider_left_out);
                 } else {
                     Intent intent = new Intent(getActivity(), FindItemDetailActivity.class);
-                    intent.putExtra("other_user_id", "");
+                    intent.putExtra("other_user_id", sharedPreferences.getString("user_id", ""));
                     startActivity(intent);
                     getActivity().overridePendingTransition(R.anim.anim_slider_right_in, R.anim.anim_slider_left_out);
                 }
@@ -485,15 +494,19 @@ public class FragmentFind extends Fragment implements OnHeaderRefreshListener, O
         LogUtils.e("发现==onResume" + PersonInfoActivity.isInfoModify);
         if (!MyApplication.logined) {
             ivHead.setImageResource(R.drawable.head_account);
+            tvRemark.setText("");
+            tvName.setText("");
         } else {
             iv_url = (String) SPUtils.get(getActivity(), "headUrl", "");
-            UniversalImageLoadTool.disPlayTrue(iv_url, ivHead, R.drawable.head_account);
+
+                UniversalImageLoadTool.disPlayTrue(iv_url, ivHead, R.drawable.head_account);
+
+
+            String signTure = (String) SPUtils.get(getActivity(), "signature", "");
+            String username = (String) SPUtils.get(getActivity(), "nickname", "");
+            tvRemark.setText(signTure);
+            tvName.setText(username);
             if (!PersonInfoActivity.isInfoModify && FragmentPer.isBackToPer) {
-                LogUtils.e("发现==个人资料被修改了");
-                String signTure = (String) SPUtils.get(getActivity(), "signature", "");
-                String username = (String) SPUtils.get(getActivity(), "username", "");
-                tvRemark.setText(signTure);
-                tvName.setText(username);
                 FragmentPer.isBackToPer = false;
             }
         }
@@ -538,6 +551,37 @@ public class FragmentFind extends Fragment implements OnHeaderRefreshListener, O
         }
     }
 
+    public static void calGridViewSumWH(int numColumns, GridView gridView) {
+        // 获取GridView对应的Adapter
+        ListAdapter listAdapter = gridView.getAdapter();
+        if (listAdapter == null) {
+            return;
+        }
+        int totalHeight = 0;
+        int totalWidth = 0;
+        for (int i = 0, len = listAdapter.getCount(); i < len; i++) { // listAdapter.getCount()返回数据项的数目
+            View listItem = listAdapter.getView(i, null, gridView);
+            listItem.measure(0, 0); // 计算子项View 的宽高
+            totalWidth = listItem.getMeasuredWidth();
+            if ((i + 1) % numColumns == 0) {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                    totalHeight += listItem.getMeasuredHeight() + gridView.getVerticalSpacing(); // 统计所有子项的总高度
+                } else {
+                    totalHeight += listItem.getMeasuredHeight();
+                }
+            }
+
+            if ((i + 1) == len && (i + 1) % numColumns != 0) {
+                totalHeight += listItem.getMeasuredHeight(); // 统计所有子项的总高度
+            }
+        }
+
+        ViewGroup.LayoutParams params = gridView.getLayoutParams();
+        params.height = totalHeight;
+        params.width = totalWidth * listAdapter.getCount();
+        gridView.setLayoutParams(params);
+    }
+
     private class FindListInfoCommonAdapter extends CommonAdapter<FindListInfo> {
         private MyCustomListView listView;
         private View line;
@@ -553,11 +597,15 @@ public class FragmentFind extends Fragment implements OnHeaderRefreshListener, O
             TextView tvUserName = holderList.getView(R.id.find_item_tv_name);
             TextView tvContent = holderList.getView(R.id.find_item_tv_content);
             TextView tvTime = holderList.getView(R.id.find_item_tv_time);
+            RelativeLayout layotGrid = holderList.getView(R.id.find_item_wrap);
+
             final ImageView ivRight = holderList.getView(R.id.find_item_iv_right);
             TextView tvZanCount = holderList.getView(R.id.zan_goods_count);// 点赞人
             line = holderList.getView(R.id.line_zan);
             line.setVisibility(View.GONE);
             listView = holderList.getView(R.id.find_item_listview);
+            RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(ScreenUtils.getScreenWidth(mContext) / 2, RelativeLayout.LayoutParams.WRAP_CONTENT);
+            layotGrid.setLayoutParams(params);
             UniversalImageLoadTool.disPlayTrue(findListItem.getUser_photo_url(), ivUserHead, R.drawable.head_account);
             tvUserName.setText(findListItem.getNickname());
             LogUtils.e("动态内容：" + findListItem.getContent().trim());
@@ -570,25 +618,27 @@ public class FragmentFind extends Fragment implements OnHeaderRefreshListener, O
             tvZanCount.setText(findListItem.getGoods_num().toString());
             //内容图片的点击浏览
             gridView = holderList.getView(R.id.find_item_gridView);
-            gridView.setIsShowAll(true);
-//            gridView.setOnItemClickListener(new OnItemClickListener() {
-//                @Override
-//                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//                    ArrayList<String> imageUrls = new ArrayList<String>();
-//                    String photos_url = findListItem.getPhotos_url();
-//                    String[] photoarray = null;
-//                    photoarray = photos_url.split(";");
-//                    for (int i = 0; i < photoarray.length; i++) {
-//                        imageUrls.add(photoarray[i]);
-//                    }
-//
-//                    Intent intent = new Intent(getActivity(), PictureShowActivity.class);
-//                    intent.putStringArrayListExtra(PictureShowActivity.EXTRA_IMAGEURLS, imageUrls);
-//                    intent.putExtra(PictureShowActivity.EXTRA_CURRENT, position);
-//                    startActivityForResult(intent, SelectPhoto.DELETE_IMAGE);
-//                    getActivity().overridePendingTransition(R.anim.anim_slider_right_in, R.anim.anim_slider_left_out);
-//                }
-//            });
+
+
+//            gridView.setIsShowAll(true);
+            gridView.setOnItemClickListener(new OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    ArrayList<String> imageUrls = new ArrayList<String>();
+                    String photos_url = findListItem.getPhotos_url();
+                    String[] photoarray = null;
+                    photoarray = photos_url.split(";");
+                    for (int i = 0; i < photoarray.length; i++) {
+                        imageUrls.add(photoarray[i]);
+                    }
+
+                    Intent intent = new Intent(getActivity(), PictureShowActivity.class);
+                    intent.putStringArrayListExtra(PictureShowActivity.EXTRA_IMAGEURLS, imageUrls);
+                    intent.putExtra(PictureShowActivity.EXTRA_CURRENT, position);
+                    startActivityForResult(intent, SelectPhoto.DELETE_IMAGE);
+                    getActivity().overridePendingTransition(R.anim.anim_slider_right_in, R.anim.anim_slider_left_out);
+                }
+            });
             // 动态头像点击监听
             ivUserHead.setOnClickListener(new OnClickListener() {
                 @Override
@@ -608,7 +658,7 @@ public class FragmentFind extends Fragment implements OnHeaderRefreshListener, O
                 }
             });
             // 动态发表的图片
-            ArrayList<String> imageUrls = new ArrayList<String>();
+            final ArrayList<String> imageUrls = new ArrayList<String>();
             String photos_url = findListItem.getPhotos_url();
             if (photos_url == null || photos_url.equals("")) {
                 gridView.setVisibility(View.GONE);
@@ -619,10 +669,55 @@ public class FragmentFind extends Fragment implements OnHeaderRefreshListener, O
                 for (int i = 0; i < photoarray.length; i++) {
                     imageUrls.add(photoarray[i]);
                 }
-                gridView.setUrlList(imageUrls);
+//                gridView.setUrlList(imageUrls);
             }
 
+            picAdapter = new CommonAdapter<String>(
+                    mContext, imageUrls,
+                    R.layout.item_fragment_find_pic) {
 
+                @Override
+                public void convert(ViewHolder holder_pic, String pic) {
+                    ImageView ivContent = holder_pic
+                            .getView(R.id.fragmentfind_pics);
+                    int magin = DensityUtil.dip2px(getActivity(), 2);
+                    int width = ScreenUtils.getScreenWidth(getActivity()) * 3 / 5;
+                    if (imageUrls.size() == 1) {
+                        gridView.setNumColumns(1);
+                        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(
+                                width * 2 / 5,
+                                width * 2 / 5);
+                        layoutParams.setMargins(magin, magin, magin, magin);
+                        ivContent.setLayoutParams(layoutParams);
+                    } else if (imageUrls.size() == 2) {
+                        gridView.setNumColumns(2);
+                        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(
+                                (width - 4 * magin) * 2 / 5,
+                                (width - 4 * magin) * 2 / 5);
+                        layoutParams.setMargins(magin, magin, magin, magin);
+                        ivContent.setLayoutParams(layoutParams);
+                    } else {
+                        gridView.setNumColumns(3);
+                        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(
+                                (width - 6 * magin) * 7 / 25,
+                                (width - 6 * magin) * 7 / 25);
+                        layoutParams.setMargins(magin, magin, magin, magin);
+                        ivContent.setLayoutParams(layoutParams);
+                    }
+                    UniversalImageLoadTool.disPlayTrue(
+                            pic, ivContent,
+                            R.drawable.defaultpic);
+                }
+            };
+            gridView.setAdapter(picAdapter);
+            if (photos_url != null && !photos_url.equals("")) {
+                if (imageUrls.size() >= 3) {
+                    calGridViewSumWH(3, gridView);
+                } else {
+                    calGridViewSumWH(imageUrls.size(), gridView);
+                }
+
+            }
             // 发表时间
             String addtime = findListItem.getCreate_time();
             if (!TextUtils.isEmpty(addtime)) {
@@ -722,7 +817,7 @@ public class FragmentFind extends Fragment implements OnHeaderRefreshListener, O
                         if (findListItem.getIs_liked().equals("1")) {
                             tvZan.setText("取消");
                         } else if (findListItem.getIs_liked().equals("0")) {
-                            tvZan.setText("赞");
+                            tvZan.setText("给力");
                         }
                         int width = DensityUtil.dip2px(getActivity(), 141);
                         int height = DensityUtil.dip2px(getActivity(), 40);
@@ -829,11 +924,6 @@ public class FragmentFind extends Fragment implements OnHeaderRefreshListener, O
 
                 }
             });
-
-
-
-
-
 
             /*
              * 单击回复评论

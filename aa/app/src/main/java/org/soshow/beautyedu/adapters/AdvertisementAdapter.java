@@ -17,10 +17,10 @@ import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageView;
-import android.widget.Toast;
+
 
 import com.bumptech.glide.Glide;
-import com.sina.weibo.sdk.utils.LogUtil;
+
 
 /**
  * 广告轮播adapter

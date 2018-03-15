@@ -1,13 +1,13 @@
 package org.soshow.beautydu.photo.localphoto.adapter;
 
+import java.io.File;
 import java.util.List;
 
-import org.soshow.beautydu.photo.localphoto.bean.PhotoInfo;
-import org.soshow.beautydu.photo.localphoto.imageaware.RotateImageViewAware;
 import org.soshow.beautydu.photo.localphoto.util.DensityUtil;
 import org.soshow.beautyedu.R;
-import org.soshow.beautyedu.utils.UniversalImageLoadTool;
 
+
+import android.app.Activity;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,13 +15,16 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout.LayoutParams;
 
-public class GridImageAdapter extends BaseAdapter {
+import com.lzy.imagepicker.ImagePicker;
+import com.lzy.imagepicker.bean.ImageItem;
 
+
+public class GridImageAdapter extends BaseAdapter {
     private Context mContext;
-    private List<PhotoInfo> dataList;
+    private List<ImageItem> dataList;
     private int width;
 
-    public GridImageAdapter(Context c, List<PhotoInfo> dataList) {
+    public GridImageAdapter(Context c, List<ImageItem> dataList) {
         this.mContext = c;
         this.dataList = dataList;
         this.width = (DensityUtil.getScreenMetrics(c).x - DensityUtil.dip2px(
@@ -64,13 +67,11 @@ public class GridImageAdapter extends BaseAdapter {
                 holder.imageview.setVisibility(View.GONE);
             }
         } else {
-            // UniversalImageLoadTool.disPlayTrue(dataList.get(position).getPath_file(),
-            // holder.imageview, R.color.default_pic);
-            UniversalImageLoadTool.disPlay(dataList.get(position)
-                    .getPath_file(), new RotateImageViewAware(holder.imageview,
-                    dataList.get(position).getPath_absolute()),
-                    R.drawable.defaultpic);
+            ImagePicker.getInstance().getImageLoader().displayImage((Activity) mContext, dataList.get(position).path, holder.imageview, 0, 0);
+
         }
+
+
         return convertView;
     }
 

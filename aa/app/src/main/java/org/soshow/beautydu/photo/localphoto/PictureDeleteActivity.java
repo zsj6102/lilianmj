@@ -1,5 +1,6 @@
 package org.soshow.beautydu.photo.localphoto;
 
+import java.io.File;
 import java.util.ArrayList;
 
 import org.soshow.beautydu.photo.localphoto.imageaware.HackyViewPager;
@@ -26,6 +27,8 @@ import android.view.ViewGroup.LayoutParams;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.bumptech.glide.Glide;
 
 
 /**
@@ -99,9 +102,10 @@ public class PictureDeleteActivity extends BaseActivity implements OnClickListen
         @Override
         public View instantiateItem(ViewGroup container, int position) {
             PhotoView photoView = new PhotoView(container.getContext());
-            UniversalImageLoadTool.disPlay(imageUrls.get(position),
-                    new RotateImageViewAware(photoView, imageUrls.get(position)
-                            .replace("file:/", "")), R.drawable.defaultpic);
+//            UniversalImageLoadTool.disPlay(imageUrls.get(position),
+//                    new RotateImageViewAware(photoView, imageUrls.get(position)
+//                            .replace("file:/", "")), R.drawable.defaultpic);
+            Glide.with(PictureDeleteActivity.this).load(new File(imageUrls.get(position))).into(photoView);
             container.addView(photoView, LayoutParams.MATCH_PARENT,
                     LayoutParams.MATCH_PARENT);
             return photoView;

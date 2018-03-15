@@ -34,6 +34,7 @@ public class RegisterUtil {
 	private String password;
 	private String otherPhone;
 	private String captcha;
+	private String invatation;
 	// private TokenManager tManager;
 	// private Intent intent;
 	private String mToken;
@@ -81,11 +82,12 @@ public class RegisterUtil {
 		}
 	};
 
-	public RegisterUtil(Context cxt, String account, String password, String otherPhone) {
+	public RegisterUtil(Context cxt, String account, String password, String otherPhone,String invitation) {
 		this.mContext = cxt;
 		this.account = account;
 		this.password = password.trim();
 		this.captcha = otherPhone.trim();
+		this.invatation = invitation.trim();
 		dialog = ProgressDialogUtil.createLoadingDialog(mContext, "注册中", true, false);
 		register();
 	}
@@ -144,62 +146,62 @@ public class RegisterUtil {
 	/*
 	 * 环信注册
 	 */
-	public void registHuanXin(final String username,final String pwd){
-		final RegisterActivity activivty = (RegisterActivity) mContext;
-		
-        final String st6 = mContext.getResources().getString(R.string.Registered_successfully);  
-  
-        if (!TextUtils.isEmpty(username) && !TextUtils.isEmpty(pwd)) {  
-            final ProgressDialog pd = new ProgressDialog(mContext);  
-            pd.show();  
-            final String st7 = mContext.getResources().getString(R.string.network_anomalies);  
-            final String st8 = mContext.getResources().getString(R.string.User_already_exists);  
-            final String st9 = mContext.getResources().getString(R.string.registration_failed_without_permission);  
-            final String st10 = mContext.getResources().getString(R.string.Registration_failed);  
-            new Thread(new Runnable() {  
-                public void run() {  
-                    try {  
-                        // 调用sdk注册方法  
-                        EMChatManager.getInstance().createAccountOnServer(username, pwd);  
-                        activivty.runOnUiThread(new Runnable() {  
-                            public void run() {  
-                            	Log.e("", "环信注册成功yyyyyyyy");
-                                if (!activivty.isFinishing())  
-                                    pd.dismiss();  
-                                // 保存用户名  
-								DemoHelper.getInstance().setCurrentUserName(username);
-                                Toast.makeText(mContext.getApplicationContext(), st6, Toast.LENGTH_SHORT).show();
-                            }  
-                        });  
-                    } catch (final EaseMobException e) {  
-                    	activivty.runOnUiThread(new Runnable() {  
-                            public void run() {  
-                                if (!activivty.isFinishing())  
-                                    pd.dismiss();  
-                                int errorCode=e.getErrorCode();  
-                                if(errorCode==EMError.NONETWORK_ERROR){  
-                                    Toast.makeText(mContext.getApplicationContext(), st7, Toast.LENGTH_SHORT).show();  
-                                }else if(errorCode==EMError.USER_ALREADY_EXISTS){  
-                                    Toast.makeText(mContext.getApplicationContext(), st8, Toast.LENGTH_SHORT).show();  
-                                }else if(errorCode==EMError.UNAUTHORIZED){  
-                                    Toast.makeText(mContext.getApplicationContext(), st9, Toast.LENGTH_SHORT).show();  
-                                }else{  
-                                    Toast.makeText(mContext.getApplicationContext(), st10 + e.getMessage(), Toast.LENGTH_SHORT).show();  
-                                }  
-                            }  
-                        });  
-                    }  
-                }  
-            }).start();  
-  
-        }  
-	}
+//	public void registHuanXin(final String username,final String pwd){
+//		final RegisterActivity activivty = (RegisterActivity) mContext;
+//
+//        final String st6 = mContext.getResources().getString(R.string.Registered_successfully);
+//
+//        if (!TextUtils.isEmpty(username) && !TextUtils.isEmpty(pwd)) {
+//            final ProgressDialog pd = new ProgressDialog(mContext);
+//            pd.show();
+//            final String st7 = mContext.getResources().getString(R.string.network_anomalies);
+//            final String st8 = mContext.getResources().getString(R.string.User_already_exists);
+//            final String st9 = mContext.getResources().getString(R.string.registration_failed_without_permission);
+//            final String st10 = mContext.getResources().getString(R.string.Registration_failed);
+//            new Thread(new Runnable() {
+//                public void run() {
+//                    try {
+//                        // 调用sdk注册方法
+//                        EMChatManager.getInstance().createAccountOnServer(username, pwd);
+//                        activivty.runOnUiThread(new Runnable() {
+//                            public void run() {
+//                            	Log.e("", "环信注册成功yyyyyyyy");
+//                                if (!activivty.isFinishing())
+//                                    pd.dismiss();
+//                                // 保存用户名
+//								DemoHelper.getInstance().setCurrentUserName(username);
+//                                Toast.makeText(mContext.getApplicationContext(), st6, Toast.LENGTH_SHORT).show();
+//                            }
+//                        });
+//                    } catch (final EaseMobException e) {
+//                    	activivty.runOnUiThread(new Runnable() {
+//                            public void run() {
+//                                if (!activivty.isFinishing())
+//                                    pd.dismiss();
+//                                int errorCode=e.getErrorCode();
+//                                if(errorCode==EMError.NONETWORK_ERROR){
+//                                    Toast.makeText(mContext.getApplicationContext(), st7, Toast.LENGTH_SHORT).show();
+//                                }else if(errorCode==EMError.USER_ALREADY_EXISTS){
+//                                    Toast.makeText(mContext.getApplicationContext(), st8, Toast.LENGTH_SHORT).show();
+//                                }else if(errorCode==EMError.UNAUTHORIZED){
+//                                    Toast.makeText(mContext.getApplicationContext(), st9, Toast.LENGTH_SHORT).show();
+//                                }else{
+//                                    Toast.makeText(mContext.getApplicationContext(), st10 + e.getMessage(), Toast.LENGTH_SHORT).show();
+//                                }
+//                            }
+//                        });
+//                    }
+//                }
+//            }).start();
+//
+//        }
+//	}
 
 	private void getInfo() {
 		try {
 			
 			//注册环信
-			registHuanXin(account, password);
+//			registHuanXin(account, password);
 			
 			dialog.show();
 //			String app_nonce = StringUtil.getPhoneIMEI(mContext);
@@ -211,6 +213,7 @@ public class RegisterUtil {
 			params.put("vcode", captcha);
 			params.put("new_pwd", password);
 			params.put("recommend", otherPhone);
+			params.put("invitationCode",invatation);
 			NetHelper.post(url_register, params , new SimpleSingleBeanNetHandler<Register>(mContext) {
 
 				@Override

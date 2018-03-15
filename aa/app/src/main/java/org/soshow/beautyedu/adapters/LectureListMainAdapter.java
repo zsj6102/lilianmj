@@ -118,6 +118,9 @@ public class LectureListMainAdapter extends BaseAdapter {
 			public void onClick(View v) {
 				Intent intent = new Intent(context, NewsDetailsActivity.class);
 				intent.putExtra("url", videoCourses.get(position).getH5_url());
+				intent.putExtra("content",videoCourses.get(position).getArticle_title());
+				intent.putExtra("title",videoCourses.get(position).getArticle_keyword());
+				intent.putExtra("images",videoCourses.get(position).getPhotos_url());
 				context.startActivity(intent);
 				MainTabActivity activity = (MainTabActivity) context;
 				activity.overridePendingTransition(R.anim.anim_slider_right_in,

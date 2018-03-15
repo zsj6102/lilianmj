@@ -15,7 +15,6 @@ import org.soshow.beautyedu.updatedownload.dao.Dao;
 import org.soshow.beautyedu.updatedownload.entity.DownloadInfo;
 import org.soshow.beautyedu.updatedownload.entity.LoadInfo;
 
-import com.sina.weibo.sdk.constant.WBConstants.Msg;
 
 import android.content.Context;
 import android.os.AsyncTask;

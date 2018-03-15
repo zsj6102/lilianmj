@@ -10,6 +10,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -150,7 +151,7 @@ public class UserInfoActivity extends BaseActivity implements View.OnClickListen
                 int screenWidth = ScreenUtils.getScreenWidth(UserInfoActivity.this);
                 gridView.setNumColumns(3);
                 ivContent.setScaleType(ImageView.ScaleType.CENTER_CROP);
-                LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(screenWidth /5, screenWidth / 5);
+                RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(screenWidth /5, screenWidth / 5);
                 layoutParams.setMargins(0, 0, magin, magin);
                 gridView.setHorizontalSpacing(10);
                 ivContent.setLayoutParams(layoutParams);
@@ -163,8 +164,6 @@ public class UserInfoActivity extends BaseActivity implements View.OnClickListen
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(UserInfoActivity.this, FindItemDetailActivity.class);
                 intent.putExtra("other_user_id",  user_id);
-                intent.putExtra("userName",userName);
-                intent.putExtra("headUrl",headUrl);
                 startActivity(intent);
                 overridePendingTransition(R.anim.anim_slider_right_in, R.anim.anim_slider_left_out);
             }

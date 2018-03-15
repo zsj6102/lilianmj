@@ -185,7 +185,7 @@ public class FragmentChat extends Fragment implements OnClickListener,  EMEventL
 		loading = ProgressDialogUtil.createLoadingDialog(getActivity(), null,
 				true, false);
 		title_main = (TextView) getActivity().findViewById(R.id.title_main);
-		title_main.setText("聊天");
+		title_main.setText("结界");
 		back_search = (ImageView) getActivity().findViewById(R.id.back_search);
 		back_search.setVisibility(View.INVISIBLE);
 		back_search.setOnClickListener(this);
@@ -221,19 +221,13 @@ public class FragmentChat extends Fragment implements OnClickListener,  EMEventL
 					// 当前页面如果为聊天历史页面，刷新此页面
 					if (chatHistoryFragment != null) {
 						chatHistoryFragment.refresh();
-						if(chatHistoryFragment.getUserVisibleHint()){
 							tabs[0].performClick();
-						}
-
 					}
 
 				} else if (currentTabIndex == 1) {
 					if(contactListFragment != null) {
 						contactListFragment.refresh();
-						if(contactListFragment.getUserVisibleHint()){
 							tabs[1].performClick();
-						}
-
 					}
 
 				}
@@ -524,7 +518,7 @@ public class FragmentChat extends Fragment implements OnClickListener,  EMEventL
 				if (!fragments[MainTabActivity.index].isAdded()) {
 					trx.add(R.id.fragment_container, fragments[MainTabActivity.index]);
 				}
-				trx.show(fragments[MainTabActivity.index]).commit();
+				trx.show(fragments[MainTabActivity.index]).commitAllowingStateLoss();
 				currentTabIndex = MainTabActivity.index;
 				// activity.setVisity(false);
 				break;
@@ -542,7 +536,7 @@ public class FragmentChat extends Fragment implements OnClickListener,  EMEventL
 				if (!fragments[MainTabActivity.index].isAdded()) {
 					trx.add(R.id.fragment_container, fragments[MainTabActivity.index]);
 				}
-				trx.show(fragments[MainTabActivity.index]).commit();
+				trx.show(fragments[MainTabActivity.index]).commitAllowingStateLoss();
 				currentTabIndex = MainTabActivity.index;
 				// activity.setVisity(true);
 

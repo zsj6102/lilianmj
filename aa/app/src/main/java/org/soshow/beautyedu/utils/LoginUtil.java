@@ -315,12 +315,20 @@ public class LoginUtil {
 							int id = 0;
 							String photo_url = "";
 							String cellphone = "";
+							String integral = "";
 //							int card_integral = 0;
-
+                            String invitationCode = "";
+							String hx="";
+							String hxpwd="";
 							try {
 								String info = bean.info;
 								user = GsonUtils.parseJSON(info, PersonInfo.class);
 								username = user.username;
+								signature = user.signature;
+								integral = user.integral;
+								hx = user.getHuanxin();
+								hxpwd = user.getHuanxinpwd();
+								invitationCode = user.getInvitation_code();
 								id=user.id;
 								nickname = user.nickname;
 								if(user.photo_url!=null){
@@ -348,9 +356,15 @@ public class LoginUtil {
 							editor.putString("user_id",String.valueOf(id));
 //							editor.putString("email", email);
 //							LogUtils.e("headUrl="+headUrl+"\nuser_id="+user_id);
-							SPUtils.put(mContext, "headUrl", (String)photo_url);
+							SPUtils.put(mContext, "headUrl", photo_url);
+                            SPUtils.put(mContext,"integral",integral);
+							if(invitationCode!=null){
+								SPUtils.put(mContext,"invitationCode",invitationCode);
+							}
+							if(signature!=null){
+								SPUtils.put(mContext, "signature", signature);
+							}
 
-//							SPUtils.put(mContext, "signature", signature);
 							SPUtils.put(mContext, "user_id", String.valueOf(id));
 							SPUtils.put(mContext, "username", username);
 							SPUtils.put(mContext,"nickname",nickname);
@@ -360,8 +374,10 @@ public class LoginUtil {
 							MyApplication.logined = true;
 
 							//登录环信
-								huanxinLogin(username,password);
-
+//							if(hx!=null){
+//								huanxinLogin(hx,hxpwd);
+//							}
+							loginOver();
 						}else{
 							Log.d("345abc", "登录失败 result="+bean.result );
 							if(bean.result.equals("4")){
@@ -648,13 +664,18 @@ public class LoginUtil {
 							editor.remove("cellphone");
 							editor.remove("headUrl");
 							editor.remove("signature");
+							editor.remove("integral");
+							editor.remove("nickname");
 							editor.remove("id");
 							editor.commit();
-							
 							SPUtils.remove(cxt, "headUrl");
-//							SPUtils.remove(cxt, "signature");
+							SPUtils.remove(cxt, "integral");
+							SPUtils.remove(cxt, "nickname");
 							SPUtils.remove(cxt, "id");
 							SPUtils.remove(cxt, "username");
+							SPUtils.remove(cxt,"signature");
+							SPUtils.remove(cxt,"invitationCode");
+
 							PersonInfoActivity.isInfoModify = false;
 							
 							// FragmentSet.allow_net.setEnabled(false);

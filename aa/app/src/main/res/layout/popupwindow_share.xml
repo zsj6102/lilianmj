@@ -10,7 +10,88 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         android:background="@color/transparent_7f000000" />
+    <ScrollView
+        android:visibility="gone"
+        android:layout_weight="1"
+        android:id="@+id/scroll_view"
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:weightSum="1">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="199dp"
+                android:background="@drawable/news"
+                android:scaleType="fitCenter" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal"
+                android:paddingLeft="20dp">
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:src="@drawable/clock" />
+
+                <TextView
+                    android:id="@+id/tv_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="5dp"
+                    android:text="星期一 2018-03-12 13:05:23"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="5dp"
+                android:src="@drawable/deline" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="40dp"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/pus" />
+
+                <TextView
+                    android:id="@+id/tv_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="10dp"
+                    android:text=""
+                    android:textSize="18sp" />
+            </LinearLayout>
+            <ImageView
+                android:layout_marginTop="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="190dp"
+                android:src="@drawable/newsfoot"
+                android:layout_weight="1.18" />
+        </LinearLayout>
+
+    </ScrollView>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -106,7 +187,30 @@
                     android:textSize="14sp" />
 
             </LinearLayout>
+            <LinearLayout
+                android:id="@+id/ll_share_fav"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
 
+                <ImageView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_marginTop="15dp"
+                    android:src="@drawable/umeng_socialize_fav" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="30dp"
+                    android:layout_marginTop="10dp"
+                    android:text="微信收藏"
+                    android:textColor="@color/text_color_second"
+                    android:textSize="14sp" />
+
+            </LinearLayout>
         </LinearLayout>
 
     </LinearLayout>

@@ -99,15 +99,16 @@
                         android:textSize="14dp"
                         />
                     <TextView
-                        android:id="@+id/set_tv_ranking"
+                        android:id="@+id/tv_lilian"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_toRightOf="@+id/set_ranking"
-                        android:layout_alignTop="@+id/set_ranking"
+                        android:layout_below="@+id/set_ranking"
+                        android:layout_marginTop="6dp"
                         android:gravity="center"
                         android:background="@android:color/transparent"
                         android:singleLine="true"
-                        android:textColor="@color/bg_green"
+                        android:text="理念号："
+                        android:textColor="@color/text_gray_title"
                         android:textSize="14dp"
                         />
                     <TextView
@@ -224,7 +225,7 @@
                     android:layout_toRightOf="@id/ico_mlx"
                     android:background="@android:color/transparent"
                     android:gravity="center"
-                    android:text="我的币圈"
+                    android:text="我的念力"
                     android:textColor="@color/text_gray"
                     android:textSize="@dimen/warnword_Size" />
 

@@ -70,7 +70,7 @@
                     android:background="@android:color/transparent"
                     android:gravity="center"
                     android:singleLine="true"
-                    android:text="会员等级："
+                    android:text=" "
                     android:textColor="@color/text_light_gray"
                     android:textSize="12dp"
                      />

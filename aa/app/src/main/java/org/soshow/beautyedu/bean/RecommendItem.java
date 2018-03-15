@@ -23,6 +23,15 @@ public class RecommendItem {
     private int clickcount;
     private String h5_url;
     private String create_date_pre;
+    private String article_keyword;
+
+    public String getArticle_keyword() {
+        return article_keyword;
+    }
+
+    public void setArticle_keyword(String article_keyword) {
+        this.article_keyword = article_keyword;
+    }
 
     public String getCreate_date_pre() {
         return create_date_pre;

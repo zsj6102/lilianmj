@@ -3,12 +3,7 @@ package org.soshow.beautyedu.utils;
 import android.content.Intent;
 
 public class Constant {
-	// public static String updateInfoUrl = "http://192.168.10.12/out.txt";
-//	public static String phpUrl = "http://192.168.1.108:8088";
-//	public static String phpUrl = "http://myjy.xianshan.cn";
-//	public static String phpUrl = "http://www.ruzhect.com:90/beautyedu";
-//	public static String phpUrl = "http://10.0.2.2/beautyedu";
-//	public static String phpUrl = "http://192.168.0.52/beautyedu";
+
 	public static String phpUrl = "http://www.ruzhect.com/lilian";
 //	public static String phpUrl = "http://192.168.0.18:8080/webLiLian";
 	public static final String PROXY_HOST ="";//"10.0.2.2"; //bluestack 
@@ -60,7 +55,7 @@ public class Constant {
 	 * 二次开发
 	 */
 	private static final String API = phpUrl+"/wap/api.php";
-
+    private static final String APITEST = "http://www.ruzhect.com/lilian"+"/wap/api.php";
 	/**
 	 * 登录
 	 */
@@ -140,8 +135,15 @@ public class Constant {
 	/** 删除评论 */
 	public static String DYNAMIC_COMMENT_DELETE = API+"?action=DYNAMIC_COMMENT_DELETE";
 
+	/**
+	 * 获取环信号
+	 */
+     public static String GET_HX = API+"?action=USER_INFO_GET_HX";
 
-
+	/**
+	 * 环信号获取昵称
+	 */
+	 public static String GET_NICK = API+"?action=USER_INFO_GET_NICKNAME";
 	//} Dynamic   End ============================================================
 	/**
 	 * 学校列表
@@ -170,9 +172,15 @@ public class Constant {
     public static String COURSE_LIST = API+"?action=GET_LECTURE_LIST";
 
 	/**
-	 * 常识，分析，资讯，视频
+	 * 常识，分析， 视频
 	 */
     public static String NEWS_LIST = API+"?action=NEWS_LIST";
+
+	/**
+	 * 快讯
+	 */
+
+	public static String ARTICLE_LIST = APITEST+"?action=ARTICLE_LIST";
     /**
 	 * 培训课程、图文课程评论列表
 	 */
@@ -261,7 +269,7 @@ public class Constant {
 	/**
 	 * 删除个人动态
 	 */
-	public static String DELETE_MY_DYNAMIC= API+"?action=DELETE_MY_DYNAMIC";
+	public static String DELETE_MY_DYNAMIC= API+"?action=DYNAMIC_DELETE";
 	
 	
 	/**

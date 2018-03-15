@@ -31,7 +31,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="3dp"
-                android:text="赞"
+                android:text="给力"
                 android:textColor="@color/bg_white"
                 android:textSize="12sp" />
         </LinearLayout>
@@ -61,7 +61,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="3dp"
-                android:text="评论"
+                android:text="回力"
                 android:textColor="@color/bg_white"
                 android:textSize="12sp" />
         </LinearLayout>

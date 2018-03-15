@@ -243,16 +243,11 @@ public class FragmentMain extends Fragment implements OnHeaderRefreshListener, O
     private Dialog dialog;
     private LinearLayout llWork;
     private HorizontalScrollView hsv;
-    private RelativeLayout rl_icon;
-    private TextView tvWorkTitle;
-    private View line;
-    private String currenType;
-    private int currenPosition;
 
     @Override
     public View onCreateView(LayoutInflater inflater1, ViewGroup container, Bundle savedInstanceState) {
         LogUtils.e("=====================================首页");
-        MainTabActivity.title_main.setText("理链");
+        MainTabActivity.title_main.setText("理念");
         if (fragmentView == null) {
             getNews();
             videoCourses = new ArrayList<RecommendItem>();
@@ -275,11 +270,8 @@ public class FragmentMain extends Fragment implements OnHeaderRefreshListener, O
             mPullToRefreshView = (PullToRefreshView) fragmentView.findViewById(R.id.main_pull_refresh_view);
             mPullToRefreshView.setOnHeaderRefreshListener(this);
             mPullToRefreshView.setOnFooterRefreshListener(this);
-            line = view.findViewById(R.id.work_view_line);
-            tvWorkTitle = (TextView) view.findViewById(R.id.work_title);
             hsv = (HorizontalScrollView) view.findViewById(R.id.horizontalScrollView);
             llWork = (LinearLayout) view.findViewById(R.id.main_work_ll);
-            rl_icon = (RelativeLayout) view.findViewById(R.id.head_rl_coin);
             llAdvertiseBoard = (LinearLayout) view.findViewById(R.id.llAdvertiseBoard);
             textSwitcher = (TextSwitcher) view.findViewById(R.id.textSwitcher);
             textSwitcher.setFactory(new ViewSwitcher.ViewFactory() {

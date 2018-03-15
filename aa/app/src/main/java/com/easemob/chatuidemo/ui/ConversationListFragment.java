@@ -51,7 +51,7 @@ public class ConversationListFragment extends EaseConversationListFragment {
                     Toast.makeText(getActivity(), R.string.Cant_chat_with_yourself, Toast.LENGTH_SHORT).show();
                 else {
                     // 进入聊天页面
-                    setUserVisibleHint(false);
+
                     Intent intent = new Intent(getActivity(), ChatActivity.class);
                     if(conversation.isGroup()){
                         if(conversation.getType() == EMConversationType.ChatRoom){

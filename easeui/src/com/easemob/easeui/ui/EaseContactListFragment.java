@@ -251,11 +251,13 @@ public class EaseContactListFragment extends EaseBaseFragment {
                     if(!blackList.contains(entry.getKey())){
                         //不显示黑名单中的用户
                         EaseUser user = entry.getValue();
+
                         EaseCommonUtils.setUserInitialLetter(user);
                         contactList.add(user);
                     }
                 }
             }
+
             // 排序
             Collections.sort(contactList, new Comparator<EaseUser>() {
 

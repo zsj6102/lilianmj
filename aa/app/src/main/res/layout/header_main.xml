@@ -441,7 +441,7 @@
             android:layout_height="40dp"
             android:gravity="center"
             android:singleLine="true"
-            android:text="我的理链"
+            android:text="我的理念"
             android:textColor="@color/text_gray"
             android:textSize="@dimen/videolist_tab_Size" />
 

@@ -3,7 +3,6 @@ package org.soshow.beautyedu.activity;
 
 import org.soshow.beautyedu.activity.user.PersonInfoActivity;
 import org.soshow.beautyedu.R;
-import org.soshow.beautyedu.RechargesActivity;
 import org.soshow.beautyedu.application.MyApplication;
 import org.soshow.beautyedu.bean.PersonInfo;
 import org.soshow.beautyedu.json.bean.Captcha;
@@ -11,15 +10,21 @@ import org.soshow.beautyedu.json.core.NetHelper;
 import org.soshow.beautyedu.json.handler.SimpleSingleBeanNetHandler;
 import org.soshow.beautyedu.json.utils.LogUtils;
 import org.soshow.beautyedu.utils.Constant;
-import org.soshow.beautyedu.utils.Encryption;
 import org.soshow.beautyedu.utils.GsonUtils;
-
 import org.soshow.beautyedu.utils.SPUtils;
 import org.soshow.beautyedu.utils.UniversalImageLoadTool;
 
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
+import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.PixelFormat;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.NinePatchDrawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -41,11 +46,12 @@ public class FragmentPer extends Fragment implements OnClickListener {
     public static TextView tvLogin;
     public static TextView set_name;
     public static boolean isBackToPer;
+    private TextView tvLiNian;
     private View rootView;
     private SharedPreferences sp;
     private Editor editor;
-    private TextView tvRanking;
-
+    private TextView set_ranking;
+    PersonInfo personInfo;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -68,6 +74,7 @@ public class FragmentPer extends Fragment implements OnClickListener {
         if (parent != null) {
             parent.removeView(rootView);
         }
+
         return rootView;
     }
 
@@ -75,70 +82,39 @@ public class FragmentPer extends Fragment implements OnClickListener {
     @Override
     public void onStart() {
         super.onStart();
-
-
-    }
-
-    @Override
-    public void onResume() {
-        LogUtils.e("==========================我的onResume");
-        if (RechargesActivity.is_recharge_pay && MyApplication.logined) {
-            getInfo();
-            tvRanking.setText("等级会员");
-            RechargesActivity.is_recharge_pay = false;
-        }
-
-
         SharedPreferences sp = getActivity().getSharedPreferences(
                 "huizhongjia", Context.MODE_PRIVATE);
+        tvLiNian = (TextView) getView().findViewById(R.id.tv_lilian);
         set_head_icon = (ImageView) getView().findViewById(R.id.set_head_icon);
         tvLogin = (TextView) getView().findViewById(R.id.person_tv_login);
         set_name = (TextView) getView().findViewById(R.id.set_name);
-        tvRanking = (TextView) getView().findViewById(R.id.set_tv_ranking);
+        set_ranking = (TextView) getView().findViewById(R.id.set_ranking);
         rl = (RelativeLayout) getView().findViewById(R.id.fragment_per_rl);
-//		getView().findViewById(R.id.tv_become_year_free).setOnClickListener(
-//				this);
         MyApplication.logined = sp.getBoolean("logined", false);
         LogUtils.e("我的     登入标志MyApplication.logined======" + MyApplication.logined);
         if (MyApplication.logined) {
             tvLogin.setVisibility(View.GONE);
             rl.setVisibility(View.VISIBLE);
             set_name.setVisibility(View.VISIBLE);
-            if (PersonInfoActivity.isInfoModify) {
-                getInfo();
-                isBackToPer = true;
-                PersonInfoActivity.isInfoModify = false;
-            } else {
-//				getTokenLocal();
-                getInfo();
-                String url = (String) SPUtils.get(getActivity(), "headUrl", "");
-
-                String username = (String) SPUtils.get(getActivity(), "nickname", "");
-                set_name.setText(username);
-                Log.e("", "url=" + url + "");
-                UniversalImageLoadTool.disPlayTrue(url, set_head_icon, R.drawable.default_face);
-                String user_name = Encryption.desEncryptd(Constant.code_local,
-                        Constant.code_local, sp.getString("user_name", null));
-                rl.setVisibility(View.VISIBLE);
-                set_name.setVisibility(View.VISIBLE);
-                tvLogin.setVisibility(View.GONE);
-//				String is_vip = (String) SPUtils.get(getActivity(), "is_vip", "");
-//				LogUtils.e("我的界面 onStart  is_vip="+is_vip);
-//				if(is_vip.equals("0")){
-//					tvRanking.setText("普通用户");
-//				}else if(is_vip.equals("1")){
-//					tvRanking.setText("等级会员");
-//				}
-            }
-
+            getInfo();
+            tvLiNian.setVisibility(View.VISIBLE);
         } else {
             set_head_icon.setImageResource(R.drawable.default_face);
             tvLogin.setText(R.string.dlzc);
             tvLogin.setVisibility(View.VISIBLE);
+            tvLiNian.setVisibility(View.GONE);
             rl.setVisibility(View.GONE);
             set_name.setVisibility(View.GONE);
         }
+        if (PersonInfoActivity.isInfoModify) {
+            getInfo();
+            isBackToPer = true;
+            PersonInfoActivity.isInfoModify = false;
+        }
+    }
 
+    @Override
+    public void onResume() {
         super.onResume();
     }
 
@@ -146,27 +122,35 @@ public class FragmentPer extends Fragment implements OnClickListener {
     private void getInfo() {
         try {
             String url = Constant.PERSON_INFO;
-//					+ "&tocken=" + mToken
-//					+ "&app_nonce=" + app_nonce;
             Log.e("首页", "个人资料url=" + url);
             NetHelper.get(url, new SimpleSingleBeanNetHandler<Captcha>(getActivity()) {
                 @Override
                 protected void onSuccess(Captcha bean) {
                     if (bean.isSuccess()) {
                         try {
-                            PersonInfo personInfo = GsonUtils.parseJSON(bean.info, PersonInfo.class);
-                            editor.putString("username", personInfo.getUsername());
-//									String is_vip = personInfo.getIs_vip();
-//								 	SPUtils.put(getActivity(), "is_vip", is_vip);
-//									SPUtils.put(getActivity(), "card_integral", personInfo.getCard_integral());//当前积分
-                            SPUtils.put(getActivity(), "headUrl", personInfo.getPhoto_url());
-                            SPUtils.put(getActivity(), "username", personInfo.getUsername());
-//									SPUtils.put(getActivity(), "signature", personInfo.getSignature());
-
+                            personInfo = GsonUtils.parseJSON(bean.info, PersonInfo.class);
+                            if (personInfo.getPhoto_url() != null) {
+                                SPUtils.put(getActivity(), "headUrl", personInfo.getPhoto_url());
+                            }
+                            if (personInfo.getNickname() != null) {
+                                SPUtils.put(getActivity(), "username", personInfo.getNickname());
+                            }
+                            if (personInfo.getSignature() != null) {
+                                SPUtils.put(getActivity(), "signature", personInfo.getSignature());
+                            }
                             if (MyApplication.logined) {
                                 set_name.setText(personInfo.getNickname());
+                                set_ranking.setText("当前积分：" + personInfo.getIntegral());
+                                tvLiNian.setText("理念号：" + personInfo.getInvitation_code());
                                 String url = (String) SPUtils.get(getActivity(), "headUrl", "");
-                                UniversalImageLoadTool.disPlayTrue(url, set_head_icon, R.drawable.default_face);
+                                Bitmap bm =  drawable2Bitmap(set_head_icon.getDrawable());
+                                Resources res = getResources();
+                                Bitmap    bmp = BitmapFactory.decodeResource(res, R.drawable.default_face);
+                                if (!isEquals(bmp,bm) && !PersonInfoActivity.isChangeOver ) {
+                                } else {
+                                    UniversalImageLoadTool.disPlayTrue(url, set_head_icon, R.drawable.default_face);
+                                    PersonInfoActivity.isChangeOver = false;
+                                }
                             }
                         } catch (Exception e) {
                             e.printStackTrace();
@@ -181,14 +165,45 @@ public class FragmentPer extends Fragment implements OnClickListener {
         }
 
     }
-
-
+    public static Bitmap drawable2Bitmap(Drawable drawable){
+        if(drawable instanceof BitmapDrawable){//转换成Bitmap
+            return ((BitmapDrawable)drawable).getBitmap() ;
+        }else if(drawable instanceof NinePatchDrawable){//.9图片转换成Bitmap
+            Bitmap bitmap = Bitmap.createBitmap(
+                    drawable.getIntrinsicWidth(),
+                    drawable.getIntrinsicHeight(),
+                    drawable.getOpacity() != PixelFormat.OPAQUE ?
+                            Bitmap.Config.ARGB_8888 : Bitmap.Config.RGB_565);
+            Canvas canvas = new Canvas(bitmap);
+            drawable.setBounds(0, 0, drawable.getIntrinsicWidth(),
+                    drawable.getIntrinsicHeight());
+            drawable.draw(canvas);
+            return bitmap;
+        }else{
+            return null ;
+        }
+    }
+    public boolean isEquals(Bitmap b1,Bitmap b2){
+        //先判断宽高是否一致，不一致直接返回false
+        if(b1.getWidth()==b2.getWidth()
+                &&b1.getHeight()==b2.getHeight()){
+            int xCount = b1.getWidth();
+            int yCount = b1.getHeight();
+            for(int x=0; x<xCount; x++){
+                for(int y=0; y<yCount; y++){
+                    //比较每个像素点颜色
+                    if(b1.getPixel(x, y)!=b2.getPixel(x, y)){
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }else{
+            return false;
+        }
+    }
     @Override
     public void onClick(View v) {
-//		Intent intent = new Intent(getActivity(), RechargesActivity.class);
-//		startActivity(intent);
-//		getActivity().overridePendingTransition(R.anim.anim_slider_right_in,
-//                R.anim.anim_slider_left_out);
     }
 
 }

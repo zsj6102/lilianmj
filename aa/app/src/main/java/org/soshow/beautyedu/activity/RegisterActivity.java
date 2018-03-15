@@ -129,7 +129,7 @@ public class RegisterActivity extends BaseActivity implements OnFocusChangeListe
 			break;
 		case R.id.btn_register1:
 			ru = new RegisterUtil(RegisterActivity.this, register_edit_account.getText().toString(),
-					register_edit_code.getText().toString(), register_edit_ccaptcha.getText().toString());
+					register_edit_code.getText().toString(), register_edit_ccaptcha.getText().toString(),register_edit_code1.getText().toString());
 			break;
 		default:
 			break;

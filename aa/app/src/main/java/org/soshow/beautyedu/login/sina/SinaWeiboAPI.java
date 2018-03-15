@@ -1,9 +1,5 @@
 package org.soshow.beautyedu.login.sina;
 
-import com.sina.weibo.sdk.auth.Oauth2AccessToken;
-
-import com.sina.weibo.sdk.net.RequestListener;
-
 /**
  * 新浪微博API，可以根据自己的需要添加API
  * 
@@ -33,8 +29,6 @@ public class SinaWeiboAPI {
 	 */
 	public static final String HTTPMETHOD_GET = "GET";
 
-	private Oauth2AccessToken oAuth2accessToken;
-
 	private String accessToken;
 
 	/**
@@ -43,12 +37,6 @@ public class SinaWeiboAPI {
 	 * @param accesssToken
 	 *            Oauth2AccessToken
 	 */
-	public SinaWeiboAPI(Oauth2AccessToken oauth2AccessToken) {
-		this.oAuth2accessToken = oauth2AccessToken;
-		if (oAuth2accessToken != null) {
-			accessToken = oAuth2accessToken.getToken();
-		}
-	}
 
 	/**
 	 * 执行请求
@@ -71,11 +59,6 @@ public class SinaWeiboAPI {
 	 *            需要查询的用户ID。
 	 * @param listener
 	 */
-	public void show(long uid, RequestListener listener) {
-		// *WeiboParameters params = new WeiboParameters();
-		// *params.add("uid", uid);
-		// *request(URL_USERS + "/show.json", params, HTTPMETHOD_GET, listener);
-	}
 
 	/**
 	 * 发布一条新微博(连续两次发布的微博不可以重复)

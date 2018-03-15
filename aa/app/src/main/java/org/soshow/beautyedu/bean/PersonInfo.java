@@ -6,6 +6,11 @@ import java.util.Arrays;
 import java.util.List;
 
 public class PersonInfo {
+	/**
+	 * 邀请码
+	 */
+	private String invitation_code;
+
 	public Integer id;
 	/** 帐号 */
 	public String username;
@@ -41,6 +46,24 @@ public class PersonInfo {
 
 	public String wxopenid_app;
     public String area;
+	public String integral;
+
+	public String getInvitation_code() {
+		return invitation_code;
+	}
+
+	public void setInvitation_code(String invitation_code) {
+		this.invitation_code = invitation_code;
+	}
+
+	public String getIntegral() {
+		return integral;
+	}
+
+	public void setIntegral(String integral) {
+		this.integral = integral;
+	}
+
 	public String getWxopenid_app() {
 		return wxopenid_app;
 	}

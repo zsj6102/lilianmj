@@ -29,6 +29,7 @@ import com.umeng.socialize.ShareAction;
 import com.umeng.socialize.UMShareListener;
 import com.umeng.socialize.bean.SHARE_MEDIA;
 import com.umeng.socialize.media.UMImage;
+import com.umeng.socialize.media.UMWeb;
 
 /**
  * 新闻详情
@@ -47,6 +48,7 @@ public class NewsDetailsActivity extends BaseActivity {
 	private String title;
 	private ImageView right_title;
 	private LinearLayout loading;
+	private String content;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -57,6 +59,7 @@ public class NewsDetailsActivity extends BaseActivity {
 		mView = LayoutInflater.from(this).inflate(R.layout.activity_news_details,null);
 		url = getIntent().getStringExtra("url");
 		title = getIntent().getStringExtra("title");
+		content = getIntent().getStringExtra("content");
 		images = getIntent().getStringExtra("images");
 		right_title = (ImageView)findViewById(R.id.right_title);
 		right_title.setVisibility(View.VISIBLE);
@@ -94,6 +97,10 @@ public class NewsDetailsActivity extends BaseActivity {
 		
 	}
 	private UMShareListener umShareListener = new UMShareListener() {
+		@Override
+		public void onStart(SHARE_MEDIA share_media) {
+
+		}
 
 		@Override
 		public void onResult(SHARE_MEDIA share_media) {
@@ -143,6 +150,12 @@ public class NewsDetailsActivity extends BaseActivity {
 				share(SHARE_MEDIA.WEIXIN_CIRCLE, shareUrl);
 			}
 		});
+		view.findViewById(R.id.ll_share_fav).setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				share(SHARE_MEDIA.WEIXIN_FAVORITE, shareUrl);
+			}
+		});
 		return view;
 	}
 
@@ -159,12 +172,15 @@ public class NewsDetailsActivity extends BaseActivity {
 		} else {
 			image = new UMImage(this, images);
 		}
-
+		UMWeb web = new UMWeb(shareUrl);
+		web.setTitle(title);//标题
+		web.setThumb(image);  //缩略图
+		web.setDescription(content);//描述
 		action.setPlatform(platform)
 				.setCallback(umShareListener)
-				.withText(title)
-				.withTargetUrl(shareUrl)
-				.withMedia(image)
+//				.withText(title)
+//				.withTargetUrl(shareUrl)
+				.withMedia(web)
 				.share();
 		dismissSharePop();
 	}

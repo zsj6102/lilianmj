@@ -62,27 +62,17 @@
             android:id="@+id/fragment_find_iv_head"
             android:layout_width="66dp"
             android:layout_height="66dp"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="30dp"
-            android:layout_marginTop="160dp"
+             android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
             android:background="@android:color/transparent"
             android:src="@drawable/head_account" />
 
-        <ImageView
-            android:id="@+id/imageView1"
-            android:layout_width="66dp"
-            android:layout_height="66dp"
-            android:layout_alignBottom="@+id/fragment_find_iv_head"
-            android:layout_alignRight="@+id/fragment_find_iv_head"
-            android:scaleType="centerCrop"
-            android:background="@android:color/transparent"
-            android:src="@drawable/img_top" />
         <TextView
             android:id="@+id/find_fragment_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toLeftOf="@+id/fragment_find_iv_head"
-            android:layout_marginTop="175dp"
+            android:layout_below="@+id/fragment_find_iv_head"
+            android:layout_centerHorizontal="true"
             android:textColor="@color/text_white"
             android:textSize="16sp"
             android:text="阿拉伯的春天"
@@ -92,13 +82,10 @@
             android:id="@+id/fragment_find_iv_remark"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/find_iv_bg"
-            android:layout_marginLeft="50dp"
-            android:layout_marginRight="13dp"
+            android:layout_below="@+id/find_fragment_name"
             android:layout_marginTop="6dp"
-            android:layout_toLeftOf="@+id/fragment_find_iv_head"
-            android:gravity="right"
             android:text="心若向阳，何惧忧伤"
+            android:layout_centerHorizontal="true"
             android:textColor="@color/text_gray"
             android:textSize="14sp" />
     </RelativeLayout>

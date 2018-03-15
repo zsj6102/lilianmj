@@ -49,7 +49,7 @@ import android.widget.Toast;
 
 
 /**
- * 常识，分析，资讯，视频共用的activity
+ * 常识，分析，视频共用的activity
  *
  */
 public class TuwenActivity extends BaseActivity implements
@@ -94,7 +94,7 @@ public class TuwenActivity extends BaseActivity implements
 			}else if(tag.equals("fenxi")){
 				cat_code = "FENXI";
 				title_name.setText(R.string.fenxi);
-			}else if(tag.equals("zixun")){
+			}else if(tag.equals("kuaixun")){
 				cat_code = "ZHIXUN";
 				title_name.setText(R.string.zixun);
 			}else if(tag.equals("shipin")){
@@ -147,7 +147,8 @@ public class TuwenActivity extends BaseActivity implements
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 				Intent intent = new Intent(context, NewsDetailsActivity.class);
 				intent.putExtra("url", videoCourses.get(position).getH5_url());
-				intent.putExtra("title",videoCourses.get(position).getArticle_title());
+				intent.putExtra("content",videoCourses.get(position).getArticle_title());
+				intent.putExtra("title",videoCourses.get(position).getArticle_keyword());
 				intent.putExtra("images",videoCourses.get(position).getPhotos_url());
 				context.startActivity(intent);
 				TuwenActivity activity = (TuwenActivity) context;
@@ -177,9 +178,15 @@ public class TuwenActivity extends BaseActivity implements
 
 	// 图文课程列表数据
 	private void getInfo(int page) {
-		String url_video_course_list = Constant.NEWS_LIST + "&cat_code="
-				+ cat_code  + "&page_no=" + page;
-		Log.e(TAG, "常识分析视频=" + url_video_course_list);
+		String url_video_course_list = null;
+		if(tag.equals("kuaixun")){
+			url_video_course_list = Constant.ARTICLE_LIST+ "&page_no=" + page;
+		}else{
+			url_video_course_list = Constant.NEWS_LIST + "&cat_code="
+					+ cat_code  + "&page_no=" + page;
+		}
+
+//		Log.e(TAG, "常识分析视频=" + url_video_course_list);
 		NetHelper.get(url_video_course_list,
 				new SimpleSingleBeanNetHandler<Captcha>(context) {
 

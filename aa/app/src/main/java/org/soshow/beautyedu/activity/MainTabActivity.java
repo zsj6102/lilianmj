@@ -9,6 +9,7 @@ import java.util.TimerTask;
 import org.json.JSONObject;
 import org.soshow.beautyedu.FindItemDetailActivity;
 
+import org.soshow.beautyedu.KuaixunActivity;
 import org.soshow.beautyedu.activity.user.PersonInfoActivity;
 import org.soshow.beautyedu.R;
 import org.soshow.beautyedu.ShoppingCarActivity;
@@ -91,7 +92,7 @@ public class MainTabActivity extends FragmentActivity {
     private Class fragmentArray[] = {
             FragmentMain.class,
             FragmentFind.class,
-            FragmentChat.class,
+//            FragmentChat.class,
 //			FragmentCart.class,
             FragmentPer.class
     };
@@ -105,7 +106,7 @@ public class MainTabActivity extends FragmentActivity {
     };
 
     // Tab选项卡的文字
-    private String mTextviewArray[] = {"首页", "圈子", "币聊", "我的"};
+    private String mTextviewArray[] = {"首页", "念力",   "我的"};
 
     /*
      * 检查更新部分变量
@@ -301,9 +302,8 @@ public class MainTabActivity extends FragmentActivity {
                 intent = new Intent(MainTabActivity.this, TuwenActivity.class);
                 intent.putExtra("tag", "fenxi");
                 startActivity(intent);
-            } else if (tag.equals("zixun")) {
-                intent = new Intent(MainTabActivity.this, TuwenActivity.class);
-                intent.putExtra("tag", "zixun");
+            } else if (tag.equals("kuaixun")) {
+                intent = new Intent(MainTabActivity.this, KuaixunActivity.class);
                 startActivity(intent);
             } else if (tag.equals("shipin")) {
                 intent = new Intent(MainTabActivity.this, TuwenActivity.class);
@@ -326,8 +326,8 @@ public class MainTabActivity extends FragmentActivity {
             case R.id.course_entrance:// 分析
                 clickIntent("fenxi");
                 break;
-            case R.id.off_line_entrance:// 资讯
-                clickIntent("zixun");
+            case R.id.off_line_entrance:// 快讯
+                clickIntent("kuaixun");
                 break;
             case R.id.tiku_entrance:// 视频
                 clickIntent("shipin");
@@ -460,7 +460,7 @@ public class MainTabActivity extends FragmentActivity {
                 } else {
                     intent = new Intent(MainTabActivity.this,
                             FindItemDetailActivity.class);
-                    intent.putExtra("other_user_id", sharedPreferences.getString("user_id","0"));
+                    intent.putExtra("other_user_id", sharedPreferences.getString("user_id",""));
                 }
                 startActivity(intent);
                 break;

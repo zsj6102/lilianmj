@@ -23,11 +23,11 @@
     <string name="msg_transfer_to_you">[Transfer]Transfer to you %1$s yuan</string>
     <string name="msg_transfer_from_you">[Transfer]Transfer%1$syuan</string>
     <string name="change">Change</string>
-    <string name="app_name">理链</string>
-    <string name="app_first_name">理链头条</string>
+    <string name="app_name">理念</string>
+    <string name="app_first_name">理念头条</string>
     <string name="hello_world">Hello world!</string>
     <string name="menu_settings">Settings</string>
-    <string name="title_activity_main">MainActivity</string>
+
     <string name="yuyin">育婴员课程</string>
     <string name="changshi">小白</string>
     <string name="yuyinyuan">育婴员</string>
@@ -44,7 +44,7 @@
     <string name="shoucang">我的收藏</string>
     <string name="dlzc">登录/注册</string>
     <string name="fenxi">价值</string>
-    <string name="zixun">资讯</string>
+    <string name="zixun">快讯</string>
     <string name="shipin">态度</string>
 
     <string name="rank">会员等级:</string>
@@ -70,7 +70,7 @@
     <string name="title_activity_register">RegisterActivity</string>
     <string name="txtCredits">注册表示您同意<a href="http://192.168.10.12/注册会员《美匠使用协议》.txt">美匠使用协议</a></string>
     <string name="title_activity_get_code">GetCodeActivity</string>
-    <string name="title_activity_main_tab">美匠</string>
+
     <string name="title_activity_web">WebActivity</string>
     <string name="title_activity_edit_info">EditInfoActivity</string>
     <string name="pull_to_refresh_pull_label">下拉刷新</string>
@@ -129,8 +129,8 @@
     <string name="confirm">确定</string>
     <string name="cancel">取消</string>
     <string name="page_indicator">%1$d/%2$d</string>
-    <string name="say">评论</string>
-    <string name="zan">赞</string>
+    <string name="say">回力</string>
+    <string name="zan">给力</string>
 
     <!-- 课程 -->
     <string name="vip_title">VIP课程</string>
@@ -194,10 +194,10 @@
 
     <!-- 作品推荐 -->
     <string name="work_recomment">视频观看卡</string>
-    <string name="publicsh_work">发帖</string>
+    <string name="publicsh_work">发力</string>
 
     <!-- 积分卡 -->
-    <string name="my_video_card">理链头条</string>
+    <string name="my_video_card">理念头条</string>
     <string name="my_shopping_car">我的购物车</string>
     <string name="money_describe">￥%1$s</string>
     <string name="please_goods">请选择商品</string>
@@ -296,6 +296,10 @@
     <string name="Application_and_notify">Invitation and notification</string>
     <string name="save_new_nickname">Save new nickname</string>
     <string name="group_chat">Group chat</string>
+    <string name="title_activity_main">ExpandableTextView</string>
+    <string name="title_activity_listview">ExpandableTextView in ListView</string>
+    <string name="to_expand_hint">Expand</string>
+    <string name="to_shrink_hint">Shrink</string>
     <string name="add_friend">Add friends</string>
     <string name="search">Search</string>
     <string name="black_item">Black list</string>

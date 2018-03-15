@@ -9,6 +9,9 @@ import java.util.TimerTask;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.soshow.beautydu.photo.SelectPhoto;
+import org.soshow.beautydu.photo.basepopup.utils.ToastUtils;
+import org.soshow.beautydu.photo.localphoto.util.AlbumUtil;
+import org.soshow.beautydu.photo.localphoto.util.CameraUtil;
 import org.soshow.beautyedu.R;
 import org.soshow.beautyedu.activity.BaseActivity;
 import org.soshow.beautyedu.bean.PersonInfo;
@@ -21,6 +24,7 @@ import org.soshow.beautyedu.utils.Constant;
 import org.soshow.beautyedu.utils.DensityUtil;
 import org.soshow.beautyedu.utils.GsonUtils;
 import org.soshow.beautyedu.utils.LoginUtil;
+import org.soshow.beautyedu.utils.PhotoUtils;
 import org.soshow.beautyedu.utils.ProgressDialogUtil;
 import org.soshow.beautyedu.utils.SPUtils;
 import org.soshow.beautyedu.utils.StringUtil;
@@ -28,6 +32,7 @@ import org.soshow.beautyedu.utils.ToastUtil;
 import org.soshow.beautyedu.utils.TokenManager;
 import org.soshow.beautyedu.utils.UniversalImageLoadTool;
 
+import android.Manifest;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
@@ -35,13 +40,21 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
 import android.media.ExifInterface;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
+import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
+import android.support.v4.content.FileProvider;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -52,6 +65,9 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import static org.soshow.beautydu.photo.SelectPhoto.REQEST_CODE_ALBUM;
+
 public class PersonInfoActivity extends BaseActivity implements OnClickListener {
 
 	private Editor editor;
@@ -113,10 +129,7 @@ public class PersonInfoActivity extends BaseActivity implements OnClickListener 
 	private EditText etPhone;
 	private TextView tvSex;
 	private EditText etSign;
-
-	private SelectPhoto selectPhoto;
-	private String cropPath;
-	private Bitmap bitmap;
+	public static final int REQEST_CODE_CAMERA = 104; // 相机
 	/**选中图片*/
 	private String path;
 	private ImageView ivBack;
@@ -124,7 +137,12 @@ public class PersonInfoActivity extends BaseActivity implements OnClickListener 
 	private Context context;
 	private PersonInfo personInfo;
 	private Dialog dialog;
+    private Uri imageUri;
+    private File fileUri = new File(Environment.getExternalStorageDirectory().getPath() + "/photo.jpg");
+	private static final int CAMERA_PERMISSIONS_REQUEST_CODE = 0x03;
+	private static final int STORAGE_PERMISSIONS_REQUEST_CODE = 0x04;
 
+	public static final int REQEST_CODE_CAMERA_RESULT = 105;// 相机结果
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -160,9 +178,6 @@ public class PersonInfoActivity extends BaseActivity implements OnClickListener 
 		tvSex = (TextView) findViewById(R.id.person_info_tv_sex);
 		tvSex.setOnClickListener(this);
 		etSign = (EditText) findViewById(R.id.person_info_tv_note);
-
-		// 点击事件监听
-		selectPhoto = SelectPhoto.getInstance(this);
 		findViewById(R.id.rl_change_head).setOnClickListener(this);
 	}
 
@@ -336,7 +351,28 @@ public class PersonInfoActivity extends BaseActivity implements OnClickListener 
 			}
 			break;
 		case R.id.rl_change_head:// 更换头像
-			selectPhoto.selectPhotoWay(this);
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            String[] itemsId = context.getResources().getStringArray(
+                    R.array.select_photoes);
+            builder.setItems(itemsId, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    switch (which) {
+                        case 0:
+                            // 拍照
+                            autoObtainCameraPermission();
+                            break;
+                        case 1:
+                            // 从相册
+							autoObtainStoragePermission();
+                            break;
+                        case 2:
+                            dialog.dismiss();
+                            break;
+                    }
+                }
+            });
+            builder.show();
 			break;
 		case R.id.person_info_tv_sex:
 			genderSelect();
@@ -347,7 +383,36 @@ public class PersonInfoActivity extends BaseActivity implements OnClickListener 
 		}
 
 	}
+    private void autoObtainCameraPermission() {
 
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED
+                || ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+
+            if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.CAMERA)) {
+                Toast.makeText(PersonInfoActivity.this,"您已经拒绝过一次",Toast.LENGTH_LONG).show();
+            }
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA, Manifest.permission.READ_EXTERNAL_STORAGE}, CAMERA_PERMISSIONS_REQUEST_CODE);
+        } else {//有权限直接调用系统相机拍照
+            if (org.soshow.beautyedu.utils.SdcardUtil.sdCardIsExit()) {
+                imageUri = Uri.fromFile(fileUri);
+                //通过FileProvider创建一个content类型的Uri
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                    imageUri = FileProvider.getUriForFile(PersonInfoActivity.this, "com.zz.fileprovider", fileUri);
+                }
+                PhotoUtils.takePicture(this, imageUri, REQEST_CODE_CAMERA);
+            } else {
+				Toast.makeText(this,"设备没有SD卡！",Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+	private void autoObtainStoragePermission() {
+		if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+			ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, STORAGE_PERMISSIONS_REQUEST_CODE);
+		} else {
+			PhotoUtils.openPic(this, REQEST_CODE_ALBUM);
+		}
+
+	}
 	/**
 	 * 性别选择
 	 */
@@ -373,17 +438,19 @@ public class PersonInfoActivity extends BaseActivity implements OnClickListener 
 		}
 
 		switch (requestCode) {
-		case SelectPhoto.REQEST_CODE_ALBUM:// 相册
+		case REQEST_CODE_ALBUM:// 相册
 			if (data == null) {
 				break;
 			}
-
-			path = selectPhoto.photoAlbumPath(data);
+			if (org.soshow.beautyedu.utils.SdcardUtil.sdCardIsExit()) {
+				path = AlbumUtil.getPath(this,data.getData());
+			} else {
+				Toast.makeText(this,"设备没有SD卡！",Toast.LENGTH_SHORT).show();
+			}
 			break;
 
-		case SelectPhoto.REQEST_CODE_CAMERA:// 相机
-			path = org.soshow.beautydu.photo.localphoto.util.CameraUtil
-					.getRealFilePath();
+		case  REQEST_CODE_CAMERA:// 相机
+			path = AlbumUtil.getPath(this,imageUri);
 			break;
 
 		// case GET_CROP_POTO:
@@ -414,8 +481,39 @@ public class PersonInfoActivity extends BaseActivity implements OnClickListener 
 		iv.setImageBitmap(bitmap);
 
 	}
-	
-	
+
+	@Override
+	public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+		super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+
+		switch (requestCode) {
+			//调用系统相机申请拍照权限回调
+			case CAMERA_PERMISSIONS_REQUEST_CODE: {
+				if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+					if (org.soshow.beautyedu.utils.SdcardUtil.sdCardIsExit()) {
+						imageUri = Uri.fromFile(fileUri);
+						if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N)
+							imageUri = FileProvider.getUriForFile(PersonInfoActivity.this, "com.zz.fileprovider", fileUri);//通过FileProvider创建一个content类型的Uri
+						PhotoUtils.takePicture(this, imageUri, REQEST_CODE_CAMERA);
+					} else {
+						Toast.makeText(this,"设备没有SD卡！",Toast.LENGTH_SHORT).show();
+					}
+				} else {
+					Toast.makeText(this,"请允许打开相机！",Toast.LENGTH_SHORT).show();
+				}
+				break;
+			}
+			//调用系统相册申请Sdcard权限回调
+			case STORAGE_PERMISSIONS_REQUEST_CODE:
+				if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+					PhotoUtils.openPic(this, REQEST_CODE_ALBUM);
+				} else {
+					Toast.makeText(this,"请允许打操作SDCard！",Toast.LENGTH_SHORT).show();
+				}
+				break;
+			default:
+		}
+	}
 	@Override
 	protected void onDestroy() {
 		if(dialog!=null){

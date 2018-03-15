@@ -3,8 +3,10 @@ package org.soshow.beautydu.photo;
 import org.soshow.beautydu.photo.localphoto.SelectPhotoActivity;
 import org.soshow.beautydu.photo.localphoto.util.AlbumUtil;
 import org.soshow.beautydu.photo.localphoto.util.CameraUtil;
+
 import org.soshow.beautyedu.R;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -16,6 +18,7 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Build;
 import android.provider.DocumentsContract;
+import android.support.v4.app.ActivityCompat;
 import android.widget.Toast;
 
 public class SelectPhoto {
@@ -26,8 +29,7 @@ public class SelectPhoto {
     public static final int REQEST_CODE_CROP = 102; // 剪裁
     public static final int REQEST_CODE_CROP_RESULT = 103;// 剪裁结果
     
-    public static final int REQEST_CODE_CAMERA = 104; // 相机
-    public static final int REQEST_CODE_CAMERA_RESULT = 105;// 相机结果
+
 
     public static final int CODE_CAMERA = 21;
     public static final int CODE_PHOTO = 22;
@@ -56,6 +58,7 @@ public class SelectPhoto {
      * @param activity 只有一个Activity才能添加一个窗体
      */
     public void selectPhotoWay(final Activity activity) {
+
         final boolean sdCardIsExit = org.soshow.beautyedu.utils.SdcardUtil.sdCardIsExit();
         AlertDialog.Builder builder = new AlertDialog.Builder(activity);
         String[] itemsId = context.getResources().getStringArray(
@@ -66,21 +69,21 @@ public class SelectPhoto {
                 switch (which) {
                 case 0:
                     // 拍照
-                    if (sdCardIsExit) {
-
-                        activity.startActivityForResult(
-                                CameraUtil.getCameraIntent(),
-                                REQEST_CODE_CAMERA);
-                        activity.overridePendingTransition(R.anim.anim_slider_right_in,
-            	                R.anim.anim_slider_left_out);
-
-                    } else {
-                        Toast.makeText(
-                                context,
-                                context.getResources().getString(
-                                        R.string.without_sdcard),
-                                Toast.LENGTH_SHORT).show();
-                    }
+//                    if (sdCardIsExit) {
+//
+//                        activity.startActivityForResult(
+//                                CameraUtil.getCameraIntent(),
+//                                REQEST_CODE_CAMERA);
+//                        activity.overridePendingTransition(R.anim.anim_slider_right_in,
+//            	                R.anim.anim_slider_left_out);
+//
+//                    } else {
+//                        Toast.makeText(
+//                                context,
+//                                context.getResources().getString(
+//                                        R.string.without_sdcard),
+//                                Toast.LENGTH_SHORT).show();
+//                    }
                     break;
                 case 1:
                     // 从相册

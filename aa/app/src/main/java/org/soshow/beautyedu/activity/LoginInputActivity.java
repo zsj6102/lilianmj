@@ -61,7 +61,7 @@ import com.easemob.chat.EMChatManager;
 import com.easemob.chat.EMGroupManager;
 import com.easemob.chatuidemo.DemoHelper;
 import com.easemob.exceptions.EaseMobException;
-import com.sina.weibo.sdk.auth.Oauth2AccessToken;
+
 import com.tencent.connect.UserInfo;
 import com.tencent.connect.auth.QQAuth;
 
@@ -105,7 +105,7 @@ public class LoginInputActivity extends BaseActivity implements OnFocusChangeLis
 	// 保存登录信息
 	private SharedPreferences sharedPreferences;
 	private SharedPreferences.Editor editor;
-	public static Oauth2AccessToken accessToken;
+
 	private Context mContext;
 	// 新浪微博登录变量
 	private SinaWeiboUtil weibo_sina;
@@ -187,6 +187,11 @@ public class LoginInputActivity extends BaseActivity implements OnFocusChangeLis
 	private boolean third_click = false;
     private UMShareAPI umShareAPI;
 	UMAuthListener authListener = new UMAuthListener() {
+		@Override
+		public void onStart(SHARE_MEDIA share_media) {
+
+		}
+
 		/**
 		 * @desc 授权成功的回调
 		 *
@@ -683,8 +688,7 @@ public class LoginInputActivity extends BaseActivity implements OnFocusChangeLis
 		// rennClient.onActivityResult(requestCode, resultCode, data);
 		UMShareAPI.get(this).onActivityResult(requestCode, resultCode, data);
 		Log.d("1221", "onActivityResult==============" + requestCode);
-		if (requestCode == 32973)
-			weibo_sina.authCallBack(requestCode, resultCode, data);
+
 
 	}
 
